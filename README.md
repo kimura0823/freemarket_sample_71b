@@ -17,35 +17,16 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |description|string|nullfalse|
-|categoryA_id|integer|null: false|
-|categoryB_id|integer|null: false|
-|categoryC_id|integer|null: false|
-|size_id|integer|null:false|
+|category_id|integer|null: false|
 |brand|string||
 |status|string|null:false|
-|burden_id|integer|null: false|
-|area_id|integer|null:false|
-|days_id|integer|null:false|
 |price|integer|null:false|
-|way_id|integer|null:false|
-|stop|integer|null:false|
-
+|user_id|integer|null:false|
 
 ### Association
-- has_one : area
-- has_one : way
-- has_one : burden
-- has_one : days
-- has_one : status
 - has_many : images
-- has_one : categoryA
-- has_one : categoryB
-- has_one : categoryC
-- has_one : size
+- belongs_to : category
 - belongs_to : user
-
-
-
 
 ## usersテーブル
 |Column|Type|Options|
@@ -61,9 +42,9 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|email|string|null: false|
-|nickname|string|null: false|
-|password|string|null: false|
+|email|string|null: false, unique: true|
+|nickname|string|null: false, unique: true|
+|password|string|null: false, unique: true|
 ### Association
 - has_many : credits
 - has_many : products
@@ -77,6 +58,7 @@ Things you may want to cover:
 ### Association
 - belongs_to : product
 
+
 ## burden（配送負担）テーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -84,6 +66,7 @@ Things you may want to cover:
 |products_id|integer|null: false|
 ### Association
 - belongs_to :product
+
 
 ## area（地域）テーブル
 |Column|Type|Options|
@@ -93,6 +76,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 
+
 ## days（日数）テーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -101,17 +85,8 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 
-## image（画像）テーブル
-|Column|Type|Options|
-|------|----|-------|
-|image|string|null: false|
-|products_id|integer|null: false|
-### Association
-- belongs_to :product
 
-
-##creditテーブル
-
+## creditテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
@@ -122,68 +97,30 @@ Things you may want to cover:
 - belongs_to :user
 
 
-##categoryAテーブル
+## categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|categoryA|string|null: false|
-|products_id|integer|null: false|
+|name|string|null: false|
+|ancestry|integer|null: false,foreign_key:true|
+|size_tag|integer||
 
 ### Association
-- belongs_to :product
-- has_many :categoryBs
-
-##categoryBテーブル
-|Column|Type|Options|
-|------|----|-------|
-|categoryB|string|null: false|
-|categoryA_id|integer|null: false|
-|products_id|integer|null: false|
+- has_many :products
+- has_ancestry
 
 
-### Association
-- belongs_to :product
-- belongs_to :categoryA
-- has_many :categoryCs
-
-
-##categoryCテーブル
-|Column|Type|Options|
-|------|----|-------|
-|categoryC|string|null: false|
-|categoryB_id|integer|null: false|
-|products_id|integer|null: false|
-
-### Association
-- belongs_to :product
-- has_many :categoryBs
-- has_many :sizes
-
-
-##sizeテーブル
-|Column|Type|Options|
-|------|----|-------|
-|size|string|null: false|
-|categoryC_id|integer|null: false|
-|products_id|integer|null: false|
-
-### Association
-- belongs_to :product
-- belongs_to :categoryC
-
-
-##statusテーブル
+## statusテーブル
 |status|string|null: false|
 |products_id|integer|null: false|
 
 ### Association
 - belongs_to :product
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## images（画像）テーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|products_id|integer|null: false|
+### Association
+- belongs_to :product
