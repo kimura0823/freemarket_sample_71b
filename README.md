@@ -41,10 +41,11 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |nickname|string|null: false, unique: true|
 |password|string|null: false, unique: true|
+
 ### Association
 - has_many : credits
 - has_many : products
-- belongs_to : address
+- has_one : address
 
 
 ## creditテーブル
@@ -75,6 +76,7 @@ Things you may want to cover:
 |------|----|-------|
 |image|string|null: false|
 |product_id|integer|null: false, foreign_key: true|
+
 ### Association
 - belongs_to :product
 
@@ -86,5 +88,6 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to : user
