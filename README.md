@@ -19,9 +19,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string|null: false|
-|customer_id|string|null: false|
-|card_id|string|null: false|
+|user_id|integer|null: false|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
 
 ### Association
 - belongs_to :user
@@ -31,20 +31,22 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |categoryA|string|null: false|
-|products_id|string|null: false|
+|products_id|integer|null: false|
 
 ### Association
-- has_one :products
+- belongs_to :product
 - has_many :categoryBs
 
 ##categoryBテーブル
 |Column|Type|Options|
 |------|----|-------|
 |categoryB|string|null: false|
-|products_id|string|null: false|
+|categoryA_id|integer|null: false|
+|products_id|integer|null: false|
+
 
 ### Association
-- has_one :products
+- belongs_to :product
 - belongs_to :categoryA
 - has_many :categoryCs
 
@@ -53,10 +55,11 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |categoryC|string|null: false|
-|products_id|string|null: false|
+|categoryB_id|integer|null: false|
+|products_id|integer|null: false|
 
 ### Association
-- has_one :products
+- belongs_to :product
 - has_many :categoryBs
 - has_many :sizes
 
@@ -65,20 +68,20 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |size|string|null: false|
-|categoryC_id|string|null: false|
+|categoryC_id|integer|null: false|
+|products_id|integer|null: false|
 
 ### Association
-- has_one :products
+- belongs_to :product
 - belongs_to :categoryC
 
 
 ##statusテーブル
 |status|string|null: false|
-|products_id|string|null: false|
+|products_id|integer|null: false|
 
 ### Association
-- has_one :products
-
+- belongs_to :product
 
 * Database initialization
 
