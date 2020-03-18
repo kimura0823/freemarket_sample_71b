@@ -20,7 +20,7 @@ Things you may want to cover:
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
-|lest_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |birthday_y|integer|null: false|
 |birthday_m|integer|null: false|
 |birthday_d|integer|null: false|
@@ -42,7 +42,7 @@ Things you may want to cover:
 |way|string|null: false|
 |products_id|integer|null: false|
 ### Association
-- has_one : product
+- belongs_to : product
 
 ## burden（配送負担）テーブル
 |Column|Type|Options|
@@ -50,7 +50,7 @@ Things you may want to cover:
 |burden|string|null: false|
 |products_id|integer|null: false|
 ### Association
-- has_one :product
+- belongs_to :product
 
 ## area（地域）テーブル
 |Column|Type|Options|
@@ -58,7 +58,7 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |products_id|integer|null: false|
 ### Association
-- has_one :product
+- belongs_to :product
 
 ## days（日数）テーブル
 |Column|Type|Options|
@@ -66,7 +66,7 @@ Things you may want to cover:
 |days|string|null: false|
 |products_id|integer|null: false|
 ### Association
-- has_one :product
+- belongs_to :product
 
 ## image（画像）テーブル
 |Column|Type|Options|
@@ -74,7 +74,7 @@ Things you may want to cover:
 |image|string|null: false|
 |products_id|integer|null: false|
 ### Association
-- has_one :product
+- belongs_to :product
 
 
 * Database initialization
