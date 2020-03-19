@@ -16,7 +16,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|description|string|nullfalse|
+|description|string|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |brand|string||
 |status|string|null:false|
