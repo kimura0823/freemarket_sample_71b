@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   before_save { self.email = email.downcase }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 
   validates :first_name, presence: true
@@ -16,7 +15,7 @@ class User < ApplicationRecord
   validates :birthday_m, presence: true
   validates :birthday_d, presence: true
   validates :nickname, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true、format: { with: VALID_EMAIL_REGEX }
+  validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true, uniqueness: true
 
   has_many :products
@@ -24,5 +23,5 @@ class User < ApplicationRecord
   has_one :credit
 
   
-  format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+ 
 end
