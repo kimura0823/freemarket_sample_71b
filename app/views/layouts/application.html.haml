@@ -1,49 +1,52 @@
 !!!
 %html
   %head
-  .header
-    .main-header
-      %input{type:"search",name: "main-header__title",placeholder:"キーワードの入力"}
-    .main-header__image
-      = image_tag src = 'logo.png',size: "150x100"
-    .main-header__nav
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title furima
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title FreemarketSample71b
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    
+  .header
+    .main-header
+      %input{type:"search",class: "main-header__title",placeholder:"キーワードの入力"}
+    .main-header__image
+      = image_tag src = 'logo.png',size: "150x90"
+    .main-header__img
+      = image_tag src = 'icon-search 1.png',size: "30x25"
+    .main-header__nav
+      %ul.main-header__nav__left-box
+        %p カテゴリー
+        %p ブランド
+      %ul.main-header__nav__right-box
+        %p ログイン
+        %p 新規登録
     = yield
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
