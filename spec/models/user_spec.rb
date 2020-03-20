@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'faker'
 
 describe User do
   describe '#create' do
@@ -78,14 +78,14 @@ describe User do
    
 
     it "is invalid with a duplicate email address" do
-      user = create(:user)
+      user = build(:user)
       another_user = build(:user)
       another_user.valid?
       expect(another_user.errors[:email]).to include("はすでに存在します")
     end
 
     it "is invalid with a duplicate nickname" do
-      user = create(:user)
+      user = build(:user)
       another_user = build(:user)
       another_user.valid?
       expect(another_user.errors[:nickname]).to include("はすでに存在します")
@@ -99,7 +99,7 @@ describe User do
 
     # 10. passwordが6文字以下であれば登録できないこと
     it "is invalid with a password that has less than 7 characters " do
-      user = build(:user, password: "000000", password_confirmation: "000006")
+      user = build(:user, password: "000000", password_confirmation: "000000")
       user.valid?
       expect(user.errors[:password]).to include("は7文字以上で入力してください")
     end
