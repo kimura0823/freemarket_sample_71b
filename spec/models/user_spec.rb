@@ -78,15 +78,15 @@ describe User do
    
 
     it "is invalid with a duplicate email address" do
-      user = build(:user)
-      another_user = build(:user)
+      user = create(:user)
+      another_user = build(:user, email: user.email)
       another_user.valid?
       expect(another_user.errors[:email]).to include("はすでに存在します")
     end
 
     it "is invalid with a duplicate nickname" do
-      user = build(:user)
-      another_user = build(:user)
+      user = create(:user)
+      another_user = build(:user, nickname: user.nickname)
       another_user.valid?
       expect(another_user.errors[:nickname]).to include("はすでに存在します")
     end
@@ -99,7 +99,7 @@ describe User do
 
     # 10. passwordが6文字以下であれば登録できないこと
     it "is invalid with a password that has less than 7 characters " do
-      user = build(:user, password: "000000", password_confirmation: "000000")
+      user = build(:user, password: "000000", password_confirmation: "00000")
       user.valid?
       expect(user.errors[:password]).to include("は7文字以上で入力してください")
     end
