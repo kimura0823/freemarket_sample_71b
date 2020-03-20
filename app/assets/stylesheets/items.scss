@@ -1,9 +1,127 @@
-
 .header{
+  position: relative;
+  background-color: red;
   height: 200px;
   width: 100%;
-  background-color: red;
 }
+.main-header{
+  position: absolute;
+  background-color: yellow;
+  margin: 80px 300px 100px 300px;
+  width: 900px;
+  height:50px;
+  &__title{
+    background-color: royalblue;
+    font-size: 10px;
+    width: 30px;
+    height: 15px;
+  }
+}
+.main-header__image{
+  position: absolute;
+  margin: 50px 0px 20px 130px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .main{
+//   margin-left: 500px;
+//   width: 300px;
+//   height: 300px;
+//   .btn_logout{
+//     margin-top: 50px;
+//     background-color:#3CCACE;
+//     width: 300px;
+//     height: 70px;
+//     color: white;
+//     line-height: 70px;
+//     text-align: center;
+//   }
+// }
+// a{
+//   text-decoration: none;
+// }
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #mypage
+// .header{
+//   height: 200px;
+//   width: 100%;
+//   background-color: red;
+// }
 .main{  
   background-color:#EEEEEE;
   width: 100%;
