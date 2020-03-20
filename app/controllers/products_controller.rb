@@ -6,10 +6,11 @@ class ProductsController < ApplicationController
   
   def new
     @product = Product.new
-    # @product.images.new
+    @product.images.new
   end
   
   def create
+
     @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
@@ -22,6 +23,11 @@ class ProductsController < ApplicationController
   end
   
   def update
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
   
   def destroy
@@ -30,6 +36,11 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, images_attributes: [:src])
+    params.require(:product).permit(:name, :price, :description, :category_id, :status, :user_id, images_attributes: [:image])
   end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
 end
