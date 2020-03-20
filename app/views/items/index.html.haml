@@ -1,112 +1,37 @@
+.side
+  .side-bar
+    %ul.side-bar__menu
+      =link_to "http://www.yahoo.co.jp" do
+        %li.side-bar__menu--list
+          マイページ
+      %li.side-bar__menu__list
+        やることリスト
+      %li.side-bar__menu__list
+        いいね！一覧
+      =link_to "#" do
+        %li.side-bar__menu__list
+          出品する
+      %li.side-bar__menu__list
+        ニュース一覧
+      %li.side-bar__menu__list
+        ガイド
+      %li.side-bar__menu__list
+        お問い合わせ
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--# .footer
--#   %ul.footer__contents
--#     %li.footer__contents__content
--#       %h2.footer__contents__content_head
--#         FURIMAについて
--#       %li.footer__contents__menu
--#         %li.footer__contents__menu__list
--#           =link_to "#" do
--#             会社概要（運営会社）
--#         %li.content_menu__list
--#           =link_to "#" do
--#             プライバシーポリシー
--#         %li.content_menu__list
--#           =link_to "#" do
--#             FURIMA利用規約
--#         %li.content_menu__list
--#           =link_to "#" do
--#             ポイントに関する特約
--#     %li.content
--#       %h2.content_head
--#         FURIMAを見る
--#       .content_menu
--#         %li.content_menu__list
--#           =link_to "#" ,class:"list-name" do
--#             カテゴリー一覧
--#         %li.content_menu__list
--#           =link_to "#" ,class:"list-name" do
--#             ブランド一覧
--#     %li.content
--#       %h2.content_head
--#         ヘルプ＆ガイド
--#       %ul.content_menu
--#         %li.content_menu__list
--#           =link_to "#" ,class:"list-name" do
--#             FURIMAガイド
--#         %li.content_menu__list
--#           =link_to "#" ,class:"list-name" do
--#             FURIMAロゴ利用ガイドライン
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--# .header
--# .main
--#   =link_to'/' do
--#     .btn_logout ログアウト
-
-
-
-
-
--# mypage
--# .header
--# .main
--#   .main__contennt
--#     .main__contennt__mypage-icon
--#       .main__contennt__mypage-icon__name
--#         ユーザーネーム
--#       .main__contennt__mypage-icon__image
--#         = image_tag src = 'member_photo_noimage_thumb.png',size: "200x200"
--#     .main__contennt__tabs
--#       %input#tab-1{:checked => "checked", :name => "tab-radio", :type => "radio"}/
--#       %label.tab-label{:for => "tab-1"} お知らせ
--#       %input#tab-2{:name => "tab-radio", :type => "radio"}/
--#       %label.tab-label{:for => "tab-2"} リスト
--#       .tab-content.tab-1-content
--#         お知らせ
--#       .tab-content.tab-2-content
--#         やることリスト  
-        
-        
-    
+    %ul.side-bar__menu
+      %li.side-bar__menu--list
+        設定
+      %li.side-bar__menu__list
+        プロフィール
+      %li.side-bar__menu__list
+        発送元・お届け先住所変更
+      %li.side-bar__menu__list
+        メール/パスワード
+      %li.side-bar__menu__list
+        本人情報
+      %li.side-bar__menu__list
+        電話番号の確認
+      =link_to "#" do
+        %li.side-bar__menu__list クレジットカード登録
+      =link_to "#" do
+        %li.side-bar__menu__list ログアウト
