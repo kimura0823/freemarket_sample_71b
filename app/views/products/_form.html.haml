@@ -1,0 +1,28 @@
+= form_for @product do |f|
+  -binding.pry
+  商品名#{f.text_field :name}
+  %br/
+  商品説名#{f.text_field :description}
+  %br/
+  .listing-product-detail__category
+    = f.label 'カテゴリー', class: 'listing-default__label'
+    %span.listing-default--require 必須
+    .listing-select-wrapper
+      .listing-select-wrapper__box
+        = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+        %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
+  %br/
+  商品状態#{f.text_field :status}
+  %br/
+  userID#{f.text_field :user_id}
+  %br/
+  価格#{f.number_field :price}
+  %br/
+  #image-box
+    = f.fields_for :images do |image|
+      .js-file_group{"data-index" => "#{image.index}"}
+        = image.file_field :image, class: 'js-file'
+        %br/
+        %span.js-remove 削除
+  = f.submit
