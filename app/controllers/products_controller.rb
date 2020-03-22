@@ -54,10 +54,10 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :description, :status, :user_id, images_attributes: [:image])
+    # params.require(:product).permit(:name, :price, :description, :status, :user_id, images_attributes: [:image])
 
     # #ログインできるようになったらこちらに変える
-    # params.require(:product).permit(:name, :price, :description, :status, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :price, :description, :status, :brand, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def categoryId_params
