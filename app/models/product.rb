@@ -8,8 +8,9 @@ class Product < ApplicationRecord
 
   has_many :images
   belongs_to :category
-  # belongs_to :user
+  belongs_to :user
   accepts_nested_attributes_for :images, allow_destroy: true
-
+  validates_associated :images
+  validates :images, presence: true
 end
 
