@@ -15,6 +15,9 @@
  */
 
  body {
+  position: relative;
+  width: 1400px;
+  height: 1300px;
   background-color: #f0f0f0;
   font-size: 14px;
   color: #333;
@@ -25,8 +28,61 @@ h1,h2,h3,h4,h5,h6,p {
   margin: 0;
 }
 
+.header{
+  background-color: white;
+  position: relative;
+  height: 180px;
+  width: 100%;
+
+  .main-header{
+    position: absolute;
+    margin: 50px 300px 100px 300px;
+    width: 900px;
+    height:50px;
+    &__title{
+      background-color:whitesmoke;
+      font-size: 20px;
+      width: 900px;
+      height: 30px;
+    }
+    &__img{
+      position: absolute;
+      background-color:#3ccace;
+      margin-top: 50px;
+      width: 30px;
+      margin-left:1201px;
+    }
+  }
+
+  .main-header__nav{
+    &__left-box{
+      position: absolute;
+      display: flex;
+      width: 200px;
+      margin: 110px 30px 0px 100px;
+    }
+      &__right-box{
+        position: absolute;
+      display: flex;
+      width: 200px;
+      margin: 110px 30px 0px 1050px;
+      }
+    p{
+        height: 100px;
+        width: 100px;
+
+      }
+      
+    }
+
+  .main-header__image{
+    position: absolute;
+    margin: 38px 0px 20px 135px;
+  }
+}
 // footer
 .footer {
+  position: absolute;
   display: block;
   background-color: #272727;
   width: 100%;
@@ -73,6 +129,7 @@ h1,h2,h3,h4,h5,h6,p {
     width: 100%;
     margin: 0 auto;
     p {
+      margin-left: 50px;
       font-size: 14px;
     }
     img {
