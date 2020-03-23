@@ -22,16 +22,18 @@ class ProductsController < ApplicationController
 
     # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
-  　　　#選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
   
   def create
     @product = Product.new(product_params)
-    if @product.save
+    categoryId_params
+    if @product.save 
+      
       redirect_to root_path
     else
-      render :new
+      redirect_to new_product_path
     end
   end
   
@@ -52,7 +54,15 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :description, :category_id, :status, :user_id, images_attributes: [:image])
+    # params.require(:product).permit(:name, :price, :description, :status, :user_id, images_attributes: [:image])
+
+    # #ログインできるようになったらこちらに変える
+    params.require(:product).permit(:name, :price, :description, :status, :brand, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def categoryId_params
+    category=params.permit(:category_id)
+    @product[:category_id] = category[:category_id]
   end
 
   def set_product

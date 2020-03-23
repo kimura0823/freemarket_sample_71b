@@ -1,9 +1,11 @@
 = form_for @product do |f|
-
-  商品名#{f.text_field :name}
+  = f.label '商品名'
+  = f.text_field :name
   %br/
-  商品説名#{f.text_field :description}
+  = f.label '商品説明'
+  = f.text_field :description
   %br/
+  .listing-form-box
   .listing-product-detail__category
     = f.label 'カテゴリー', class: 'listing-default__label'
     %span.listing-default--require 必須
@@ -11,13 +13,15 @@
       .listing-select-wrapper__box
         = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-
   %br/
-  商品状態#{f.text_field :status}
+  = f.label '商品状態'
+  = f.text_field :status
   %br/
-  userID#{f.text_field :user_id}
+  = f.label 'ブランド'
+  = f.text_field :brand
   %br/
-  価格#{f.number_field :price}
+  = f.label '価格'
+  = f.number_field :price
   %br/
   #image-box
     = f.fields_for :images do |image|
