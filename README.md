@@ -63,7 +63,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|integer|null: false,foreign_key:true|
+|ancestry|string|foreign_key:true|
 |size_tag|integer||
 
 ### Association
