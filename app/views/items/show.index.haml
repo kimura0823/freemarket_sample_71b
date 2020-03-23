@@ -1,0 +1,47 @@
+.item
+  %table.item__name
+    %tr 
+    %th 出品者
+    %tr  
+    %th カテゴリー
+    %tr 
+    %th ブランド
+    %tr  
+    %th 商品の状態
+    %tr 
+    %th 配送料の負担
+    %tr  
+    %th 配送の方法
+    %tr 
+    %th 配送元の地域
+    %tr  
+    %th 発送日の目安
+
+  %table.item__content
+    %tr 
+    %th いく
+    %tr  
+    %th レディース
+    %tr 
+    %th コーチ
+    %tr  
+    %th やや汚れ気味
+    %tr 
+    %th 送料込み
+    %tr  
+    %th らくらく
+    %tr 
+    %th 東京
+    %tr  
+    %th １〜2日で発送
+
+.praice
+  .praice__boild
+    %h1 ¥5500円  税込(送料込み)
+.icon__image
+  = image_tag src = 'https://static.mercdn.net/item/detail/orig/photos/m58367672448_4.jpg?1584858075',size: "300"
+
+%ul.buy
+  %li.buy__decision
+    =link_to root_path do
+      購入画面に進む
