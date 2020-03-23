@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %h1 Items#インデックス
 %p Find me in app/views/items/index.html.erb
 - if user_signed_in?
@@ -6,3 +7,95 @@
 - else
   = link_to '新規登録', new_user_registration_path
   = link_to 'ログイン', new_user_session_path
+=======
+
+-# .item-box
+-#   %h1.item-box__name 商品名
+
+
+-#   %table
+-#     %thead
+-#       %tr
+-#         %th Name
+-#         %th Description
+-#         %th Price
+-#         %th Discontinued
+-#         %th{:colspan => "3"}
+-#   %br
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.side
+  .side-bar
+    %ul.side-bar__menu
+      =link_to "http://www.yahoo.co.jp" do
+        %li.side-bar__menu--list
+          マイページ
+      %li.side-bar__menu__list
+        やることリスト
+      %li.side-bar__menu__list
+        いいね！一覧
+      =link_to "#" do
+        %li.side-bar__menu__list
+          出品する
+      %li.side-bar__menu__list
+        ニュース一覧
+      %li.side-bar__menu__list
+        ガイド
+      %li.side-bar__menu__list
+        お問い合わせ
+
+    %ul.side-bar__menu
+      %li.side-bar__menu--list
+        設定
+      %li.side-bar__menu__list
+        プロフィール
+      %li.side-bar__menu__list
+        発送元・お届け先住所変更
+      %li.side-bar__menu__list
+        メール/パスワード
+      %li.side-bar__menu__list
+        本人情報
+      %li.side-bar__menu__list
+        電話番号の確認
+      =link_to "#" do
+        %li.side-bar__menu__list クレジットカード登録
+      =link_to "#" do
+        %li.side-bar__menu__list ログアウト
+.mai
+  .main__contennt
+    .main__contennt__mypage-icon
+      .main__contennt__mypage-icon__name
+        ユーザーネーム
+      .main__contennt__mypage-icon__image
+        = image_tag src = 'member_photo_noimage_thumb.png',size: "200"
+    .main__contennt__tabs
+      %input#tab-1{:checked => "checked", :name => "tab-radio", :type => "radio"}/
+      %label.tab-label{:for => "tab-1"} お知らせ
+      %input#tab-2{:name => "tab-radio", :type => "radio"}/
+      %label.tab-label{:for => "tab-2"} リスト
+      .tab-content.tab-1-content
+        お知らせ
+      .tab-content.tab-2-content
+        やることリスト
+>>>>>>> Stashed changes

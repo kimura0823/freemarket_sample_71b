@@ -1,3 +1,176 @@
+<<<<<<< Updated upstream
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+=======
+// .item-box{
+//   margin: auto;
+//   width: 700px;
+//   height: 800px;
+//   &__name{
+//     background-color: red;
+//     margin: auto;
+//     width: 300px;
+//     height: 100px;   
+//    }
+//   %th{
+//     background-color: green;
+//     width: 500px;
+//     height: 20px;
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+.side {
+  margin-top: 50px;
+  position: absolute;
+  height: 100vh;
+  width: calc(100% - 70%);
+  float: left;
+}
+
+.side-bar{
+  margin: 0 20px;
+  &__menu {
+    width: 300px;
+    margin: 20px;
+    &__list {
+      height: 40px;
+      line-height: 40px;
+      list-style: none;
+      border-bottom: 0.1px solid grey;
+      color:black;
+      margin-right: 30px;
+      padding-left: 10px;
+      background-color: white;
+      cursor: pointer;
+    }
+    &--list {
+      list-style: none;
+      height: 40px;
+      line-height: 40px;
+      background-color: lightgray;
+      margin-right: 30px;
+      padding-left: 10px;
+      color: black;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.side-bar__menu__list:hover {
+  background-color:gray;
+  opacity: 0.8;
+}
+
+
+.main{
+  &__contennt{
+    margin-top: 50px;
+    position: absolute;
+    width: 500px;
+    height: 600px;
+    margin-left: 500px;
+    &__mypage-icon{
+      background-image: url(https://i.gyazo.com/f9923f7c393b69147e0c176d04c4468a.png);
+      position: relative;
+      width: 800px;
+      height: 250px;
+      &__image{
+        position: absolute;
+        margin-left:300px;
+        width: 300px;
+        height: 200px;
+        }
+      &__name{
+        position: absolute;
+        margin-top: 200px;
+        margin-left: 350px;
+        width: 100px;
+        height: 80px;
+        text-align: center;
+      }
+    }
+      &__tabs {
+        margin-top: 0;
+        width:800px;
+        height: 500px;
+        .tab-label {
+          display: inline-block;
+          vertical-align:  middle;
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+          border: 1px solid #999;
+          background-color: #f3f3f3;
+          margin:0 0 0 0px;
+          padding: 40px 180px;
+          border-bottom: none;
+          font-size: 0.7em;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+        input[name="tab-radio"] {
+          display: none;
+        }
+        .tab-content {
+          background-color: white;
+          display: none;
+          border: 1px solid #999;
+          padding: 10px;
+          min-height: 200px;
+          overflow: scroll;
+        }
+        #tab-1:checked ~ .tab-1-content, #tab-2:checked ~ .tab-2-content, #tab-3:checked ~ .tab-3-content, #tab-4:checked ~ .tab-4-content, #tab-5:checked ~ .tab-5-content {
+          display: block;
+        }
+        input[name="tab-radio"]:checked + .tab-label {
+          background-color: #fff;
+        }
+      }
+      }
+    }
+      
+.main{
+  margin-left: 500px;
+  width: 300px;
+  height: 300px;
+  .btn_logout{
+    margin-top: 50px;
+    background-color:#3CCACE;
+    width: 300px;
+    height: 70px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+  }
+}
+a{
+  text-decoration: none;
+}
+    
+  
+
+
+
+
+#mypage
+.header{
+  height: 200px;
+  width: 100%;
+  background-color: red;
+}
+>>>>>>> Stashed changes
