@@ -1,0 +1,51 @@
+.buy-page {
+  // padding: 0;
+  // margin: 0;
+  background-color: silver;
+  width: 1500px;
+  height: 1080px;
+}
+
+.buy-page__header {
+  margin: 0 auto;
+  background-color: skyblue;
+  height: 200px;
+  &__logo {
+    background-color: springgreen;
+    width: 150px;
+    height: 100px;
+    margin:auto;
+    text-align: center;
+  }
+}
+
+.buy-page__content {
+  width: 980px;
+  height: 1000px;
+  background-color: steelblue;
+  margin: 0 auto;
+  &__main {
+    width: 900px;
+    background-color: tan;
+    margin: 0 auto;
+    &__header {
+      width: 800px;
+      height: 50px;
+      line-height: 50px;
+      background-color: thistle;
+      margin: 0 auto;
+      text-align: center;
+    }
+    &__item {
+      width: 700px;
+      height: 200px;
+      background-color: tomato;
+      margin: 0 auto;
+      .item-img {
+        background-color: wheat;
+        width: 300px;
+      }
+    }
+  }
+}
+
