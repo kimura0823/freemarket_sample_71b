@@ -2,24 +2,36 @@
   .buy-page__header
     .buy-page__header__logo
       = link_to root_path do
-        = image_tag "logo-white.png"
-
+        = image_tag 'logo-white.png', size:'100x100'
   .buy-page__content
     .buy-page__content__main
       .buy-page__content__main__header
         購入内容の確認
       .buy-page__content__main__item
-        .buy-page__content__main__item-img
+        .buy-page__content__main__item__buy-img
           =image_tag "商品の写真"
-        .buy-page__content__main__item-name
+        .buy-page__content__main__item__buy-name
           商品名
-        .buy-page__content__main__item-price
+        .buy-page__content__main__item__price
           金額：¥3,000
       .buy-page__content__main__payment
+        .buy-page__content__main__payment__amount
+          支払い金額
+        .buy-page__content__main__payment__amount__money
+          ¥3,000
+      .buy-page__content__main__credit
+        支払い方法
         
 
+      .buy-page__content__main__shipping-address
+        配送先
 
+      
+      =link_to "#" do
+        .buy-page__btn
+          購入する
 
+      
 
 
   .buy-page__footer
