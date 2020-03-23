@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   end
   
   def get_category_children
+    binding.pry
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
@@ -27,6 +28,7 @@ class ProductsController < ApplicationController
   end
   
   def create
+    binding.pry
     @product = Product.new(product_params)
     categoryId_params
     if @product.save 
@@ -57,7 +59,7 @@ class ProductsController < ApplicationController
     # params.require(:product).permit(:name, :price, :description, :status, :user_id, images_attributes: [:image])
 
     # #ログインできるようになったらこちらに変える
-    params.require(:product).permit(:name, :price, :description, :status, :brand, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :price, :description, :status_id, :brand, :burden_id, :days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def categoryId_params

@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_03_20_075334) do
-  
+
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postcode", null: false
     t.integer "prefecture_id", null: false
@@ -44,10 +44,13 @@ ActiveRecord::Schema.define(version: 2020_03_20_075334) do
     t.string "description", null: false
     t.integer "category_id", null: false
     t.string "brand"
-    t.string "status", null: false
     t.integer "price", null: false
-    t.integer "judge", null: false
+    t.string "judge", default: "出品中"
     t.integer "user_id", null: false
+    t.integer "burden_id", null: false
+    t.integer "days_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "status_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,5 +74,5 @@ ActiveRecord::Schema.define(version: 2020_03_20_075334) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-  
+
 end

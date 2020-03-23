@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def new
-    @product = Product.new
+    @product = Product.new(judge: "出品中")
     @product.images.new
 
       #セレクトボックスの初期値設定
@@ -24,11 +24,33 @@ class ItemsController < ApplicationController
   def create
     @product = Product.new(product_params)
     categoryId_params
+    binding.pry
     if @product.save 
-      
       redirect_to root_path
     else
-      redirect_to new_product_path
+      redirect_to new_item_path
     end
   end
+
+
+
+  private
+
+  def product_params
+    # params.require(:product).permit(:name, :price, :description, :status, :user_id, images_attributes: [:image])
+
+    # #ログインできるようになったらこちらに変える
+    params.require(:product).permit(:name, :price, :description, :status, :brand, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def categoryId_params
+    category=params.permit(:category_id)
+    @product[:category_id] = category[:category_id]
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+
 end
