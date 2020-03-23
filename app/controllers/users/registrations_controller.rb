@@ -39,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
-    redirect_to 'products#index'
+    redirect_to root_path
   end
 
 
