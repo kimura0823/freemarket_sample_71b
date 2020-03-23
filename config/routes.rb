@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root 'items#index'
+  resources :items
   resources :products do
     #Ajaxで動くアクションのルートを作成
     collection do
