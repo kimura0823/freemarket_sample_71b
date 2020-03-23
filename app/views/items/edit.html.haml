@@ -1,15 +1,15 @@
 .buy-page
   .buy-page__header
     .buy-page__header__logo
-      = link_to root_path do
-        = image_tag 'logo-white.png', size:'100x100'
+      =link_to root_path do
+        =image_tag "material/logo/logo.png"
   .buy-page__content
     .buy-page__content__main
       .buy-page__content__main__header
         購入内容の確認
       .buy-page__content__main__item
         .buy-page__content__main__item__buy-img
-          =image_tag "商品の写真"
+          =image_tag "material/syouhin.jpeg"
         .buy-page__content__main__item__buy-name
           商品名
         .buy-page__content__main__item__price
@@ -26,12 +26,9 @@
       .buy-page__content__main__shipping-address
         配送先
 
-      
       =link_to "#" do
         .buy-page__btn
           購入する
 
-      
-
-
+    
   .buy-page__footer

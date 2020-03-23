@@ -11,11 +11,12 @@
   background-color: #E9E9E9;
   height: 100px;
   &__logo {
-    background-color: springgreen;
-    width: 150px;
-    height: 100px;
-    margin:auto;
+    margin:0 auto;
+    padding: 30px;
     text-align: center;
+    img {
+      width: 150px;
+    }
   }
 }
 
@@ -43,9 +44,10 @@
       background-color: white;
       margin: 0 auto;
       &__buy-img {
-        background-color:papayawhip;
-        width: 200px;
-        height: 100px;
+        margin: auto;
+        img {
+          width: 100px;
+        }
 
 
       }
