@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :birthday_d, :birthday_m, :birthday_y, :last_name_kana, :first_name_kana, :last_name, :first_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :birthdayd_id, :birthdaym_id, :birthdayy_id, :last_name_kana, :first_name_kana, :last_name, :first_name])
   end
 
   def production?
