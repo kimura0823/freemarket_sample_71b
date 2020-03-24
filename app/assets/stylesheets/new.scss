@@ -72,6 +72,9 @@
           #product_days_id{
             @extend .small_contents;
           }
+          #delivery-way{
+            @extend .small_contents;
+          }
           .description_contents{
             height: 20vh;
             width: 40vw;

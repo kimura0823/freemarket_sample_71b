@@ -86,8 +86,8 @@
               配送料の負担
             .text_logo
               必須
-          .main_block_category_box_mini
-            = f.collection_select :burden_id, Burden.all, :id, :name
+          .main_block_category_box_mini.delivery-burden
+            = f.collection_select :burden_id, Burden.all, :name, :name, class: 'delivery-burden'
           %br/
           .main_block_category_box_mini
             .text

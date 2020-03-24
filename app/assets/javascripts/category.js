@@ -38,26 +38,26 @@ $(function(){
     var parentCategory = document.getElementById('parent_category').value; 
    
     if (parentCategory != "---"){ 
-      $.ajax({
-        url: 'get_category_children',
-        type: 'GET',
-        data: { parent_name: parentCategory },
-        dataType: 'json'
-      })
-      .done(function(children){
-        $('#children_wrapper').remove(); 
-        $('#grandchildren_wrapper').remove();
-        $('#size_wrapper').remove();
-        $('#brand_wrapper').remove();
-        var insertHTML = '';
-        children.forEach(function(child){
-          insertHTML += appendOption(child);
-        });
-        appendChidrenBox(insertHTML);
-      })
-      .fail(function(){
-        alert('カテゴリー取得に失敗しました');
-      })
+        $.ajax({
+          url: 'get_category_children',
+          type: 'GET',
+          data: { parent_name: parentCategory },
+          dataType: 'json'
+        })
+        .done(function(children){
+          $('#children_wrapper').remove(); 
+          $('#grandchildren_wrapper').remove();
+          $('#size_wrapper').remove();
+          $('#brand_wrapper').remove();
+          var insertHTML = '';
+          children.forEach(function(child){
+            insertHTML += appendOption(child);
+          });
+          appendChidrenBox(insertHTML);
+        })
+        .fail(function(){
+          alert('カテゴリー取得に失敗しました');
+        })
     }else{
       $('#children_wrapper').remove(); 
       $('#grandchildren_wrapper').remove();
