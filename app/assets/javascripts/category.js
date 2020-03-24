@@ -7,33 +7,26 @@ $(function(){
   // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
-    childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
-                        <div class='listing-select-wrapper__box'>
-                          <select class="listing-select-wrapper__box--select" id="child_category" name="category_id">
-                            <option value="---" data-category="---">---</option>
-                            ${insertHTML}
-                          <select>
-                          <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
-                        </div>
-                      </div>`;
-    $('.listing-product-detail__category').append(childSelectHtml);
+    childSelectHtml = ` <select class="small_contents" id="child_category" name="category_id">
+                          <option value="---" data-category="---">---</option>
+                          ${insertHTML}
+                        <select>
+                        <i class='fas fa-chevron-down main_block_category_box_mini--arrow-down'></i>`;
+    $('.parent-box').append(childSelectHtml);
   }
   // 孫カテゴリーの表示作成
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
-    grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
-                              <div class='listing-select-wrapper__box'>
-                                <select class="listing-select-wrapper__box--select" id="grandchild_category" name="category_id">
-                                  <option value="---" data-category="---">---</option>
-                                  ${insertHTML}
-                                </select>
-                                <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
-                              </div>
-                            </div>`;
-    $('.listing-product-detail__category').append(grandchildSelectHtml);
+    grandchildSelectHtml = `<select class="small_contents" id="grandchild_category" name="category_id">
+                              <option value="---" data-category="---">---</option>
+                              ${insertHTML}
+                            </select>
+                            <i class='fas fa-chevron-down main_block_category_box_mini--arrow-down'></i>`;
+    $('.parent-box').append(grandchildSelectHtml);
   }
   $(document).on('change', '#parent_category', function(){
-     console.log("ok");
+
+    
      
     var parentCategory = document.getElementById('parent_category').value; 
    
@@ -45,8 +38,10 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        $('#children_wrapper').remove(); 
-        $('#grandchildren_wrapper').remove();
+        console.log(children);
+        
+        $('#child_category').remove(); 
+        $('#grandchild_category').remove();
         $('#size_wrapper').remove();
         $('#brand_wrapper').remove();
         var insertHTML = '';

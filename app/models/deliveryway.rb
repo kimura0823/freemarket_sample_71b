@@ -1,4 +1,4 @@
-class deliveryway < ActiveHash::Base
+class Deliveryway < ActiveHash::Base
   self.data = [
       {id: 1, day: '選択してください'}, 
       {id: 2, day: '未定'}, 
