@@ -18,12 +18,5 @@ class Product < ApplicationRecord
   validates :images, presence: true
 
 
-  # def initialize
-  #   self.
-  # end
-
-
-
-
 end
 
