@@ -33,11 +33,11 @@
   .field
     = f.label :"生年月日"
     %br/
-    = f.text_field :birthday_y, autofocus: true
+    = f.collection_select :birthdayy_id, Birthdayy.all, :id, :year
     %span.identification__form__field__lavel 年
-    = f.text_field :birthday_m, autofocus: true
+    = f.collection_select :birthdaym_id, Birthdaym.all, :id, :month
     %span.identification__form__field__lavel 月
-    = f.text_field :birthday_d, autofocus: true
+    = f.collection_select :birthdayd_id, Birthdayd.all, :id, :day
     %span.identification__form__field__lavel 日
   .actions
     = f.submit "Next"

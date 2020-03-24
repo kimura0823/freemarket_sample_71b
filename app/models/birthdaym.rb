@@ -1,4 +1,4 @@
-class Birthday_m < ActiveHash::Base
+class Birthdaym < ActiveHash::Base
   self.data = [
       {id: 1, month: '1'}, 
       {id: 2, month: '2'}, 
