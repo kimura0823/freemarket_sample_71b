@@ -39,6 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
+    redirect_to root_path
   end
 
 
@@ -74,7 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:postcode, :prefecture, :city, :address, :address2, :tel)
+    params.require(:address).permit(:postcode, :prefecture_id, :city, :address, :address2, :tel)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
