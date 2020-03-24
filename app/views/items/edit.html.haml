@@ -6,25 +6,43 @@
   .buy-page__content
     .buy-page__content__main
       .buy-page__content__main__header
-        購入内容の確認
-      .buy-page__content__main__item
-        .buy-page__content__main__item__buy-img
-          =image_tag "material/syouhin.jpeg"
-        .buy-page__content__main__item__buy-name
-          商品名
-        .buy-page__content__main__item__price
-          金額：¥3,000
-      .buy-page__content__main__payment
-        .buy-page__content__main__payment__amount
-          支払い金額
-        .buy-page__content__main__payment__amount__money
-          ¥3,000
-      .buy-page__content__main__credit
-        支払い方法
-        
-
-      .buy-page__content__main__shipping-address
-        配送先
+        %h3 購入内容の確認
+      .buy-page__content__main__inner
+        .buy-page__content__main__item
+          .buy-page__content__main__item__buy-img
+            =image_tag "material/syouhin.jpeg"
+          .buy-page__content__main__item__buy-name
+            ファミュ フラワーインフューズド ファインマスク 50ml
+            .buy-page__content__main__item__price
+              金額：¥3,500 （税込）送料込み
+      .buy-page__content__main__inner
+        .buy-page__content__main__payment
+          .buy-page__content__main__payment--amount
+            支払い金額
+          .buy-page__content__main__payment--money
+            ¥3,000
+      .buy-page__content__main__inner
+        .buy-page__content__main__credit
+          %h3 支払方法
+          .payment-content__main__credit__list
+            クレジットカード
+            .payment-content__main__credit__list__number
+              **************11111
+            .payment-content__main__credit__list__number
+              有効期限 3/20
+      .buy-page__content__main__inner
+        .buy-page__content__main__shipping-address
+          %h3 配送先
+          .buy-user-info-text
+            〒111-1111
+            %br
+            大阪府
+            大阪市
+            中央区難波5-1-60
+            なんばスカイオ
+            %br
+            山田
+            太郎
 
       =link_to "#" do
         .buy-page__btn
@@ -32,3 +50,17 @@
 
     
   .buy-page__footer
+    %ul
+      %li.buy-page__footer__terms
+        =link_to "#" do
+          プライバシーポリシー
+      %li.buy-page__footer__terms
+        =link_to "#" do
+          FURIMA利用規約
+      %li.buy-page__footer__terms
+        =link_to "#" do
+          特定商取引に関する表記
+    .buy-page__footer__logo
+      =image_tag "material/logo/logo-white.png"
+      %p ©️FURIMA
+    
