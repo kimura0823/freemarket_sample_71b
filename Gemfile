@@ -80,3 +80,7 @@ end
 gem 'devise'
 
 gem 'haml-rails'
+
+gem 'payjp'
+
+gem "jquery-rails"

@@ -1,13 +1,10 @@
-<<<<<<< Updated upstream
-%h1 Items#インデックス
-%p Find me in app/views/items/index.html.erb
+
 - if user_signed_in?
   マイページ
   \#{link_to 'ログアウト', destroy_user_session_path, method: :delete}
 - else
   = link_to '新規登録', new_user_registration_path
   = link_to 'ログイン', new_user_session_path
-=======
 
 -# .item-box
 -#   %h1.item-box__name 商品名
@@ -24,7 +21,9 @@
 -#   %br
   
 
-
+-# .wrapper
+-#   = render "side-bar"
+-#   = render "main"
 
 
 
@@ -98,4 +97,4 @@
         お知らせ
       .tab-content.tab-2-content
         やることリスト
->>>>>>> Stashed changes
+
