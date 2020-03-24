@@ -45,10 +45,11 @@ ActiveRecord::Schema.define(version: 2020_03_20_075334) do
     t.integer "category_id", null: false
     t.string "brand"
     t.integer "price", null: false
-    t.integer "judge", null: false
+    t.string "judge", default: "出品中"
     t.integer "user_id", null: false
     t.integer "burden_id", null: false
     t.integer "days_id", null: false
+    t.integer "prefecture_id", null: false
     t.integer "status_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

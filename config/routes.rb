@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items
+
   resources :products do
-    #Ajaxで動くアクションのルートを作成
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_deliverywayonSeller', defaults: { format: 'json' }
+      get 'get_deliverywayonBuyer', defaults: { format: 'json' }
     end
   end
 
