@@ -17,19 +17,21 @@
               金額：¥3,500 （税込）送料込み
       .buy-page__content__main__inner
         .buy-page__content__main__payment
-          .buy-page__content__main__payment--amount
+          .buy-page__content__main__payment-amount
             支払い金額
-          .buy-page__content__main__payment--money
-            ¥3,000
+          .buy-page__content__main__payment-money
+            ¥3,500
       .buy-page__content__main__inner
         .buy-page__content__main__credit
           %h3 支払方法
-          .payment-content__main__credit__list
+          .buy-page__content__main__credit__list
             クレジットカード
-            .payment-content__main__credit__list__number
-              **************11111
-            .payment-content__main__credit__list__number
+            .buy-page__content__main__credit__list__number
+              **** **** 1111
+            .buy-page__content__main__credit__list__number
               有効期限 3/20
+            .buy-page__content__main__credit__list__img
+              =image_tag "card-img.jpeg"
       .buy-page__content__main__inner
         .buy-page__content__main__shipping-address
           %h3 配送先
@@ -43,12 +45,12 @@
             %br
             山田
             太郎
+        
+        =link_to "#" do
+          .buy-page__content__main__btn
+            購入する
+          
 
-      =link_to "#" do
-        .buy-page__btn
-          購入する
-
-    
   .buy-page__footer
     %ul
       %li.buy-page__footer__terms

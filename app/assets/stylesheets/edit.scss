@@ -23,7 +23,7 @@
   background-color: white;
   margin: 0 auto;
   &__main {
-    // margin: auto;
+    margin: auto;
     &__header {
       width: 500px;
       height: 80px;
@@ -57,46 +57,56 @@
       }
     }
     &__payment {
-      margin: 0 auto;
-      &--amount {
+      margin: auto;
+      padding: 36px;
+      font-size: 20px;
+      font-weight: bold;
+      &-amount {
         float: left;
-        margin-right: 100px;
-        color:red;
       }
-      &--money {
-        // float: right;
+      &-money {
+        float: right;
       }
     }
     &__credit {
       margin: 0 auto;
-
-    }
-
-    &__shipping-address {
-      width: 500px;
-      height: 150px;
-      margin: 0 auto;
-      .buy-user-info-text {
-        color: red($color: #000000);
+      &__list {
+        font-size: 15px;
+        padding-bottom: 10px;
+        img {
+          width: 50px;
+        }
       }
     }
-    h3 {
-      margin: 8px auto;
-    }
+  }
+
+  &__shipping-address {
+    width: 500px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  .buy-user-info-text {
+    font-size: 15px;
+  }
+  h3 {
+    margin: 10px auto;
+    font-weight: bold;
   }
 }
 
-.buy-page__btn {
-  width: 300px;
-  height: 50px;
-  background-color: gray;
-  margin: auto;
-  margin-top: 20px;
-  line-height: 50px;
-  text-align: center;
+a{
   text-decoration: none;
   color: white;
-
+  .buy-page__content__main__btn {
+    width: 300px;
+    height: 50px;
+    background-color: gray;
+    margin: auto;
+    margin-top: 50px;
+    line-height: 50px;
+    text-align: center;
+    
+  }
 }
 
 
