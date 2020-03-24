@@ -1,4 +1,9 @@
-class ItemsController < ApplicationController
+class ProductsController < ApplicationController
+
+  def index
+    @products = Product.includes(:images).order('created_at DESC')
+  end
+  
   def new
     @product = Product.new
     @product.images.new
@@ -31,8 +36,37 @@ class ItemsController < ApplicationController
       redirect_to new_product_path
     end
   end
-
+  
   def edit
   end
   
+  def update
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+  end
+
+  private
+
+  def product_params
+    # params.require(:product).permit(:name, :price, :description, :status, :user_id, images_attributes: [:image])
+
+    # #ログインできるようになったらこちらに変える
+    params.require(:product).permit(:name, :price, :description, :status, :brand, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def categoryId_params
+    category=params.permit(:category_id)
+    @product[:category_id] = category[:category_id]
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
 end
