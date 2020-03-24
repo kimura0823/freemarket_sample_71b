@@ -1,5 +1,6 @@
-FactoryBot.define do
 
+
+FactoryBot.define do
   factory :product do
     name              {"帽子"}
     description       {"珍しい帽子です"}
@@ -13,10 +14,14 @@ FactoryBot.define do
     prefecture_id     {"5"}
     status_id         {"2"}
 
-    
+
+
+    after(:build) do |product|                           #追記
+      product.images << build(:image, product: product)  #追記
+    end    
 
   end
-
-
-  
 end
+
+
+

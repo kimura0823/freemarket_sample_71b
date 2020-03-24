@@ -5,7 +5,7 @@ describe Product do
   describe '#create' do
     it "is valid with a name, description, ctegory_id, brand, price, judge, user_id, burden_id, days_id, prefecture_id, status_id" do
       product = build(:product)
-      
+
       expect(product).to be_valid
     end
 
