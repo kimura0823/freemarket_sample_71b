@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
   def create
     @product = Product.new(product_params)
     categoryId_params
-    binding.pry
     if @product.save 
       redirect_to root_path
     else
