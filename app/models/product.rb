@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :days
   belongs_to_active_hash :status
   belongs_to_active_hash :prefecture
+  belongs_to_active_hash :deliveryway
 
 
 
