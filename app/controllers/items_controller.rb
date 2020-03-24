@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
 
 
 
+
   private
 
   def product_params
@@ -52,4 +53,7 @@ class ItemsController < ApplicationController
   end
 
 
+  def edit
+  end
+ 
 end
