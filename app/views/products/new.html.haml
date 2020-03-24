@@ -1,8 +1,6 @@
 
 .footer
   furima
-
-
 = form_for @product do |f|
   .main
     .main_block
@@ -19,11 +17,12 @@
           .main_block_category_box_mini
             .big_contents
               #image-box
-              = f.fields_for :images do |image|
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = image.file_field :image, class: 'js-file'
-                  %br/
-                  %span.js-remove 削除
+                = f.fields_for :images do |image|
+                  = f.label class:"image_label" do
+                    .js-file_group{"data-index" => "#{image.index}"}
+                      = image.file_field :image, class: 'js-file'
+                      %br/
+                    %span.js-remove 削除
               = f.submit
 
       .main_block_category
@@ -55,6 +54,7 @@
               カテゴリー
             .text_logo
               必須
+        .main_block_category_box
           .main_block_category_box_mini
             = f.select :category, @category_parent_array, {}, {class: 'small_contents', id: 'parent_category'}
             %i.fas.fa-chevron-down.main_block_category_box_mini--arrow-down
@@ -73,8 +73,7 @@
             .text_logo
               必須
           .main_block_category_box_mini
-            = f.select :category, @category_parent_array, {}, {class: 'small_contents', id: 'parent_category'}
-            %i.fas.fa-chevron-down.main_block_category_box_mini--arrow-down
+            = f.collection_select :status_id, Status.all, :id, :name
           %br/
 
       .main_block_category
@@ -88,8 +87,7 @@
             .text_logo
               必須
           .main_block_category_box_mini
-            = f.select :category, @category_parent_array, {}, {class: 'small_contents', id: 'parent_category'}
-            %i.fas.fa-chevron-down.main_block_category_box_mini--arrow-down
+            = f.collection_select :burden_id, Burden.all, :id, :name
           %br/
           .main_block_category_box_mini
             .text
@@ -97,8 +95,7 @@
             .text_logo
               必須
           .main_block_category_box_mini
-            = f.select :category, @category_parent_array, {}, {class: 'small_contents', id: 'parent_category'}
-            %i.fas.fa-chevron-down.main_block_category_box_mini--arrow-down
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
           %br/
           .main_block_category_box_mini
             .text
@@ -106,8 +103,7 @@
             .text_logo
               必須
           .main_block_category_box_mini
-            = f.select :category, @category_parent_array, {}, {class: 'small_contents', id: 'parent_category'}
-            %i.fas.fa-chevron-down.main_block_category_box_mini--arrow-down
+            = f.collection_select :days_id, Days.all, :id, :name
           %br/
 
       .main_block_category
@@ -120,11 +116,12 @@
               販売価格
             .text_logo
               必須
+            = f.label '￥', class: "price_mark"
             = f.text_field :price, class: "price_contents"
             %br/
         .main_block_category_box
           .main_block_category_box_mini
-            .price_btn
+            = link_to "#", class:"price_btn" do
               出品する
 
         .main_block_category_box
