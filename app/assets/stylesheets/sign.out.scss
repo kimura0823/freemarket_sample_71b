@@ -1,47 +1,74 @@
-.side {
-  margin-top: 50px;
+.sign-out{
+  width: 500px;
+  height: 200px;
+  background-color: white;
+  margin:200px 100px 100px 500px;
   position: absolute;
-  height: 100vh;
-  width: calc(100% - 70%);
-  float: left;
-}
-
-.side-bar{
-  margin: 0 20px;
-  &__menu {
+  
+  
+  &__name{
     width: 300px;
-    margin: 20px;
-    &__list {
-      height: 40px;
-      line-height: 40px;
-      list-style: none;
-      border-bottom: 0.1px solid grey;
-      color:black;
-      margin-right: 30px;
-      padding-left: 10px;
-      background-color: white;
-      cursor: pointer;
+    background-color: red;
+    margin: 80px 100px 50px 100px;
+    color: white;
+    font-size: 30px;
+    list-style: none;
+    text-align: center;
+    position: absolute;
+    
+    
+    a {
+      text-decoration: none;
+      color: white;
     }
-    &--list {
-      list-style: none;
-      height: 40px;
-      line-height: 40px;
-      background-color: lightgray;
-      margin-right: 30px;
-      padding-left: 10px;
-      color: black;
-    }
-  }
+}
 }
 
-a {
-  text-decoration: none;
-}
 
-.side-bar__menu__list:hover {
-  background-color:gray;
-  opacity: 0.8;
-}
+// .side {
+//   margin-top: 50px;
+//   position: absolute;
+//   height: 100vh;
+//   width: calc(100% - 70%);
+//   float: left;
+// }
+
+// .side-bar{
+//   margin: 0 20px;
+//   &__menu {
+//     width: 300px;
+//     margin: 20px;
+//     &__list {
+//       height: 40px;
+//       line-height: 40px;
+//       list-style: none;
+//       border-bottom: 0.1px solid grey;
+//       color:black;
+//       margin-right: 30px;
+//       padding-left: 10px;
+//       background-color: white;
+//       cursor: pointer;
+//     }
+//     &--list {
+//       list-style: none;
+//       height: 40px;
+//       line-height: 40px;
+//       background-color: lightgray;
+//       margin-right: 30px;
+//       padding-left: 10px;
+//       color: black;
+//     }
+//   }
+// }
+
+// a {
+//   text-decoration: none;
+// }
+
+// .side-bar__menu__list:hover {
+//   background-color:gray;
+//   opacity: 0.8;
+// }
 
 
 
