@@ -31,4 +31,8 @@ class ItemsController < ApplicationController
       redirect_to new_product_path
     end
   end
+
+  def edit
+  end
+  
 end
