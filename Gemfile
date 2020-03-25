@@ -86,3 +86,8 @@ gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
 
+gem 'haml-rails'
+
+gem 'payjp'
+
+gem "jquery-rails"
