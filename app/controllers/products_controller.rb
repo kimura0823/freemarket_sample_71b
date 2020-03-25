@@ -5,13 +5,17 @@ class ProductsController < ApplicationController
   end
   
   def new
+    
     @product = Product.new
     @product.images.new
-
+    
+    
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+     render :layout => 'product_exhibition'
+    #render :layout => false
   end
   
   def get_category_children
@@ -71,3 +75,4 @@ class ProductsController < ApplicationController
   end
 
 end
+
