@@ -30,7 +30,10 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
   end
-
+  
+  def show
+    @product = Product.find(params[:id])
+  end
 
 
 
