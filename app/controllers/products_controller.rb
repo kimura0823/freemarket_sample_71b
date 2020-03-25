@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
       @category_parent_array << parent.name
     end
      render :layout => 'product_exhibition'
-    #render :layout => false
   end
   
   def get_category_children
