@@ -1,0 +1,61 @@
+.main{
+  &__contennt{
+    width: 500px;
+    height: 600px;
+    margin-top: 50px;
+    margin-left: 500px;
+    position: absolute;
+    &__mypage-icon{
+      width: 810px;
+      height: 250px;
+      background-image: url(https://i.gyazo.com/f9923f7c393b69147e0c176d04c4468a.png);
+      position: relative;
+      &__image{
+        width: 300px;
+        height: 200px;
+        margin-left:300px;
+        position: absolute;
+        }
+      &__name{
+        width: 100px;
+        height: 80px;
+        margin-top: 200px;
+        margin-left: 350px;
+        text-align: center;
+        position: absolute;
+      }
+    }
+      &__tabs {
+        width:810px;
+        height: 500px;
+        margin-top: 0;
+        .tab-label {
+          background-color: gray;
+          padding: 40px 180px;
+          margin:0 0 0 1px;
+          border: 1px solid #999;
+          border-bottom: none;
+          font-size: 0.8em;
+          display: inline-block;
+          vertical-align:  middle;
+        }
+        input[name="tab-radio"] {
+          display: none;
+        }
+        .tab-content {
+          background-color: white;
+          padding: 10px;
+          min-height: 200px;
+          border: 1px solid #999;
+          display: none;
+          overflow: scroll;
+        }
+        #tab-1:checked ~ .tab-1-content, #tab-2:checked ~ .tab-2-content, #tab-3:checked ~ .tab-3-content, #tab-4:checked ~ .tab-4-content, #tab-5:checked ~ .tab-5-content {
+          display: block;
+        }
+        input[name="tab-radio"]:checked + .tab-label {
+          background-color: #fff;
+        }
+      }
+      }
+    }

@@ -16,12 +16,14 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|description|string|nullfalse|
+|description|string|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |brand|string||
-|status|string|null:false|
 |price|integer|null:false|
 |user_id|integer|null:false, foreign_key: true|
+|burden_id|integer|null:false|
+|days_id|integer|null:false|
+|status_id|integer|null:false|
 
 ### Association
 - has_many : images
@@ -35,9 +37,9 @@ Things you may want to cover:
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|birthday_y|integer|null: false|
-|birthday_m|integer|null: false|
-|birthday_d|integer|null: false|
+|birthdayy_id|integer|null: false|
+|birthdaym_id|integer|null: false|
+|birthdayd_id|integer|null: false|
 |email|string|null: false, unique: true|
 |nickname|string|null: false, unique: true|
 |password|string|null: false, unique: true|
@@ -63,7 +65,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|integer|null: false,foreign_key:true|
+|ancestry|string|foreign_key:true|
 |size_tag|integer||
 
 ### Association
@@ -85,9 +87,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |postcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to : user
+
