@@ -1,10 +1,76 @@
-.body
-  .main
+.Top-view-body
+  .Top-view-main
     .topMainView
-      = image_tag src:
-      .
+      .topMainView__center-box
+        .topMainView__center-box__sub-title
+          人生を変えるフリマアプリ
+        .topMainView__center-box__mini-text
+          FURIMAはだれでもかんたんに出品・購入できる<br>
+          フリマアプリです
+        .topMainView__center-box__icons-list
+          =image_tag src="appstore-download.png", class: "link-img"
+          =image_tag src="googleplay-icon.png", class: "link-img"
     .topList
-    .topSecondView
+      .topList__sub-title
+        FURIMAが選ばれる3つの理由
+      %ul.topList__group
+        %li.topList__group__left-box.topList-box
+          .pict-box
+            %span.topList-span1
+              1
+            =image_tag src="pict-reason-01.jpg", class: "right-img"
+          %h3.topList-h3
+            %span.topList-span2
+              3分
+            ですぐに出品
+          %p.pict-explain
+            スマホで入力するだけで簡単に出品できる！
+        %li.topList__group__center-box.topList-box
+          .pict-box
+            %span.topList-span1
+              2
+            =image_tag src="pict-reason-01.jpg", class: "right-img"
+          %h3.topList-h3
+            %span.topList-span2
+              シンプル
+            で使いやすい
+          %p.pict-explain
+            めんどくさい入力は必要なく、検索も購入もスムーズ！
+
+        %li.topList__group__right-box.topList-box
+          .pict-box
+            
+            %span.topList-span1
+              3
+            =image_tag src="pict-reason-01.jpg", class: "right-img"
+          %h3.topList-h3
+            手数料
+            %span.topList-span2
+              業界最安
+          %p.pict-explain
+            最大3%でお得に出品&購入！
+
+
+
+
+        
+    .topSecondView 
+      .topSecondView__center-box
+        .topSecondView__center-box__sub-title
+          会員数日本一位
+        .topSecondView__center-box__mini-text
+          FURIMAは、フリマアプリで最も人気。<br>
+          出品・購入回数も業界最多です！<br>
+          ほしかったあの商品に出会えるかもしれません。<br>
+        .topSecondView__center-box__icons-list
+          =image_tag src="appstore-download.png", class: "link-img"
+          =image_tag src="googleplay-icon.png", class: "link-img"
+
+
+
+
+
+
     .topFeatures
     .topPicup__Category
     .topPicup__brand
