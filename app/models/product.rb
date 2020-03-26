@@ -10,7 +10,7 @@ class Product < ApplicationRecord
 
 
 
-  validates :name, :description, :category_id, :status_id, :price, :days_id, :burden_id, :prefecture_id, presence: true
+  validates :name, :description, :category_id, :status_id, :price, :days_id, :burden_id, :deliveryway_id, :prefecture_id, presence: true
   
   has_many :images
   belongs_to :category
@@ -21,4 +21,3 @@ class Product < ApplicationRecord
 
 
 end
-
