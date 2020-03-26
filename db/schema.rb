@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 2020_03_23_030917) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cards", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
@@ -48,17 +56,10 @@ ActiveRecord::Schema.define(version: 2020_03_23_030917) do
     t.string "judge", default: "出品中"
     t.integer "user_id", null: false
     t.integer "burden_id", null: false
+    t.integer "deliveryway_id", null: false
     t.integer "days_id", null: false
     t.integer "prefecture_id", null: false
     t.integer "status_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cards", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,9 +69,9 @@ ActiveRecord::Schema.define(version: 2020_03_23_030917) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.integer "birthdayy_id", null: false
-    t.integer "birthdaym_id", null: false
-    t.integer "birthdayd_id", null: false
+    t.string "birthday_y", null: false
+    t.string "birthday_m", null: false
+    t.string "birthday_d", null: false
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

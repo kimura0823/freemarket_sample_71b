@@ -1,7 +1,12 @@
 class ItemsController < ApplicationController
+before_action :set_product, only: [:edit, :show]
+  
+  
   def index
   end
-
+  
+  
+  
   
   def new
     @product = Product.new(judge: "出品中")
@@ -34,7 +39,12 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
   end
+  
+  def show
+  end
 
+  def edit
+  end
 
 
 
@@ -56,8 +66,5 @@ class ItemsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-
-  def edit
-  end
  
 end

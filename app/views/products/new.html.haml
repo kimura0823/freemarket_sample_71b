@@ -84,7 +84,7 @@
             .text_logo
               必須
           .main_block_category_box_mini.delivery-burden
-            = f.collection_select :burden_id, Burden.all, :name, :name, class: 'delivery-burden'
+            = f.collection_select :burden_id, Burden.all, :id, :name, class: 'delivery-burden'
           %br/
           .main_block_category_box_mini
             .text
@@ -118,9 +118,7 @@
             %br/
         .main_block_category_box
           .main_block_category_box_mini
-            = link_to products_path, method: :POST, class:"price_btn" do
-              出品する
-
+            = f.submit '出品する', class: 'price_btn' 
         .main_block_category_box
           .main_block_category_box_mini
             .save_btn
