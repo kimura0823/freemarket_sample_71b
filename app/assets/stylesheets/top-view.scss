@@ -7,29 +7,29 @@
       @include back-image(cover,no-repeat, top, center);
       @include box-prop (calc(100% - 60px), 300px, none);
       padding: 0 30px;
-      .topMainView__center-box {
+      &__center-box {
         @include box-prop (calc(100% - 500px), calc(100% - 100px), none);
         margin: 0 auto;
         padding-top: 60px;
-        .topMainView__center-box__sub-title {
+        &__center-box__sub-title {
           @include font-prop (40px, ivory, none);
         }
-        .topMainView__center-box__mini-text {
+        &__center-box__mini-text {
           @include font-prop (14px, ivory, none);
         }
-        .topMainView__center-box__icons-list {
+        &__center-box__icons-list {
         }
       }
     }
     .topList {
       @include box-prop (100%, 300px, white);
       padding-top: 20px;
-      .topList__sub-title{
+      &__sub-title{
         margin-bottom: 20px;
         text-align: center;
         font-weight: bold;
       }
-      .topList__group {
+      &__group {
         text-align: center;
         display: flex;
         width: 35%;
@@ -68,13 +68,13 @@
             font-size: 8px;
           }
         }
-        .topList__group__left-box {
+        &__left-box {
           margin-left: 10px;
         }
-        .topList__group__center-box {
+        &__center-box {
           margin: 0 20px;
         }
-        .topList__group__right-box {
+        &__right-box {
           margin-right: 10px;
         }
       }
@@ -86,21 +86,21 @@
       @include box-prop (100%, 200px, none);
       padding-top: 60px;
       position: relative;
-      .topSecondView__center-box{
+      &__center-box{
         width: 40%;
         color: white;
         position: absolute;
         bottom: 40px;
         left: 30%;
 
-        .topSecondView__center-box__sub-title {
+        &__sub-title {
           font-size: 15px;
         }
-        .topSecondView__center-box__mini-text {
+        &__mini-text {
           margin: 20px 0 30px;
           font-size: 9px;
         }
-        .topSecondView__center-box__icons-list {
+        &__icons-list {
         }
       }
     }
@@ -158,11 +158,11 @@
     .topPicup {
       width: 100%;
       padding-top: 30px;
-      .topPicup__Category__subtitile {
+      &__subtitile {
         text-align: center;
         font-weight: bold;
       }
-      .topPicup__Category__main-box {
+      &__main-box {
         .genre-title { 
           .genre-title-link{
             @include font-prop (none, #3CCACE, bold);
@@ -177,7 +177,7 @@
           .genre-list {
             @include box-prop (30%, none, cornsilk);
             margin: 5px 10px;
-            .genre-list-link{
+            &__link{
               .genre-list__image-box {
                 height: 100px;
                 .genre-list__image {
@@ -190,7 +190,7 @@
                 .genre-list__body-h3 {
                   font-size: 8px;
                 }
-                .genre-list__body__details {
+                &__details {
                   .details-ul {
                     @include flex_between (flex, space-between);
                     .details-li {
@@ -216,18 +216,18 @@
     padding: 0 30px;
     background-image: image-url("bg-appBanner-pict.jpg");
     @include back-image(cover,no-repeat, center, center);
-    .appBanner__center-box {
+    &__center-box {
       @include box-prop (calc(100% - 60px), calc(100% - 100px), none);
       margin: 0 30px;
       padding-top: 60px;
       text-align: center;
-      .appBanner__center-box__sub-title {
+      &__sub-title {
         @include font-prop (10px, ivory, none);
       }
-      .appBanner__center-box__mini-text {
+      &__mini-text {
         @include font-prop (20px, ivory, none);
       }
-      .appBanner__center-box__icons-list {
+      &__icons-list {
       }
     }
   }
