@@ -61,5 +61,5 @@
 
   %ul.buy2
     %li.buy2__decision2
-      =link_to root_path do
+      =link_to root_path(@product.id), method: :delete do
         削除

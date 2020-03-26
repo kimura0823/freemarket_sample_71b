@@ -57,8 +57,7 @@ class ProductsController < ApplicationController
   end
   
   def destroy
-    product = Product.find(set_product)
-    product.destroy
+    @product.destroy
     redirect_to root_path
   end
 
