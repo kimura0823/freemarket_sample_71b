@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_product, only: [:edit, :show]
+
   def new
     @product = Product.new(judge: "出品中")
     @product.images.new
@@ -32,11 +34,9 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @product = Product.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
 
