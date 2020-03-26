@@ -85,11 +85,8 @@ gem 'jquery-rails'
 gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
-
-gem 'haml-rails'
-
 gem 'payjp'
 
-gem "jquery-rails"
 
 
+gem 'fog-aws'

@@ -21,4 +21,3 @@ class Product < ApplicationRecord
 
 
 end
-

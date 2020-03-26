@@ -3,21 +3,22 @@
   margin-left:700px;
   display: flex;
   position: absolute;
-  &__name{
-    width: 150px;
-    background-color: #fafafa;
-  }
-  &__content{
-    width: 250px;
-    background-color: white;
-  }
-    tr{
-      border: solid 1px;
-      border-color: black;
-    }
-    th{
-      height: 50px;
-    }
+
+}
+tr{
+  border: solid 1px;
+}
+th{
+  height: 50px;
+}
+.show-item__name{
+  width: 150px;
+  background-color: #FAFAFA;
+}
+.show-item__content{
+  width: 250px;
+  background-color: white;
+
 }
 .slider{
   width: 300px;
@@ -50,10 +51,10 @@
   width: 500px;
   height: 100px;
   background-color: white;
-  margin:30px 100px 100px 450px;
+
+  margin:80px 100px 100px 450px;
   position: absolute;
-  
-    
+
     &__decision{
       width: 300px;
       background-color: red;
@@ -66,7 +67,29 @@
       a {
         color: white;
         text-decoration: none;
-        
+
       }
   }
   }
+
+  .buy2{
+    width: 500px;
+    height: 100px;
+    background-color: white;
+    margin: 230px 100px 100px 450px;
+    position: absolute;
+    &__decision2{
+      width: 300px;
+      background-color: red;
+      color: white;
+      margin: 30px 100px 250px 100px;
+      font-size: 30px;
+      text-align: center;
+      list-style: none;
+      position: absolute;
+      a {
+        color: white;
+        text-decoration: none;
+        }
+      }
+    }
