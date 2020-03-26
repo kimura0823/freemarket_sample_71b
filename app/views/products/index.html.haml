@@ -1,4 +1,218 @@
-= link_to '出品', new_item_path
-%br/
-.contents
-  
+.Top-view-body
+  .Top-view-main
+    .topMainView
+      .topMainView__center-box
+        .topMainView__center-box__sub-title
+          人生を変えるフリマアプリ
+        .topMainView__center-box__mini-text
+          FURIMAはだれでもかんたんに出品・購入できる<br>
+          フリマアプリです
+        .topMainView__center-box__icons-list
+          =image_tag src="appstore-download.png", class: "link-img"
+          =image_tag src="googleplay-icon.png", class: "link-img"
+
+    .topList
+      .topList__sub-title
+        FURIMAが選ばれる3つの理由
+      %ul.topList__group
+        %li.topList__group__left-box.topList-box
+          .pict-box
+            %span.topList-span1
+              1
+            =image_tag src="pict-reason-01.jpg", class: "topList-img"
+          %h3.topList-h3
+            %span.topList-span2
+              3分
+            ですぐに出品
+          %p.pict-explain
+            スマホで入力するだけで簡単に出品できる！
+        %li.topList__group__center-box.topList-box
+          .pict-box
+            %span.topList-span1
+              2
+            =image_tag src="pict-reason-02.jpg", class: "topList-img"
+          %h3.topList-h3
+            %span.topList-span2
+              シンプル
+            で使いやすい
+          %p.pict-explain
+            めんどくさい入力は必要なく、検索も購入もスムーズ！
+        %li.topList__group__right-box.topList-box
+          .pict-box
+            %span.topList-span1
+              3
+            =image_tag src="pict-reason-03.jpg", class: "topList-img"
+          %h3.topList-h3
+            手数料
+            %span.topList-span2
+              業界最安
+          %p.pict-explain
+            最大3%でお得に出品&購入！
+
+    .topSecondView 
+      .topSecondView__center-box
+        .topSecondView__center-box__sub-title
+          会員数日本一位
+        .topSecondView__center-box__mini-text
+          FURIMAは、フリマアプリで最も人気。<br>
+          出品・購入回数も業界最多です！<br>
+          ほしかったあの商品に出会えるかもしれません。<br>
+        .topSecondView__center-box__icons-list
+          =image_tag src="appstore-download.png", class: "link-img"
+          =image_tag src="googleplay-icon.png", class: "link-img"
+
+    .topFeatures
+      .topFeatures__sub-title
+        FURIMAの特徴
+      %ul.topFeatures__group
+        %li.topFeatures__group__left-box.topFeatures-box
+          .pict-box
+            =image_tag src="icon-01.png", class: "topFeatures-img"
+          %h3.topFeatures-h3
+            簡単に売り買いできる
+          %p.pict-explain
+            スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+        %li.topFeatures__group__center-box.topFeatures-box
+          .pict-box
+            =image_tag src="icon-03.png", class: "topFeatures-img"
+          %h3.topFeatures-h3
+            売上金は即日振込みに対応
+          %p.pict-explain
+            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+
+        %li.topFeatures__group__right-box.topFeatures-box
+          .pict-box
+            =image_tag src="icon-04.png", class: "topFeatures-img"
+          %h3.ttopFeatures-h3
+            様々な支払いに対応
+          %p.pict-explain
+            お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+            
+    .topPicup.Category
+      %h2.topPicup__Category__subtitile
+        ピックアップカテゴリー
+      .topPicup__Category__main-box
+        .genre-title
+          = link_to "#", class: "genre-title-link" do
+            %h3.genre-title-h3
+              新規投稿商品
+        .genre-lists
+          .genre-list
+            =link_to "#", class: "genre-list-link" do
+              .genre-list__image-box
+                =image_tag src="fish-saute.png", class: "genre-list__image"
+              .genre-list__body
+                %h3.genre-list__body-h3
+                  product1
+                .genre-list__body__details
+                  %ul.details-ul
+                    %li.details-li
+                      3000円
+                    %li.details-li
+                      = icon('fas', 'star', class: 'box__image-f')
+                      0
+                  %p.details-p
+                    (税込)
+          .genre-list
+            =link_to "#", class: "genre-list-link" do
+              .genre-list__image-box
+                =image_tag src="ginger-pork.png", class: "genre-list__image"
+              .genre-list__body
+                %h3.genre-list__body-h3
+                  product1
+                .genre-list__body__details
+                  %ul.details-ul
+                    %li.details-li
+                      3000円
+                    %li.details-li
+                      = icon('fas', 'star', class: 'box__image-f')
+                      0
+                  %p.details-p
+                    (税込)
+          .genre-list
+            =link_to "#", class: "genre-list-link" do
+              .genre-list__image-box
+                =image_tag src="curry.png", class: "genre-list__image"
+              .genre-list__body
+                %h3.genre-list__body-h3
+                  product1
+                .genre-list__body__details
+                  %ul.details-ul
+                    %li.details-li
+                      3000円
+                    %li.details-li
+                      = icon('fas', 'star', class: 'box__image-f')
+                      0
+                  %p.details-p
+                    (税込)
+    
+    .topPicup.brand
+      %h2.topPicup__Category__subtitile
+        ピックアップブランド
+      .topPicup__Category__main-box
+        .genre-title
+          = link_to "#", class: "genre-title-link" do
+            %h3.genre-title-h3
+              アーカイブ
+        .genre-lists
+          .genre-list
+            =link_to "#", class: "genre-list-link" do
+              .genre-list__image-box
+                =image_tag src="fish-saute.png", class: "genre-list__image"
+              .genre-list__body
+                %h3.genre-list__body-h3
+                  product1
+                .genre-list__body__details
+                  %ul.details-ul
+                    %li.details-li
+                      3000円
+                    %li.details-li
+                      = icon('fas', 'star', class: 'box__image-f')
+                      0
+                  %p.details-p
+                    (税込)
+          .genre-list
+            =link_to "#", class: "genre-list-link" do
+              .genre-list__image-box
+                =image_tag src="ginger-pork.png", class: "genre-list__image"
+              .genre-list__body
+                %h3.genre-list__body-h3
+                  product1
+                .genre-list__body__details
+                  %ul.details-ul
+                    %li.details-li
+                      3000円
+                    %li.details-li
+                      = icon('fas', 'star', class: 'box__image-f')
+                      0
+                  %p.details-p
+                    (税込)
+          .genre-list
+            =link_to "#", class: "genre-list-link" do
+              .genre-list__image-box
+                =image_tag src="curry.png", class: "genre-list__image"
+              .genre-list__body
+                %h3.genre-list__body-h3
+                  product1
+                .genre-list__body__details
+                  %ul.details-ul
+                    %li.details-li
+                      3000円
+                    %li.details-li
+                      = icon('fas', 'star', class: 'box__image-f')
+                      0
+                  %p.details-p
+                    (税込)
+
+  .appBanner
+    .appBanner__center-box
+      .appBanner__center-box__sub-title
+        だれでもかんたん、人生を変えるフリマアプリ
+      .appBanner__center-box__mini-text
+        今すぐ無料ダウンロード！
+      .appBanner__center-box__icons-list
+        =image_tag src="appstore-download.png", class: "link-img"
+        =image_tag src="googleplay-icon.png", class: "link-img"
+
+
+          

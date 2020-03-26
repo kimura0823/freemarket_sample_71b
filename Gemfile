@@ -91,3 +91,5 @@ gem 'haml-rails'
 gem 'payjp'
 
 gem "jquery-rails"
+
+gem 'font-awesome-sass'
