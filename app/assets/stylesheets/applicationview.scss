@@ -23,6 +23,9 @@
   margin: 0 auto;
   position: relative;
   box-sizing: border-box;
+
+  
+
   .wrapper {
     overflow: scroll;
     height: 100%;
@@ -139,7 +142,27 @@
         }
       }
     }
+    .exhibit-icon {
+      @include box-prop (140px, 140px, #3CCACE);
+        text-align: center;
+        border-radius: 70px;
+        box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+      .exhibit-icon-box{
+        margin-top: 20px;
+        .exhibit-span {
+          margin-top: 30px;
+        }
+        .exhibit-image {
+          width: 60%;
+        }
+      }
+
+    }
   }
+
 
 }
 h1,h2,h3,h4,h5,h6,p {

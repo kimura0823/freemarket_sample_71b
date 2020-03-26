@@ -14,8 +14,6 @@
     = javascript_include_tag 'application', data: { turbolinks: { track: true }}
     %script{ type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
   .application-body
-    .exhibit-icon
-      = link_to '出品', new_item_path
     .wrapper    
       .header
         .main-header
@@ -80,5 +78,9 @@
           =link_to "#" do
             =image_tag "logo-white.png"
           %p ©️FURIMA
-
-
+      = link_to  "#", class: "exhibit-icon" do
+        .exhibit-icon
+          .exhibit-icon-box
+            %span.exhibit-span
+              出品する
+            = icon('fas', 'camera fa-5x', class: 'exhibit-image')
