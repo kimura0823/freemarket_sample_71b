@@ -87,6 +87,6 @@ gem 'haml-rails'
 gem 'devise'
 gem 'payjp'
 
-
+gem 'font-awesome-sass'
 
 gem 'fog-aws'
