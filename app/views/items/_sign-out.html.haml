@@ -1,13 +1,12 @@
 
 %ul.sign-out
   %li.sign-out__name
-    =link_to root_path do
-      ログアウト
+    =link_to 'ログアウト', destroy_user_session_path, method: :delete
 
 .side
   .side-bar
     %ul.side-bar__menu
-      =link_to "http://www.yahoo.co.jp" do
+      =link_to "#" do
         %li.side-bar__menu--list
           マイページ
       %li.side-bar__menu__list
