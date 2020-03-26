@@ -17,7 +17,9 @@ end
   root 'items#index'
 
   resources :items
+
   resources :users
+
 
   resources :products do
     collection do
