@@ -1,6 +1,7 @@
+= render 'product_index'
 %h1 Items#インデックス
 %p Find me in app/views/items/index.html.erb
-
+=link_to '本物のトップページ', products_path
 - if user_signed_in?
   マイページ
   \#{link_to 'ログアウト', destroy_user_session_path, method: :delete}

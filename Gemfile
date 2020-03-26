@@ -86,4 +86,6 @@ gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
 gem 'payjp'
+gem "jquery-rails"
+gem 'font-awesome-sass'
 gem 'fog-aws'
