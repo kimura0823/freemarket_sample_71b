@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-
+  before_action :set_product, only: [:edit, :show]
+  
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
@@ -42,11 +43,9 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.find(params[:id])
   end
   
   def edit
-    @product = Product.find(params[:id])
   end
   
   def update

@@ -56,7 +56,7 @@
 - if user_signed_in? && current_user.id == @product.user_id
   %ul.buy
     %li.buy__decision
-      =link_to "/product/#{@product.id}/edit", method: :get do
+      =link_to edit_product_path(@product.id), method: :get do
         編集
 
   %ul.buy2
