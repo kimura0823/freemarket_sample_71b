@@ -15,7 +15,6 @@
  */
 
  .application-body {
-  // height: 1300px;
   height: 100vh;
   background-color: #f0f0f0;
   font-size: 14px;
@@ -23,8 +22,6 @@
   margin: 0 auto;
   position: relative;
   box-sizing: border-box;
-
-  
 
   .wrapper {
     overflow: scroll;
@@ -34,9 +31,6 @@
       height: 180px;
       background-color: white;
       position: relative;
-      
-      
-    
       .main-header{
         width: 900px;
         height:50px;
@@ -73,12 +67,9 @@
           }
         p{
           width: 100px;
-            
-    
           }
           
         }
-    
       .main-header__image{
         margin: 38px 0px 20px 135px;
         position: absolute;
@@ -86,15 +77,10 @@
     }
     .body {
     }
-  
-    // footer
     .footer {
       width: 100%;
       background-color: #272727;
-      // padding: 60px 0;
       color: white;
-      // position: absolute;
-      // bottom: 0;
       .contents {
         display: flex;
         margin: 0 auto;
@@ -159,11 +145,6 @@
           width: 60%;
         }
       }
-
     }
   }
-
-
-}
-h1,h2,h3,h4,h5,h6,p {
 }

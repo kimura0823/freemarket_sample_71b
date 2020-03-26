@@ -143,13 +143,13 @@
             font-size: 8px;
           }
         }
-        .topFeatures__group__left-box {
+        &__left-box {
           margin-left: 20px;
         }
-        .topFeatures__group__center-box {
+        &__center-box {
           margin: 0 40px;
         }
-        .topFeatures__group__right-box {
+        &__right-box {
           margin-right: 20px;
         }
       }
@@ -178,16 +178,16 @@
             @include box-prop (30%, none, cornsilk);
             margin: 5px 10px;
             &__link{
-              .genre-list__image-box {
+              &__image-box {
                 height: 100px;
-                .genre-list__image {
+                .genre-list__link__image {
                   @include box-prop (100%, 100%, none);
                 }
               }
-              .genre-list__body {
+              &__body {
                 color: black;
                 padding: 10px;
-                .genre-list__body-h3 {
+                &__h3 {
                   font-size: 8px;
                 }
                 &__details {
