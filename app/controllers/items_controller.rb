@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_product, only: [:edit, :show]
+
   def new
     @product = Product.new(judge: "出品中")
     @product.images.new
@@ -29,6 +31,9 @@ class ItemsController < ApplicationController
     else
       redirect_to new_item_path
     end
+  end
+  
+  def show
   end
 
   def edit

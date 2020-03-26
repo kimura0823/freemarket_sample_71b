@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-
+  before_action :set_product, only: [:edit, :show]
+  
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
@@ -39,6 +40,9 @@ class ProductsController < ApplicationController
     else
       redirect_to new_product_path
     end
+  end
+  
+  def show
   end
   
   def edit
