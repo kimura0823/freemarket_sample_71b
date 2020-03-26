@@ -46,7 +46,20 @@
   = image_tag src = 'https://static.mercdn.net/item/detail/orig/photos/m58367672448_4.jpg?1584858075',size: "40"
   = image_tag src = 'https://static.mercdn.net/item/detail/orig/photos/m58367672448_4.jpg?1584858075',size: "40"
 
-%ul.buy
-  %li.buy__decision
-    =link_to root_path do
-      購入画面に進む
+- if user_signed_in? && current_user.id != @product.user_id
+  %ul.buy
+    %li.buy__decision
+      =link_to root_path do
+        購入購入画面に進む
+
+
+- if user_signed_in? && current_user.id == @product.user_id
+  %ul.buy
+    %li.buy__decision
+      =link_to edit_product_path(@product.id), method: :get do
+        編集
+
+  %ul.buy2
+    %li.buy2__decision2
+      =link_to root_path do
+        削除
