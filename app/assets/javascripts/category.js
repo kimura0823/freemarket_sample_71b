@@ -38,8 +38,6 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        console.log(children);
-        
         $('#child_category').remove(); 
         $('#grandchild_category').remove();
         $('#size_wrapper').remove();

@@ -17,7 +17,6 @@ end
   root 'items#index'
 
   resources :items
-
   resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }

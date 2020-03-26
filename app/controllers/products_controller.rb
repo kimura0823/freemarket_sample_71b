@@ -1,15 +1,13 @@
 class ProductsController < ApplicationController
-
+  before_action :set_product, only: [:edit, :show]
+  
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
   
   def new
-    
     @product = Product.new
     @product.images.new
-    
-    
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -36,12 +34,15 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     categoryId_params
-    if @product.save 
+    if @product.save
       
       redirect_to root_path
     else
       redirect_to new_product_path
     end
+  end
+  
+  def show
   end
   
   def edit
@@ -61,7 +62,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :description, :status_id, :brand, :burden_id, :days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :price, :description, :status_id, :brand, :burden_id, :deliveryway_id, :days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def categoryId_params

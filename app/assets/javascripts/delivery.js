@@ -8,12 +8,9 @@ $(function(){
   function appendChidrenBox(insertHTML){
     var deliverywayHtml = '';
     deliverywayHtml = `
-    
-    
-    
-    <select name="product[burden_id]" id="delivery-way">
-      ${insertHTML}
-    </select>`;
+            <select name="product[deliveryway_id]" id="delivery-way">
+              ${insertHTML}
+            </select>`;
     
     $('.delivery-burden').append(deliverywayHtml);
     
@@ -22,8 +19,8 @@ $(function(){
  
   $(document).on('change', '#product_burden_id', function(){
     var deliveryway = document.getElementById('product_burden_id').value; 
-    if (deliveryway != "選択してください"){ 
-        if (deliveryway == "送料込み（出品者負担）") {
+    if (deliveryway != "1"){ 
+        if (deliveryway == "2") {
           $.ajax({
             url: 'get_deliverywayonSeller',
             type: 'GET',
@@ -31,7 +28,6 @@ $(function(){
             dataType: 'json'
           })
           .done(function(onsellers){
-            console.log(onsellers)
             $('#delivery-way').remove(); 
             var insertHTML = '';
             onsellers.forEach(function(onseller){
@@ -43,7 +39,7 @@ $(function(){
             alert('カテゴリー取得に失敗しました');
           })
         }
-        if (deliveryway == "着払い（購入者負担）") {
+        if (deliveryway == "3") {
           $.ajax({
             url: 'get_deliverywayonBuyer',
             type: 'GET',
@@ -51,7 +47,6 @@ $(function(){
             dataType: 'json'
           })
           .done(function(onsellers){
-            console.log(onsellers)
             $('#delivery-way').remove(); 
             var insertHTML = '';
             onsellers.forEach(function(onseller){
