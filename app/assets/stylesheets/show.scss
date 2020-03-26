@@ -3,6 +3,7 @@
   margin-left:700px;
   display: flex;
   position: absolute;
+
 }
 tr{
   border: solid 1px;
@@ -17,6 +18,7 @@ th{
 .show-item__content{
   width: 250px;
   background-color: white;
+
 }
 .slider{
   width: 300px;
@@ -27,6 +29,7 @@ th{
 .slick-track{
   width: 100px;
 }
+
 .praice{
   width: 600px;
   height: 200px;
@@ -43,12 +46,15 @@ th{
   margin-top: 22px;
   margin-left: 400px;
 }
+
 .buy{
   width: 500px;
   height: 100px;
   background-color: white;
+
   margin:80px 100px 100px 450px;
   position: absolute;
+
     &__decision{
       width: 300px;
       background-color: red;
@@ -61,6 +67,7 @@ th{
       a {
         color: white;
         text-decoration: none;
+
       }
   }
   }

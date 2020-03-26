@@ -47,6 +47,9 @@ class ProductsController < ApplicationController
   
   def edit
   end
+
+  def show
+  end
   
   def update
     if @product.update(product_params)
