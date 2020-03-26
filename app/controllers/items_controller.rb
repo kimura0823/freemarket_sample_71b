@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   def index
-   
+  end
+
+  
   def new
     @product = Product.new(judge: "出品中")
     @product.images.new
