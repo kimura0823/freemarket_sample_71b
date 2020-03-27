@@ -43,6 +43,7 @@ class ProductsController < ApplicationController
   end
   
   def show
+    @image = Image.where(product_id: params[:id])
   end
   
   def edit
@@ -57,6 +58,7 @@ class ProductsController < ApplicationController
   end
   
   def destroy
+    @product = Product.find(params[:id])
     @product.destroy
     redirect_to root_path
   end
