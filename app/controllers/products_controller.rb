@@ -43,12 +43,15 @@ class ProductsController < ApplicationController
   end
   
   def show
+    @test = @product.deliveryway_id
+    if @test < 11
+      @deliveryway = Deliverywayonseller.find(@test)
+    else
+      @deliveryway = Deliverywayonbuyer.find(@test)
+    end
   end
   
   def edit
-  end
-
-  def show
   end
   
   def update

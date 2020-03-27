@@ -10,7 +10,7 @@
     %th 商品の状態
     %tr 
     %th 配送料の負担
-    %tr  
+    %tr
     %th 配送の方法
     %tr 
     %th 配送元の地域
@@ -19,21 +19,23 @@
 
   %table.show-item__content
     %tr 
-    %th いく
+    %th= @product.user.nickname
     %tr  
-    %th レディース
+    %th= @product.category.parent.parent.name
+    %th= @product.category.parent.name
+    %th= @product.category.name
     %tr 
-    %th コーチ
+    %th= @product.brand
     %tr  
-    %th やや汚れ気味
+    %th= @product.status.name
     %tr 
-    %th 送料込み
+    %th= @product.burden.name
     %tr  
-    %th らくらく
+    %th= @deliveryway.way
     %tr 
-    %th 東京
+    %th= @product.prefecture.name
     %tr  
-    %th １〜2日で発送
+    %th= @product.days.name
 
 .praice
   .praice__boild
