@@ -16,24 +16,26 @@
   .application-body
     .wrapper    
       .header
-        .main-header
-          %input{type:"search",class: "main-header__title",placeholder:"キーワードの入力"}
-        .main-header__image
-          =link_to products_path do
-            = image_tag  'logo.png',width:150  
-        .main-header__img
-          = image_tag src = 'icon-search 1.png',size: "30x25"
-        .main-header__nav
-          %ul.main-header__nav__left-box
-            %p.lind カテゴリー
-            %p.link ブランド
-          %ul.main-header__nav__right-box
-            - if user_signed_in?
-              =link_to'マイページ', users_path(current_user.id), class: "link mypage"
-              =link_to'ログアウト', destroy_user_session_path, method: :delete, class: "link logout"
-            - else
-              = link_to '新規登録', new_user_registration_path, class: "link signup"
-              = link_to 'ログイン', new_user_session_path, class: "link login"
+        .head-wrapper
+          .main-header
+            .main-header__logo
+              =link_to products_path do
+                = image_tag  'logo.png',width:150 
+            %input{type:"search",class: "main-header__search-box",placeholder:"キーワードの入力"}
+            .main-header__search-img
+              = image_tag src = 'icon-search 1.png',size: "30x25"
+           
+          .main-header__nav
+            %ul.main-header__nav__left-box
+              %p.link カテゴリー
+              %p.link ブランド
+            %ul.main-header__nav__right-box
+              - if user_signed_in?
+                =link_to'マイページ', users_path(current_user.id), class: "link mypage"
+                =link_to'ログアウト', destroy_user_session_path, method: :delete, class: "link logout"
+              - else
+                = link_to '新規登録', new_user_registration_path, class: "link signup"
+                = link_to 'ログイン', new_user_session_path, class: "link login"
 
 
 
