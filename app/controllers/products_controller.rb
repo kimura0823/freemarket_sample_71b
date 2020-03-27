@@ -59,8 +59,11 @@ class ProductsController < ApplicationController
   
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to root_path
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
@@ -79,4 +82,3 @@ class ProductsController < ApplicationController
   end
 
 end
-
