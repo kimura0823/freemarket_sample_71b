@@ -93,10 +93,18 @@
           =link_to "#" do
             =image_tag "logo-white.png"
           %p ©️FURIMA
-      = link_to  new_product_path, class: "exhibit-icon" do
-        .exhibit-icon
-          .exhibit-icon-box
-            %span.exhibit-span
-              出品する
-            = icon('fas', 'camera fa-5x', class: 'exhibit-image')
-            
+      - if user_signed_in?
+        = link_to  new_product_path, class: "exhibit-icon" do
+          .exhibit-icon
+            .exhibit-icon-box
+              %span.exhibit-span
+                出品する
+              = icon('fas', 'camera fa-5x', class: 'exhibit-image')
+      -else
+        = link_to  new_user_session_path, class: "exhibit-icon" do
+          .exhibit-icon
+            .exhibit-icon-box
+              %span.exhibit-span
+                出品する
+              = icon('fas', 'camera fa-5x', class: 'exhibit-image')
+              
