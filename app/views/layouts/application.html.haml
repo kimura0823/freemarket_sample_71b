@@ -24,11 +24,24 @@
           = image_tag src = 'icon-search 1.png',size: "30x25"
         .main-header__nav
           %ul.main-header__nav__left-box
-            %p カテゴリー
-            %p ブランド
+            %p.lind カテゴリー
+            %p.link ブランド
           %ul.main-header__nav__right-box
-            %p ログイン
-            %p 新規登録
+            - if user_signed_in?
+              =link_to'マイページ', users_path(current_user.id), class: "link mypage"
+              =link_to'ログアウト', destroy_user_session_path, method: :delete, class: "link logout"
+            - else
+              = link_to '新規登録', new_user_registration_path, class: "link signup"
+              = link_to 'ログイン', new_user_session_path, class: "link login"
+
+
+
+
+
+
+
+
+
       .body
         = yield
 
@@ -78,7 +91,7 @@
           =link_to "#" do
             =image_tag "logo-white.png"
           %p ©️FURIMA
-      = link_to  "#", class: "exhibit-icon" do
+      = link_to  new_product_path, class: "exhibit-icon" do
         .exhibit-icon
           .exhibit-icon-box
             %span.exhibit-span
