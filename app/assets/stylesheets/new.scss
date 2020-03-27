@@ -1,8 +1,4 @@
 .exihibition-header{
-  // margin-top: 180px;
-  // background-color: rgb(235, 234, 234);
-  // height: 15vh;
-  // width: 100vw;
   @include box-prop (100vw, 15vh, rgb(235, 234, 234));
   text-align: center;
   line-height: 15vh;
@@ -17,8 +13,6 @@
   background-color: rgb(235, 234, 234);
   height: 100%;
   width: 100vw;
-  // height: 100vh;
-  // overflow: scroll;
   &_block{
     background-color: white;
     height: 100%;
