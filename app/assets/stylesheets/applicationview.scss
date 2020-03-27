@@ -28,53 +28,57 @@
     height: 100%;
     .header{
       width: 100%;
-      height: 180px;
+      height: 130px;
       background-color: white;
-      position: relative;
-      .main-header{
-        width: 900px;
-        height:50px;
-        margin: 50px 300px 100px 300px;
-        position: absolute;
-        &__title{
-          width: 900px;
-          height: 25px;
-          background-color:whitesmoke;
-          font-size: 20px;
-          }
-      }
-      .main-header__img{
-      width: 30px;
-      margin-left:1208px;
-      background-color:#3ccace;
-      margin-top: 51px;
-      position: absolute;
-      }
-    
-      .main-header__nav{
-        &__left-box{
-          width: 200px;
-          margin: 110px 30px 0px 100px;
-          position: absolute;
+      .head-wrapper {
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 40px;
+        .main-header{
           display: flex;
+          // height:50px;
+          // margin: 50px 300px 100px 300px;
+          &__logo{
           }
-          &__right-box{
-          width: 300px;
-          margin: 110px 30px 0px 1050px;
-          position: absolute;
-          display: flex;
+          &__search-box{
+            @include box-prop (900px, 40px, whitesmoke);
+            margin-left: 40px;
+            font-size: 20px;
+
           }
-        .link {
-          margin-right: 15px;
-          cursor: pointer;
-          color: black;;
+          &__search-img{
+          height: 35px;
+          background-color:#3ccace;
+          padding: 5px 5px 0;
           }
+          
         }
-      .main-header__image{
-        margin: 38px 0px 20px 135px;
-        position: absolute;
+
+      
+        .main-header__nav{
+          display: flex;
+          justify-content: space-between;
+          &__left-box{
+            // width: 200px;
+            // margin: 110px 30px 0px 100px;
+            display: flex;
+            }
+            &__right-box{
+            // width: 300px;
+            // margin: 110px 30px 0px 1050px;
+            display: flex;
+            }
+          .link {
+            margin-right: 15px;
+            cursor: pointer;
+            color: black;;
+            }
+          }
       }
     }
+    
+    
+    
     .body {
     }
     .footer {
