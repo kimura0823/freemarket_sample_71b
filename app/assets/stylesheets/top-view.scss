@@ -18,6 +18,9 @@
           @include font-prop (14px, ivory, none);
         }
         &__center-box__icons-list {
+          .link-img {
+            height: 30px;
+          }
         }
       }
     }
