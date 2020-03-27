@@ -3,32 +3,47 @@
   %head
     
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title payjptest
+    %title frema71b
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
     -# このscriptを記載
     = csrf_meta_tags
-    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    -# = stylesheet_link_tag    'application', media: 'all', data:{ turbolinks:{ track: true }}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag    'application', media: 'all', data:{ turbolinks:{ track: true }}
     %link{ rel: "stylesheet", type: "text/css", href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"}
-    = javascript_include_tag 'application', data: { turbolinks: { track: true }}
     %script{ type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
   .application-body
     .wrapper    
       .header
-        .main-header
-          %input{type:"search",class: "main-header__title",placeholder:"キーワードの入力"}
-        .main-header__image
-          = image_tag  'logo.png',width:150  
-        .main-header__img
-          = image_tag src = 'icon-search 1.png',size: "30x25"
-        .main-header__nav
-          %ul.main-header__nav__left-box
-            %p カテゴリー
-            %p ブランド
-          %ul.main-header__nav__right-box
-            %p ログイン
-            %p 新規登録
+        .head-wrapper
+          .main-header
+            .main-header__logo
+              =link_to products_path do
+                = image_tag  'logo.png',width:150 
+            %input{type:"search",class: "main-header__search-box",placeholder:"キーワードの入力"}
+            .main-header__search-img
+              = image_tag src = 'icon-search 1.png',size: "30x25"
+           
+          .main-header__nav
+            %ul.main-header__nav__left-box
+              %p.link カテゴリー
+              %p.link ブランド
+            %ul.main-header__nav__right-box
+              - if user_signed_in?
+                =link_to'マイページ', users_path(current_user.id), class: "link mypage"
+                =link_to'ログアウト', destroy_user_session_path, method: :delete, class: "link logout"
+              - else
+                = link_to '新規登録', new_user_registration_path, class: "link signup"
+                = link_to 'ログイン', new_user_session_path, class: "link login"
+
+
+
+
+
+
+
+
+
       .body
         = yield
 
@@ -78,7 +93,7 @@
           =link_to "#" do
             =image_tag "logo-white.png"
           %p ©️FURIMA
-      = link_to  "#", class: "exhibit-icon" do
+      = link_to  new_product_path, class: "exhibit-icon" do
         .exhibit-icon
           .exhibit-icon-box
             %span.exhibit-span

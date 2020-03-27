@@ -38,7 +38,7 @@
             .text_logo
               必須
           .main_block_category_box_mini
-            = f.text_field :description, class: "description_contents"
+            = f.text_area :description, class: "description_contents"
             %br/
 
       .main_block_category
@@ -54,7 +54,6 @@
         .main_block_category_box
           .main_block_category_box_mini.parent-box
             = f.select :category, @category_parent_array, {}, {class: 'small_contents ', id: 'parent_category'}
-            %i.fas.fa-chevron-down.main_block_category_box_mini--arrow-down
           %br/
           .main_block_category_box_mini
             .text

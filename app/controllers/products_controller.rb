@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
-     render :layout => 'product_exhibition'
+     render :layout => 'product'
   end
   
   def get_category_children

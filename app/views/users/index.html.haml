@@ -1,4 +1,55 @@
 
-.wrapaa
-  =render"items/main"
-  =render"items/side-bar"
+.mypage-body
+  .side-bar
+    %ul.side-bar__menu
+      %li.side-bar__menu--list 
+        ページ項目
+      =link_to users_path do
+        %li.side-bar__menu__list マイページ
+      %li.side-bar__menu__list
+        いいね！一覧
+      =link_to "#" do
+        %li.side-bar__menu__list
+          出品する
+      %li.side-bar__menu__list
+        ニュース一覧
+      %li.side-bar__menu__list
+        ガイド
+      %li.side-bar__menu__list
+        お問い合わせ
+
+    %ul.side-bar__menu
+      %li.side-bar__menu--list
+        設定
+      %li.side-bar__menu__list
+        プロフィール
+      %li.side-bar__menu__list
+        発送元・お届け先住所変更
+      %li.side-bar__menu__list
+        メール/パスワード
+      %li.side-bar__menu__list
+        本人情報
+      %li.side-bar__menu__list
+        電話番号の確認
+      =link_to new_card_path do
+        %li.side-bar__menu__list クレジットカード登録
+      =link_to new_user_path do
+        %li.side-bar__menu__list ログアウト
+
+
+
+  .main__contennt
+    .main__contennt__mypage-icon
+      .main__contennt__mypage-icon__name
+        ユーザーネーム
+      .main__contennt__mypage-icon__image
+        = image_tag src = 'member_photo_noimage_thumb.png',size: "200"
+    .main__contennt__tabs
+      %input#tab-1{:checked => "checked", :name => "tab-radio", :type => "radio"}/
+      %label.tab-label{:for => "tab-1"} お知らせ
+      %input#tab-2{:name => "tab-radio", :type => "radio"}/
+      %label.tab-label{:for => "tab-2"} リスト
+      .tab-content.tab-1-content
+        お知らせ
+      .tab-content.tab-2-content
+        やることリスト
