@@ -44,6 +44,12 @@ class ProductsController < ApplicationController
   
   def show
     @image = Image.where(product_id: params[:id])
+    @test = @product.deliveryway_id
+    if @test < 11
+      @deliveryway = Deliverywayonseller.find(@test)
+    else
+      @deliveryway = Deliverywayonbuyer.find(@test)
+    end
   end
   
   def edit

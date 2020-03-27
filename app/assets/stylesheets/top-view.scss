@@ -1,0 +1,237 @@
+.Top-view-body {
+  @include box-prop (100%, 100%, none);
+  .Top-view-main{
+    @include box-prop (100%, 100%, none);
+    .topMainView {
+      background-image: image-url("bg-mainVisual-pict_pc.jpg");
+      @include back-image(cover,no-repeat, top, center);
+      @include box-prop (calc(100% - 60px), 300px, none);
+      padding: 0 30px;
+      &__center-box {
+        @include box-prop (calc(100% - 500px), calc(100% - 100px), none);
+        margin: 0 auto;
+        padding-top: 60px;
+        &__center-box__sub-title {
+          @include font-prop (40px, ivory, none);
+        }
+        &__center-box__mini-text {
+          @include font-prop (14px, ivory, none);
+        }
+        &__center-box__icons-list {
+        }
+      }
+    }
+    .topList {
+      @include box-prop (100%, 300px, white);
+      padding-top: 20px;
+      &__sub-title{
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+      &__group {
+        text-align: center;
+        display: flex;
+        width: 35%;
+        margin: 0 auto;
+        .topList-box {
+          width: 30%;
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          .pict-box{
+            height: 80%;
+            position: relative;
+            .topList-img {
+              @include box-prop (100%, 100%, none);
+              vertical-align: bottom;
+            }
+            .topList-span1{
+              @include font-prop (8px, #fff, none);
+              display: inline-block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              text-align: center;
+              padding: 8px 10px;
+              background-color: #3CCACE;
+            }
+          }
+          .topList-h3 {
+            margin: 0 auto;
+            font-weight: bold;
+            .topList-span2{
+              color: #3CCACE;
+            }
+          }
+          .pict-explain {
+            font-size: 8px;
+          }
+        }
+        &__left-box {
+          margin-left: 10px;
+        }
+        &__center-box {
+          margin: 0 20px;
+        }
+        &__right-box {
+          margin-right: 10px;
+        }
+      }
+
+    }
+    .topSecondView {
+      background-image: image-url("bg-topMiddleDl-pict.jpg");
+      @include back-image(cover,no-repeat, bottom, right);
+      @include box-prop (100%, 200px, none);
+      padding-top: 60px;
+      position: relative;
+      &__center-box{
+        width: 40%;
+        color: white;
+        position: absolute;
+        bottom: 40px;
+        left: 30%;
+
+        &__sub-title {
+          font-size: 15px;
+        }
+        &__mini-text {
+          margin: 20px 0 30px;
+          font-size: 9px;
+        }
+        &__icons-list {
+        }
+      }
+    }
+
+    .topFeatures{
+      @include box-prop (100%, none, white);
+      padding-top: 20px;
+      .topFeatures__sub-title{
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+      .topFeatures__group {
+        @include box-prop (500px, 250px, none);
+        text-align: center;
+        display: flex;
+        margin: 0 auto;
+        .topFeatures-box {
+          width: calc(1 / 3 * 100%);
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          .pict-box{
+            @include box-prop (70%, 50%, none);
+            margin: 0 auto;;
+            position: relative;
+            .topFeatures-img {
+              @include box-prop (100%, 100%, none);
+              vertical-align: bottom;
+            }
+          }
+          .topFeatures-h3 {
+            margin: 0 auto;
+            font-weight: bold;
+            .topList-span2{
+              color: #3CCACE;
+            }
+          }
+          .pict-explain {
+            font-size: 8px;
+          }
+        }
+        &__left-box {
+          margin-left: 20px;
+        }
+        &__center-box {
+          margin: 0 40px;
+        }
+        &__right-box {
+          margin-right: 20px;
+        }
+      }
+
+    }
+    .topPicup {
+      width: 100%;
+      padding-top: 30px;
+      &__subtitile {
+        text-align: center;
+        font-weight: bold;
+      }
+      &__main-box {
+        .genre-title { 
+          .genre-title-link{
+            @include font-prop (none, #3CCACE, bold);
+            text-decoration: none;
+            text-align: center;
+          }
+        }
+        .genre-lists {
+          width: 30%;
+          display: flex;
+          margin: 10px auto;
+          .genre-list {
+            @include box-prop (30%, none, cornsilk);
+            margin: 5px 10px;
+            &__link{
+              &__image-box {
+                height: 100px;
+                .genre-list__link__image {
+                  @include box-prop (100%, 100%, none);
+                }
+              }
+              &__body {
+                color: black;
+                padding: 10px;
+                &__h3 {
+                  font-size: 8px;
+                }
+                &__details {
+                  .details-ul {
+                    @include flex_between (flex, space-between);
+                    .details-li {
+                      font-size: 8px;
+                    }
+                    .details-li {
+                    }
+                  }
+                  .details-p{
+                    font-size: 8px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .appBanner{
+    @include box-prop (calc(100% - 60px), 200px, none);
+    margin-top: 30px;
+    padding: 0 30px;
+    background-image: image-url("bg-appBanner-pict.jpg");
+    @include back-image(cover,no-repeat, center, center);
+    &__center-box {
+      @include box-prop (calc(100% - 60px), calc(100% - 100px), none);
+      margin: 0 30px;
+      padding-top: 60px;
+      text-align: center;
+      &__sub-title {
+        @include font-prop (10px, ivory, none);
+      }
+      &__mini-text {
+        @include font-prop (20px, ivory, none);
+      }
+      &__icons-list {
+      }
+    }
+  }
+}
+.link-img {
+  height: 30px;
+}
