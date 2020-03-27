@@ -39,12 +39,13 @@
           display: flex;
           position: relative;
           flex-wrap: wrap;
+          
 
           .big_contents{
-            height: 20vh;
+            height: 25vh;
             width: 40vw;
             margin: auto;
-            border: solid 0.5px rgb(196, 192, 192);
+            border: solid 1px rgb(196, 192, 192);
             border-radius: 1em;
           }
           .small_contents{
@@ -52,7 +53,7 @@
             width: 40vw;
             margin: auto;
             margin-top: 10px;
-            border: solid 0.5px rgb(196, 192, 192);
+            border: solid 1px rgb(196, 192, 192);
             border-radius: 1em;
             font-size: 15px;
             flex-wrap: nowrap;
@@ -74,18 +75,18 @@
             @extend .small_contents;
           }
           .description_contents{
-            height: 20vh;
+            height: 25vh;
             width: 40vw;
             margin: auto;
             overflow: scroll;
-            border: solid 0.5px rgb(196, 192, 192);
+            border: solid 1px rgb(196, 192, 192);
             border-radius: 1em;
           }
           .price_contents{
             height: 5vh;
             width: 25vw;
             margin: auto;
-            border: solid 0.5px rgb(196, 192, 192);
+            border: solid 1px rgb(196, 192, 192);
             border-radius: 1em;
             margin-left: 80px;
             font-size:15px;
