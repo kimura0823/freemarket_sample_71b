@@ -28,3 +28,4 @@
 public/uploads/*
 app/assets/images
 app/assets/.DS_Store
+*.DS_Store
