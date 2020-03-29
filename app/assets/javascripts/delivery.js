@@ -28,6 +28,7 @@ $(function(){
             dataType: 'json'
           })
           .done(function(onsellers){
+            console.log("上")
             $('#delivery-way').remove(); 
             var insertHTML = '';
             onsellers.forEach(function(onseller){
@@ -47,6 +48,7 @@ $(function(){
             dataType: 'json'
           })
           .done(function(onsellers){
+            console.log(deliveryway)
             $('#delivery-way').remove(); 
             var insertHTML = '';
             onsellers.forEach(function(onseller){
