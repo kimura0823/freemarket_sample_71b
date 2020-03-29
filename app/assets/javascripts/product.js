@@ -34,6 +34,8 @@ $(document).on('turbolinks:load', function(){
                                       </div>
                                     </li>`);
           $("#image-input>label").eq(-1).css('display','none');
+          
+          // $("#image-input").css('width','21px');
           // 入力されたlabelを見えなくする
           } else if (imageLengthUnder < 5 ) {
             console.log(imageLengthUnder);
@@ -53,7 +55,7 @@ $(document).on('turbolinks:load', function(){
           if (imageLength < 5 || imageLengthUnder < 4) {
             // 表示されているプレビューが９以下なら、新たにinputを生成する
             $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
-                                        <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" type="file" name="item[images][]">
+                                        <input type="file" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" name="product[images_attributes][${labelLength+1}][image]"">
                                         <i class="fas fa-camera fa-lg"></i>
                                       </label>`);
           } else {
