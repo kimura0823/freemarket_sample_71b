@@ -8,15 +8,14 @@
           必須
       .category-group__note
         最大10枚まで保存できます
-      .category-group__big-contents
+      .category-group__image-contents
         #image-box
           = f.fields_for :images do |image|
             = f.label class:"image_label" do
               .js-file_group{"data-index" => "#{image.index}"}
                 = image.file_field :image, class: 'js-file'
                 %br/
-              %span.js-remove 削除
-        = f.submit
+              .js-remove 削除
 
     .category-group
       .category-group__title
