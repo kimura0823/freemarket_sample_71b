@@ -73,7 +73,7 @@
           配送料の負担
         .text-caution
           必須
-      .category-group__small-contents
+      .category-group__small-contents.delivery-burden
         = f.collection_select :burden_id, Burden.all, :id, :name, class: 'delivery-burden'
       %br/
       .category-group__title
@@ -105,7 +105,7 @@
             必須
         .price-contents
           ¥
-          = f.number_field :price, value: 0, class: "price-contents"
+          = f.number_field :price, placeholder: 0, class: "price-contents"
         %br/
     .category-group
       .category-group__small-contents

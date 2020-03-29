@@ -75,36 +75,35 @@
       font-size: 15px;
       flex-wrap: nowrap;
     }
-    #product_status_id{
+    #parent-category {
       @extend .small-contents;
       width: 42vw;
-    }
-    #product_prefecture_id{
-      @extend #product_status_id;
-    }
-    #product_burden_id{
-      @extend #product_status_id;
-    }
-    #product_days_id{
-      @extend #product_status_id;
-    }
-    #delivery-way{
-      @extend #product_status_id;
-    }
-    .middle-contents{
-      @extend #product_status_id;
-      height: 15vh;
-    }
-    #parent-category {
-      @extend #product_status_id;
       margin-bottom: 0;
     }
     #child-category {
-      @extend #product_status_id;
-      margin-bottom: 0;
+      @extend #parent-category;
     }
     #grandchild-category {
-      @extend #product_status_id;
+      @extend #parent-category;
+    }
+    #product_status_id{
+      @extend #parent-category;
+    }
+    #product_burden_id{
+      @extend #parent-category;
+    }
+    #delivery-way{
+      @extend #parent-category;
+    }
+    #product_prefecture_id{
+      @extend #parent-category;
+    }
+    #product_days_id{
+      @extend #parent-category;
+    }
+    .middle-contents{
+      @extend #parent-category;
+      height: 30vh;
       margin-bottom: 40px;
     }
     .price_btn{
@@ -157,114 +156,6 @@
     }
   }
 }
-    // &__categor-box{
-    //   height: 100%;
-    //   background-color: white;
-    //   margin: 0 auto;
-    //   padding-top: 50px;
-    //   padding-bottom: 50px;
-    //   border-bottom: solid 0.5px rgb(196, 192, 192);
-
-    //   &__box{
-    //     margin: 0 auto;
-    //     height:100%;
-    //     width:40vw;
-        
-
-    //     &__mini{
-    //       height:100%;
-    //       display: flex;
-    //       position: relative;
-    //       flex-wrap: wrap;
-          
-
-    //       .big-contents{
-    //         height: 25vh;
-    //         width: 40vw;
-    //         margin: auto;
-    //         padding: 10px;
-            // border: solid 1px rgb(196, 192, 192);
-    //         border-radius: 1em;
-    //       }
-    //       .small-contents{
-    //         height: 5vh;
-    //         width: 40vw;
-    //         margin: auto;
-    //         margin-top: 10px;
-    //         padding: 10px;
-    //         border: solid 1px rgb(196, 192, 192);
-    //         border-radius: 1em;
-    //         font-size: 15px;
-    //         flex-wrap: nowrap;
-    //       }
-
-          
-    //       .description_contents{
-    //         height: 25vh;
-    //         width: 40vw;
-    //         margin: auto;
-    //         padding: 10px;
-    //         overflow: scroll;
-    //         border: solid 1px rgb(196, 192, 192);
-    //         border-radius: 1em;
-    //       }
-    //       .price_contents{
-    //         height: 5vh;
-    //         width: 25vw;
-    //         margin: auto;
-    //         padding: 10px;
-    //         border: solid 1px rgb(196, 192, 192);
-    //         border-radius: 1em;
-    //         margin-left: 80px;
-    //         font-size:15px;
-    //       }
-    //       .btn_contents{
-    //         height: 200px;
-    //         width: 400px;
-    //       }
-          
-    //       .text{
-    //         padding-top: 20px;
-    //         padding-bottom: 10px;
-    //       }
-    //       .title{
-    //         color: rgb(192, 189, 189);
-    //         font-size: 13px;
-    //       }
-    //       .text_logo{
-    //         background-color: red;
-    //         font-size: 15px;
-    //         color: white;
-    //         height: 19px;
-    //         width: 40px;
-    //         line-height: 2.8vh;
-    //         text-align: center;
-    //         border-radius: 0.5em;
-    //         margin: 20px 0 13px 10px;
-    //       }
-    //       .text_logo2{
-    //         background-color: gray;
-    //         font-size: 15px;
-    //         color: white;
-    //         height: 17px;
-    //         width: 40px;
-    //         line-height: 2.8vh;
-    //         text-align: center;
-    //         border-radius: 0.5em;
-    //         margin: 20px 0 13px 10px;
-    //       }
-    //       .price_mark{
-    //         font-size: 20px;
-    //         position: absolute;
-    //         top: 13px;
-    //         left: 165px
-    //         }
-          
-    //     }
-    //   }
-    // }
-
-
 .exihibition-footer{
   background-color: rgb(235, 234, 234);
   width: 100vw;
