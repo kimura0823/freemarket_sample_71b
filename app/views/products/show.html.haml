@@ -3,8 +3,6 @@
     .show-group__main-group
       .show-group__main-group__image-box
         .slider
-          -# - @image.each_with_index do |image, index|
-          -#   = image_tag src = @image[index].image.url, class: "top-image"
           = image_tag src = @image[0].image.url, class: "top-image"
         .icon__image
           - @image.each_with_index do |image, index|
