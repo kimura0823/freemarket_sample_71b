@@ -28,22 +28,23 @@ $(document).on('turbolinks:load', function(){
                                       <div class="preview-image__figure">
                                         <img src='${e.target.result}' title='${file.name}' id='exhibit-image'>
                                       </figure>
-                                      <div class="preview-image__button">
+                                      <div class="preview-image__button" style="text-align: center;margin-left: 8px;">
                                         <a class="preview-image__button__edit" href="">編集</a>
                                         <a class="preview-image__button__delete" data-image-id="${labelLength}">削除</a>
                                       </div>
                                     </li>`);
           $("#image-input>label").eq(-1).css('display','none');
-          
-          // $("#image-input").css('width','21px');
           // 入力されたlabelを見えなくする
+          // if (imageLength + imageLengthUnder == 10){
+          //   $("#image-input>label").eq(-1).css('display','none');
+          // }
           } else if (imageLengthUnder < 5 ) {
-            console.log(imageLengthUnder);
+            $(".category-group__image-contents").css('height','35vh');
             $('.lower-anchor').before(`<li class="preview-image" id="upload-image${labelLength}" data-image-id="${labelLength}">
                                         <div class="preview-image__figure">
                                           <img src='${e.target.result}' title='${file.name}' id='exhibit-image'>
                                         </figure>
-                                        <div class="preview-image__button">
+                                        <div class="preview-image__button" style="text-align: center;margin-left: 8px;">
                                           <a class="preview-image__button__edit" href="">編集</a>
                                           <a class="preview-image__button__delete" data-image-id="${labelLength}">削除</a>
                                         </div>
@@ -52,10 +53,15 @@ $(document).on('turbolinks:load', function(){
             // 入力されたlabelを見えなくする
           };
 
-          if (imageLength < 5 || imageLengthUnder < 4) {
+           imageLength = $('#output-box').children('li').length;
+           imageLengthUnder = $('#output-box-under').children('li').length;
+          // 追加された写真を含めた枚数を数える
+          if (imageLength < 5 || imageLengthUnder < 5 || imageLength + imageLengthUnder == 9) {
+            console.log(imageLength);
+            console.log(imageLengthUnder);
             // 表示されているプレビューが９以下なら、新たにinputを生成する
             $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
-                                        <input type="file" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" name="product[images_attributes][${labelLength+1}][image]"">
+                                        <input type="file" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" name="product[images_attributes][${labelLength+1}][image]">
                                         <i class="fas fa-camera fa-lg"></i>
                                       </label>`);
           } else {
@@ -67,26 +73,28 @@ $(document).on('turbolinks:load', function(){
     });
   });
 
-//   //削除ボタンが押された時
-//   $(document).on('click', '.preview-image__button__delete', function(){
-//     let targetImageId = $(this).data('image-id');
-//     // イベント元のカスタムデータ属性の値を取得
-//     $(`#upload-image${targetImageId}`).remove();
-//     //プレビューを削除
-//     $(`[for=item_images${targetImageId}]`).remove();
-//     //削除したプレビューに関連したinputを削除
+  //削除ボタンが押された時
+  $(document).on('click', '.preview-image__button__delete', function(){
+    let targetImageId = $(this).data('image-id');
+    // イベント元のカスタムデータ属性の値を取得
+    $(`#upload-image${targetImageId}`).remove();
+    //プレビューを削除
+    $(`[for=item_images${targetImageId}]`).remove();
+    //削除したプレビューに関連したinputを削除
 
-//     let imageLength = $('#output-box').children('li').length;
-//     // 表示されているプレビューの数を数える
-//     if (imageLength ==9) {
-//       let labelLength = $("#image-input>label").eq(-1).data('label-id');
-//       // 表示されているプレビューが９なら,#image-inputの子要素labelの中から最後の要素のカスタムデータidを取得
-//       $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
-//                                   <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" type="file" name="item[images][]">
-//                                   <i class="fas fa-camera fa-lg"></i>
-//                                 </label>`);
-//     };
-//   });
+    let imageLength = $('#output-box').children('li').length;
+    let imageLengthUnder = $('#output-box-under').children('li').length;
+    console.log(imageLength + imageLengthUnder)
+    // 表示されているプレビューの数を数える
+    if (imageLength + imageLengthUnder == 9) {
+      let labelLength = $("#image-input>label").eq(-1).data('label-id');
+      // 表示されているプレビューが９なら,#image-inputの子要素labelの中から最後の要素のカスタムデータidを取得
+      $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
+                                  <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" type="file" name="product[images_attributes][${labelLength+1}][image]">
+                                  <i class="fas fa-camera fa-lg"></i>
+                                </label>`);
+    };
+  });
 
   // f.text_areaの文字数カウント
   $("textarea").keyup(function(){

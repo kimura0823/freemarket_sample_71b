@@ -24,10 +24,10 @@
             = f.fields_for :images do |image|
               = f.label :image, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do
                 = image.file_field :image, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
-                %pre
+                %pre.exihibit-image-guide
                   %i.fas.fa-camera.fa-lg
-                  -# ドラッグアンドドロップ
-                  -# またはクリックしてファイルをアップロード
+                  ドラッグアンドドロップ
+                  またはクリックしてファイルをアップロード
           
           .upper-anchor
           .error-messages#error-image
