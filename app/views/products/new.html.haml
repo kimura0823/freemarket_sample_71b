@@ -1,127 +1,119 @@
-= form_for @product do |f|
-  .main
-    .main_block
-      .main_block_category
-        .main_block_category_box
-          .main_block_category_box_mini
-            .text
-              出品画像
-            .text_logo
-              必須
-          .main_block_category_box_mini
-            .title
-              最大１０枚まで保存できます
-          .main_block_category_box_mini
-            .big_contents
-              #image-box
-                = f.fields_for :images do |image|
-                  = f.label class:"image_label" do
-                    .js-file_group{"data-index" => "#{image.index}"}
-                      = image.file_field :image, class: 'js-file'
-                      %br/
-                    %span.js-remove 削除
-              = f.submit
+.main-block
+  = form_for @product do |f|
+    .category-group
+      .category-group__title
+        .text
+          出品画像
+        .text-caution
+          必須
+      .category-group__note
+        最大10枚まで保存できます
+      .category-group__big-contents
+        #image-box
+          = f.fields_for :images do |image|
+            = f.label class:"image_label" do
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image, class: 'js-file'
+                %br/
+              %span.js-remove 削除
+        = f.submit
 
-      .main_block_category
-        .main_block_category_box
-          .main_block_category_box_mini
-            .text
-              商品名
-            .text_logo
-              必須
-          .main_block_category_box_mini
-            = f.text_field :name, class: "small_contents"
-            %br/
-          .main_block_category_box_mini
-            .text
-              商品の説明
-            .text_logo
-              必須
-          .main_block_category_box_mini
-            = f.text_area :description, cols: "50", wrap: 'hard', class: "description_contents"
-            %br/
+    .category-group
+      .category-group__title
+        .text
+          商品名
+        .text-caution
+          必須
+      .category-group__small-contents
+        = f.text_field :name, class: "small-contents"
+      .category-group__title
+        .text
+          商品の説明
+        .text-caution
+          必須
+      .category-group__small-contents
+        = f.text_area :description, cols: "50", wrap: 'hard', class: "middle-contents"
+        %br/
 
-      .main_block_category
-        .main_block_category_box
-          .main_block_category_box_mini
-            .title
-              商品の詳細
-          .main_block_category_box_mini
-            .text
-              カテゴリー
-            .text_logo
-              必須
-        .main_block_category_box
-          .main_block_category_box_mini.parent-box
-            = f.select :category, @category_parent_array, {}, {class: 'small_contents ', id: 'parent_category'}
-          %br/
-          .main_block_category_box_mini
-            .text
-              ブランド
-            .text_logo2
-              任意
-          .main_block_category_box_mini
-            = f.text_field :brand, class: "small_contents"
-            %br/
-          .main_block_category_box_mini
-            .text
-              商品の状態
-            .text_logo
-              必須
-          .main_block_category_box_mini
-            = f.collection_select :status_id, Status.all, :id, :name
-          %br/
+    .category-group
+      .category-group__genre
+        .genre-title
+          商品の詳細
+      .category-group__title
+        .text
+          カテゴリー
+        .text-caution
+          必須
+      .category-group__small-contents.parent-box
+        = f.select :category, @category_parent_array, {}, {class: 'small-contents ', id: 'parent-category'}
+      %br/
+      .category-group__title
+        .text
+          ブランド
+        .text-caution-option
+          任意
+      .category-group__small-contents
+        = f.text_field :brand, class: "small-contents"
 
-      .main_block_category
-        .main_block_category_box
-          .main_block_category_box_mini
-            .title
-              配送について
-          .main_block_category_box_mini
-            .text
-              配送料の負担
-            .text_logo
-              必須
-          .main_block_category_box_mini.delivery-burden
-            = f.collection_select :burden_id, Burden.all, :id, :name, class: 'delivery-burden'
-          %br/
-          .main_block_category_box_mini
-            .text
-              配送元の地域
-            .text_logo
-              必須
-          .main_block_category_box_mini
-            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
-          %br/
-          .main_block_category_box_mini
-            .text
-              配送までの日数
-            .text_logo
-              必須
-          .main_block_category_box_mini
-            = f.collection_select :days_id, Days.all, :id, :name
-          %br/
+      .category-group__title
+        .text
+          商品の状態
+        .text-caution
+          必須
+      .category-group__small-contents
+        = f.collection_select :status_id, Status.all, :id, :name, class: "small-contents"
+      %br/
 
-      .main_block_category
-        .main_block_category_box
-          .main_block_category_box_mini
-            .title
-              価格
-          .main_block_category_box_mini
-            .text
-              販売価格
-            .text_logo
-              必須
-            = f.label '￥', class: "price_mark"
-            = f.text_field :price, class: "price_contents"
-            %br/
-        .main_block_category_box
-          .main_block_category_box_mini
-            = f.submit '出品する', class: 'price_btn' 
-        .main_block_category_box
-          .main_block_category_box_mini
-            .save_btn
-              下書きに保存する
+    .category-group
+      .category-group__genre
+        .genre-title
+          配送について
+      .category-group__title
+        .text
+          配送料の負担
+        .text-caution
+          必須
+      .category-group__small-contents
+        = f.collection_select :burden_id, Burden.all, :id, :name, class: 'delivery-burden'
+      %br/
+      .category-group__title
+        .text
+          配送元の地域
+        .text-caution
+          必須
+      .category-group__small-contents
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+      %br/
+      .category-group__title
+        .text
+          配送までの日数
+        .text-caution
+          必須
+      .category-group__small-contents
+        = f.collection_select :days_id, Days.all, :id, :name
+      %br/
+
+    .category-group
+      .category-group__genre
+        .genre-title
+          価格
+      .category-group__price-box
+        .category-group__title
+          .text
+            販売価格
+          .text-caution
+            必須
+        .price-contents
+          ¥
+          = f.number_field :price, value: 0, class: "price-contents"
+        %br/
+    .category-group
+      .category-group__small-contents
+        = f.submit '出品する', class: 'price_btn' 
+      .category-group__small-contents
+        .save_btn
+          下書きに保存する
+          
 .exihibition-footer
   .exihibition-footer-box
     %ul.exihibition-list
