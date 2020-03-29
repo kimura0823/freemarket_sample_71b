@@ -16,9 +16,10 @@ $(function(){
       <div class="text-caution">
         必須
       </div>
+      <div class = "error-messages", id ="error-way"></div>
     </div>
     <div class="category-group__small-contents">
-      <select name="product[deliveryway_id]" id="delivery-way">
+      <select name="product[deliveryway_id]" id="delivery-way_id">
         ${insertHTML}
       </select>
     </div>  
@@ -40,7 +41,6 @@ $(function(){
             dataType: 'json'
           })
           .done(function(onsellers){
-            console.log("上")
             $('#delivery-way').remove(); 
             var insertHTML = '';
             onsellers.forEach(function(onseller){
@@ -60,7 +60,6 @@ $(function(){
             dataType: 'json'
           })
           .done(function(onsellers){
-            console.log(deliveryway)
             $('#delivery-way').remove(); 
             var insertHTML = '';
             onsellers.forEach(function(onseller){

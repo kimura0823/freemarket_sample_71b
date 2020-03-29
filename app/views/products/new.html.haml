@@ -9,13 +9,37 @@
       .category-group__note
         最大10枚まで保存できます
       .category-group__image-contents
-        #image-box
-          = f.fields_for :images do |image|
-            = f.label class:"image_label" do
-              .js-file_group{"data-index" => "#{image.index}"}
-                = image.file_field :image, class: 'js-file'
-                %br/
-              .js-remove 削除
+        -# #image-box
+        -#   = f.fields_for :images do |image|
+        -#     = f.label class:"image_label" do
+        -#       -# .js-file_group{"data-index" => "#{image.index}"}
+        -#       = image.file_field :image, class: 'js-file'
+        -#       %br/
+        -#       .js-remove 削除
+
+
+        
+        %ul#output-box
+          %div#image-input{tabindex:"0"}
+            = f.fields_for :images do |image|
+              = f.label :image, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do
+                = image.file_field :image, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
+                %pre
+                  %i.fas.fa-camera.fa-lg
+                  ドラッグアンドドロップ
+                  またはクリックしてファイルをアップロード
+          
+          .upper-anchor
+          .error-messages#error-image
+        %ul#output-box-under
+          .lower-anchor
+
+
+
+
+
+
+
 
     .category-group
       .category-group__title
@@ -23,16 +47,22 @@
           商品名
         .text-caution
           必須
+        .error-messages#error-name
       .category-group__small-contents
-        = f.text_field :name, class: "small-contents"
-      .category-group__title
+        = f.text_field :name, class: "small-contents",id: "error-judge-name"
+
+      .category-group__title.description-box
         .text
           商品の説明
         .text-caution
           必須
+        .error-messages#error-description
+        #word-count
+          \0/1000 
       .category-group__small-contents
-        = f.text_area :description, cols: "50", wrap: 'hard', class: "middle-contents"
+        = f.text_area :description, cols: "50", wrap: 'hard', class: "middle-contents",id: "error-judge-description"
         %br/
+      
 
     .category-group
       .category-group__genre
@@ -43,14 +73,17 @@
           カテゴリー
         .text-caution
           必須
+        .error-messages#error-category
       .category-group__small-contents.parent-box
         = f.select :category, @category_parent_array, {}, {class: 'small-contents ', id: 'parent-category'}
       %br/
+
       .category-group__title
         .text
           ブランド
         .text-caution-option
           任意
+        .error-messages#error-barnd 
       .category-group__small-contents
         = f.text_field :brand, class: "small-contents"
 
@@ -59,6 +92,8 @@
           商品の状態
         .text-caution
           必須
+
+        .error-messages#error-status
       .category-group__small-contents
         = f.collection_select :status_id, Status.all, :id, :name, class: "small-contents"
       %br/
@@ -72,14 +107,17 @@
           配送料の負担
         .text-caution
           必須
+        .error-messages#error-burden
       .category-group__small-contents.delivery-burden
         = f.collection_select :burden_id, Burden.all, :id, :name, class: 'delivery-burden'
       %br/
+
       .category-group__title
         .text
           配送元の地域
         .text-caution
           必須
+        .error-messages#error-prefecture
       .category-group__small-contents
         = f.collection_select :prefecture_id, Prefecture.all, :id, :name
       %br/
@@ -88,6 +126,7 @@
           配送までの日数
         .text-caution
           必須
+        .error-messages#error-days
       .category-group__small-contents
         = f.collection_select :days_id, Days.all, :id, :name
       %br/
@@ -102,9 +141,11 @@
             販売価格
           .text-caution
             必須
+          
         .price-contents
           ¥
-          = f.number_field :price, placeholder: 0, class: "price-contents"
+          = f.number_field :price, placeholder: 0, class: "price-contents", id: "price-contents"
+          .error-messages#error-price
         %br/
     .category-group
       .category-group__small-contents
@@ -121,5 +162,5 @@
       =link_to "特定商取引に関する表記", "#" 
           
     .exihibition-footer__logo
-      =image_tag src = "logo-white.png"
+      =image_tag src = "logo-white.png", class: "exihibition-footer-logo"
       %p ©️FURIMA

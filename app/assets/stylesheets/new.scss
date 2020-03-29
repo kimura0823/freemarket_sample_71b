@@ -1,3 +1,12 @@
+#exhibit-image {
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  margin-left: 5px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
 .exhibition-header{
   @include box-prop (100vw, 15vh, rgb(235, 234, 234));
   text-align: center;
@@ -5,6 +14,10 @@
   font-size: 40px;
   .logo-exhibition{
     color: black;
+    .exhibition-logo{
+      width: 150px;
+      height: 50px;
+    }
   }
 }
 .exhibition-body{
@@ -12,6 +25,7 @@
   background-color: rgb(235, 234, 234);
   box-sizing: border-box;
 }
+
 .main-block{
   width: 50vw;
   height: 100%;
@@ -23,7 +37,6 @@
   min-height: 30px;
   max-height: 700px;
   padding-top: 40px;
-  // border-bottom: double 10px red;
   border-bottom: solid 0.5px rgb(196, 192, 192);
   box-sizing: border-box;
   &__title {
@@ -47,6 +60,17 @@
       @extend .text-caution;
       background-color: gray;
     }
+    .error-messages {
+      margin-left: 20px;
+      color: red;
+    }
+    #word-count {
+      position: absolute;
+      right: 0;
+    }
+  }
+  .description-box {
+    position: relative;
   }
   &__note {
     width: 40vw;
@@ -56,15 +80,27 @@
     margin-top: 15px;
   }
   &__image-contents {
-    width: 40vw;
+    max-width: 40vw;
     height: 25vh;
     margin: 0 auto 40px;
     padding: 10px;
     border: solid 1px rgb(196, 192, 192);
     border-radius: 1em;
+    #output-box{
+      display: flex;
+      // #image-label {
+      //   display: none;
+      // // }
+      // #image-input{
+      //   width: 21px;
+      // }
+    }
+    #output-box-under {
+      display: flex;
+      padding-left: 21px;
+    }
     .js-file_group {
       .js-file {
-
       }
     }
     .js-remove {
@@ -105,7 +141,7 @@
     #product_burden_id{
       @extend #parent-category;
     }
-    #delivery-way{
+    #delivery-way_id{
       @extend #parent-category;
     }
     #product_prefecture_id{
@@ -157,12 +193,12 @@
     display: flex;
     justify-content: center;
     .price-contents {
-      width: 70%;
+      width: 95%;
       align-items: center;
       .price-contents {
         width: 80%;
         height: 3vh;
-        margin: 15px 0 40px;
+        margin-top: 15px;
         padding: 10px;
         border: solid 1px rgb(196, 192, 192);
         border-radius: 1em;
@@ -193,8 +229,9 @@
   
   .exihibition-footer__logo {
     height: 100px;
-    img {
+    .exihibition-footer-logo {
       width: 130px;
+      height: 50px;
       text-align: center;
     }
     p {
