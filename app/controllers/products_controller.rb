@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-    @category_parent_array = ["---"]
+    @category_parent_array = ["---"]  
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
@@ -42,6 +42,7 @@ class ProductsController < ApplicationController
       # @product
       # render :new
     end
+    redirect_to action: 'done'
   end
   
   def show
@@ -77,7 +78,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :description, :status_id, :brand, :burden_id, :deliveryway_id, :days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :price, :description, :status_id, :brand, :burden_id, :judge,:deliveryway_id, :days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def categoryId_params

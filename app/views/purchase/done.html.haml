@@ -1,0 +1,6 @@
+%h2 購入が完了しました！
+%p.link_to=@product.name
+%h3
+= "¥ #{@product.price}"
+=link_to new_user_path do
+  %li.side-bar__menu__list ログアウト
