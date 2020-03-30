@@ -8,9 +8,22 @@ $(function(){
   function appendChidrenBox(insertHTML){
     var deliverywayHtml = '';
     deliverywayHtml = `
-            <select name="product[deliveryway_id]" id="delivery-way">
-              ${insertHTML}
-            </select>`;
+<br>
+    <div class="category-group__title deliveryway-margin">
+      <div class="text">
+        配送の方法
+      </div>
+      <div class="text-caution">
+        必須
+      </div>
+      <div class = "error-messages", id ="error-way"></div>
+    </div>
+    <div class="category-group__small-contents">
+      <select name="product[deliveryway_id]" id="delivery-way_id">
+        ${insertHTML}
+      </select>
+    </div>  
+    `;
     
     $('.delivery-burden').append(deliverywayHtml);
     

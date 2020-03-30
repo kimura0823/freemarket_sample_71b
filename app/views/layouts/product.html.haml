@@ -14,11 +14,10 @@
     %script{ type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
 %body
     
-.exihibition-header
+.exhibition-header
   =link_to products_path, class: "logo-exhibition" do
-    = image_tag  'logo.png',width:150  
-  
+    =image_tag src = "logo.png",width:150, class:"exhibition-logo"
 
 
-
-= yield
+.exhibition-body
+  = yield

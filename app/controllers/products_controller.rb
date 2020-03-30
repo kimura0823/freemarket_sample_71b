@@ -34,11 +34,13 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     categoryId_params
-    if @product.save
-      
+    if @product.save!
       redirect_to root_path
     else
       redirect_to new_product_path
+      # alert(必須事項はすべて入力してください)
+      # @product
+      # render :new
     end
   end
   

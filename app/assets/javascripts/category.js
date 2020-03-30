@@ -7,7 +7,7 @@ $(function(){
   // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
-    childSelectHtml = ` <select class="small_contents" id="child_category" name="category_id">
+    childSelectHtml = ` <select class="small-contents" id="child-category" name="category_id">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                         <select>`;
@@ -16,14 +16,14 @@ $(function(){
   // 孫カテゴリーの表示作成
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
-    grandchildSelectHtml = `<select class="small_contents" id="grandchild_category" name="category_id">
+    grandchildSelectHtml = `<select class="small-contents" id="grandchild-category" name="category_id">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             </select>`;
     $('.parent-box').append(grandchildSelectHtml);
   }
-  $(document).on('change', '#parent_category', function(){
-    var parentCategory = document.getElementById('parent_category').value; 
+  $(document).on('change', '#parent-category', function(){
+    var parentCategory = document.getElementById('parent-category').value; 
     console.log(parentCategory);
     
     if (parentCategory != "---"){ 
@@ -34,8 +34,8 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        $('#child_category').remove(); 
-        $('#grandchild_category').remove();
+        $('#child-category').remove(); 
+        $('#grandchild-category').remove();
         var insertHTML = '';
         children.forEach(function(child){
             insertHTML += appendOption(child);
@@ -51,9 +51,9 @@ $(function(){
     }
   });
   
-  $(document).on('change', '#child_category', function(){
-      $('#child_category').off('change');
-      var childId = $('#child_category option:selected').data('category'); 
+  $(document).on('change', '#child-category', function(){
+      $('#child-category').off('change');
+      var childId = $('#child-category option:selected').data('category'); 
       if (childId != "---"){ 
         $.ajax({
             url: 'get_category_grandchildren',
