@@ -45,17 +45,51 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @image = Image.where(product_id: params[:id])
-    @test = @product.deliveryway_id
-    if @test < 11
-      @deliveryway = Deliverywayonseller.find(@test)
+    @num = @product.deliveryway_id
+    if @num < 11
+      @deliveryway = Deliverywayonseller.find(@num)
     else
-      @deliveryway = Deliverywayonbuyer.find(@test)
+      @deliveryway = Deliverywayonbuyer.find(@num)
     end
   end
   
   def edit
+    # 親セレクトボックスの初期値(配列)
+    @category_parent_array = []
+    # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    # itemに紐づいていいる孫カテゴリーの親である子カテゴリが属している子カテゴリーの一覧を配列で取得
+    @category_child_array = @product.category.parent.parent.children
+
+    # itemに紐づいていいる孫カテゴリーが属している孫カテゴリーの一覧を配列で取得
+    @category_grandchild_array = @product.category.parent.children
+
+    @num = @product.deliveryway_id
+    if @num < 11
+      @deliveryway = Deliverywayonseller.all
+    else
+      @deliveryway = Deliverywayonbuyer.all
+        end
+
+    @times = @image.length
+    @num =0
   end
+
+
+
+
+
+  def get_deliverywayonSeller
+    @get_deliverywayonseller = Deliverywayonseller.all
+  end
+
+  def get_deliverywayonBuyer
+    @get_deliverywayonbuyer = Deliverywayonbuyer.all
+  end
+
+
   
   def update
     if @product.update(product_params)
@@ -87,6 +121,7 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+    @image = Image.where(product_id: params[:id])
   end
 
 end
