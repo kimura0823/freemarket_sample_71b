@@ -81,7 +81,7 @@
   }
   &__image-contents {
     max-width: 40vw;
-    height: 18vh;
+    min-height: 18vh;
     margin: 0 auto 40px;
     padding: 10px;
     border: solid 1px rgb(196, 192, 192);
@@ -144,6 +144,9 @@
       @extend #parent-category;
     }
     #delivery-way_id{
+      @extend #parent-category;
+    }
+    #product_deliveryway_id {
       @extend #parent-category;
     }
     #product_prefecture_id{
