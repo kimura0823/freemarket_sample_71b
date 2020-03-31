@@ -56,21 +56,21 @@
       
 
     - if user_signed_in? && current_user.id != @product.user_id
-      .purchace-box
-        .purchace-box__btn
-          =link_to root_path do
-            購入購入画面に進む
-
-
-      = link_to edit_product_path(@product.id), class:"purchace-box" do
-        .purchace-box__btn
+    .purchace-box
+      .purchace-box__btn
+        =link_to root_path
           購入購入画面に進む
 
-    - if user_signed_in? && current_user.id == @product.user_id
-      =link_to root_path, method: :get, class: "purchace-box" do
-        .purchace-box__btn
-          編集
+
+    = link_to "/products/#{@product.id}/purchase", class:"purchase-box" do
+      .purchace-box__btn
+        購入購入画面に進む
+
+    -# - if user_signed_in? && current_user.id == @product.user_id
+    -#   =link_to root_path, method: :get, class: "purchace-box" do
+    -#     .purchace-box__btn
+    -#       編集
             
-      =link_to product_path(@product.id), method: :delete, class: "purchace-box" do
-        .purchace-box__btn
-          削除
+    -#   =link_to product_path(@product.id), method: :delete, class: "purchace-box" do
+    -#     .purchace-box__btn
+    -#       削除

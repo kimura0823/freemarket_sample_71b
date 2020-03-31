@@ -1,9 +1,8 @@
 class PurchaseController < ApplicationController
 
   require 'payjp'
-
   def index
-    @product = Product.find_by(params[:id])
+    @product = Product.find(params[:product_id])
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -16,10 +15,23 @@ class PurchaseController < ApplicationController
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
-  end
+    end
 
   def pay
-    @product = Product.find_by(params[:id])
+    @product = Product.find(params[:product_id])
+    card = Card.where(user_id: current_user.id).first
+    #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
+    if card.blank?
+      #登録された情報がない場合にカード登録画面に移動
+      redirect_to controller: "card", action: "new"
+    else
+      Payjp.api_key = "sk_test_03c7ba6d1b907829f8fb944e"
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+    
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = "sk_test_03c7ba6d1b907829f8fb944e"
     Payjp::Charge.create(
@@ -31,9 +43,9 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    if@product = Product.find_by(params[:id])
+    if @product = Product.find(params[:product_id])
     @product.update(judge:"sold")
-    @product.save validate: false
+    @product.save 
     else
       redirect_to action: 'done'
     end

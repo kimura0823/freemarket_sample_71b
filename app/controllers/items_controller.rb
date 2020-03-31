@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 before_action :set_product, only: [:edit, :show]
   
-  def index
-  end
+  # def index
+  # end
   
   def new
     @product = Product.new(judge: "出品中")
