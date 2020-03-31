@@ -2,8 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show]
   
   def index
-    @products = Product.includes(:images).order('created_at DESC').limit(3)
-    @product = Product.find_by(params[:id])
+    @products = Product.where(judge: "出品中").order('created_at DESC').limit(3)
     @images = Image.all
   end
   
