@@ -25,7 +25,8 @@
       }
     }
     .topList {
-      @include box-prop (100%, 300px, white);
+      @include box-prop (100%, none, white);
+      min-height: 300px;
       padding-top: 20px;
       &__sub-title{
         margin-bottom: 20px;
