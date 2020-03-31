@@ -29,7 +29,6 @@ $(document).on('turbolinks:load', function(){
                                         <img src='${e.target.result}' title='${file.name}' id='exhibit-image'>
                                       </figure>
                                       <div class="preview-image__button" style="text-align: center;margin-left: 8px;">
-                                        <a class="preview-image__button__edit" href="">編集</a>
                                         <a class="preview-image__button__delete" data-image-id="${labelLength}">削除</a>
                                       </div>
                                     </li>`);
@@ -39,13 +38,12 @@ $(document).on('turbolinks:load', function(){
           //   $("#image-input>label").eq(-1).css('display','none');
           // }
           } else if (imageLengthUnder < 5 ) {
-            $(".category-group__image-contents").css('height','35vh');
+            // $(".category-group__image-contents").css('height','35vh');
             $('.lower-anchor').before(`<li class="preview-image" id="upload-image${labelLength}" data-image-id="${labelLength}">
                                         <div class="preview-image__figure">
                                           <img src='${e.target.result}' title='${file.name}' id='exhibit-image'>
                                         </figure>
                                         <div class="preview-image__button" style="text-align: center;margin-left: 8px;">
-                                          <a class="preview-image__button__edit" href="">編集</a>
                                           <a class="preview-image__button__delete" data-image-id="${labelLength}">削除</a>
                                         </div>
                                       </li>`);
