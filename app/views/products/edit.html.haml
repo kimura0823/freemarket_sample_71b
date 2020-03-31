@@ -1,68 +1,198 @@
-.buy-page
-  .buy-page__header
-    .buy-page__header__logo
-      =link_to root_path do
-        =image_tag "material/logo/logo.png"
-  .buy-page__content
-    .buy-page__content__main
-      .buy-page__content__main__header
-        %h3 購入内容の確認
-      .buy-page__content__main__inner
-        .buy-page__content__main__item
-          .buy-page__content__main__item__buy-img
-            =image_tag "material/syouhin.jpeg"
-          .buy-page__content__main__item__buy-name
-            ファミュ フラワーインフューズド ファインマスク 50ml
-            .buy-page__content__main__item__price
-              金額：¥3,500 （税込）送料込み
-      .buy-page__content__main__inner
-        .buy-page__content__main__payment
-          .buy-page__content__main__payment-amount
-            支払い金額
-          .buy-page__content__main__payment-money
-            ¥3,500
-      .buy-page__content__main__inner
-        .buy-page__content__main__credit
-          %h3 支払方法
-          .buy-page__content__main__credit__list
-            クレジットカード
-            .buy-page__content__main__credit__list__number
-              **** **** 1111
-            .buy-page__content__main__credit__list__number
-              有効期限 3/20
-            .buy-page__content__main__credit__list__img
-              =image_tag "card-img.jpeg"
-      .buy-page__content__main__inner
-        .buy-page__content__main__shipping-address
-          %h3 配送先
-          .buy-user-info-text
-            〒111-1111
-            %br
-            大阪府
-            大阪市
-            中央区難波5-1-60
-            なんばスカイオ
-            %br
-            山田
-            太郎
-        
-        =link_to "#", class:"buy-btn" do
-          .buy-page__content__main__btn
-            購入する
-          
+.main-block
+  = form_for @product do |f|
+    .category-group
+      .category-group__title
+        .text
+          出品画像
+        .text-caution
+          必須
+      .category-group__note
+        最大10枚まで保存できます
+      .category-group__image-contents
+        -# #image-box
+        -#   = f.fields_for :images do |image|
+        -#     = f.label class:"image_label" do
+        -#       -# .js-file_group{"data-index" => "#{image.index}"}
+        -#       = image.file_field :image, class: 'js-file'
+        -#       %br/
+        -#       .js-remove 削除
 
-  .buy-page__footer
-    %ul
-      %li.buy-page__footer__terms
-        =link_to "#" do
-          プライバシーポリシー
-      %li.buy-page__footer__terms
-        =link_to "#" do
-          FURIMA利用規約
-      %li.buy-page__footer__terms
-        =link_to "#" do
-          特定商取引に関する表記
-    .buy-page__footer__logo
-      =image_tag "material/logo/logo-white.png"
+
+        
+        %ul#output-box
+          %div#image-input{tabindex:"0"}
+            = f.fields_for :images do |image|
+              %label.sell-container__content__upload__items__box__label{"data-label-id" => @num, :for => "item_images#{@num}", :style => "display: none;"} 
+                %input.sell-container__content__upload__items__box__input{:id => "item_images#{@num}", :name => "product[images_attributes][#{@num}][image]", :style => "display: none;", :type => "file"}/
+                %i.fas.fa-camera.fa-lg
+              -@num+=1
+            %label.sell-container__content__upload__items__box__label{"data-label-id" => @num, :for => "item_images#{@num}"} 
+              %input.sell-container__content__upload__items__box__input{:id => "item_images#{@num}", :name => "product[images_attributes][#{@num}][image]", :style => "display: none;", :type => "file"}/
+              %i.fas.fa-camera.fa-lg
+
+
+          - @image.first(5).each_with_index do |image ,index|
+            %li.preview-image{"data-image-id" => index, :id => "upload-image#{index}"}
+              .preview-image__figure
+                = image_tag src = image.image.url, id: "exhibit-image" 
+              .preview-image__button{:style => "text-align: center;margin-left: 8px;"}
+                %a.preview-image__button__delete{"data-image-id" => index} 削除
+              
+          .upper-anchor
+        
+        
+        
+        %ul#output-box-under
+          - @image.slice(5..9).each_with_index do |image, index|
+            %li.preview-image{"data-image-id" => index+5, :id => "upload-image#{index+5}"}
+              .preview-image__figure
+                = image_tag src = image.image.url, id: "exhibit-image" 
+              .preview-image__button{:style => "text-align: center;margin-left: 8px;"}
+                %a.preview-image__button__delete{"data-image-id" => index+5} 削除
+
+          .lower-anchor
+          .error-messages#error-image
+
+
+
+
+
+
+
+
+    .category-group
+      .category-group__title
+        .text
+          商品名
+        .text-caution
+          必須
+        .error-messages#error-name
+      .category-group__small-contents
+        = f.text_field :name, class: "small-contents",id: "error-judge-name"
+
+      .category-group__title.description-box
+        .text
+          商品の説明
+        .text-caution
+          必須
+        .error-messages#error-description
+        #word-count
+          \0/1000 
+      .category-group__small-contents
+        = f.text_area :description, cols: "50", wrap: 'hard', class: "middle-contents",id: "error-judge-description"
+        %br/
+      
+
+    .category-group
+      .category-group__genre
+        .genre-titles
+          商品の詳細
+      .category-group__title
+        .text
+          カテゴリー
+        .text-caution
+          必須
+        .error-messages#error-category
+      .category-group__small-contents.parent-box
+        = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @product.category.parent.parent.name), {}, {class: 'small-contents', id: 'parent-category'}
+        = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.parent.id), {}, {class: 'small-contents', id: 'child-category'}
+        = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.id), {}, {class: 'small-contents', id: 'grandchild-category'}
+
+
+      %br/
+      .category-group__title
+        .text
+          ブランド
+        .text-caution-option
+          任意
+        .error-messages#error-barnd 
+      .category-group__small-contents
+        = f.text_field :brand, class: "small-contents"
+
+      .category-group__title
+        .text
+          商品の状態
+        .text-caution
+          必須
+
+        .error-messages#error-status
+      .category-group__small-contents
+        = f.collection_select :status_id, Status.all, :id, :name, class: "small-contents"
+      %br/
+
+    .category-group
+      .category-group__genre
+        .genre-title
+          配送について
+      .category-group__title
+        .text
+          配送料の負担
+        .text-caution
+          必須
+        .error-messages#error-burden
+      .category-group__small-contents.delivery-burden
+        = f.collection_select :burden_id, Burden.all, :id, :name, class: 'small-contents'
+      %br/
+
+      .category-group__title
+        .text
+          配送の方法
+        .text-caution
+          必須
+        .error-messages#error-way
+      .category-group__small-contents
+        = f.collection_select :deliveryway_id, @deliveryway, :id, :way, class: 'small-contents'
+      %br/
+
+      .category-group__title
+        .text
+          配送元の地域
+        .text-caution
+          必須
+        .error-messages#error-prefecture
+      .category-group__small-contents
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+      %br/
+      .category-group__title
+        .text
+          配送までの日数
+        .text-caution
+          必須
+        .error-messages#error-days
+      .category-group__small-contents
+        = f.collection_select :days_id, Days.all, :id, :name
+      %br/
+
+    .category-group
+      .category-group__genre
+        .genre-title
+          価格
+      .category-group__price-box
+        .category-group__title
+          .text
+            販売価格
+          .text-caution
+            必須
+          
+        .price-contents
+          ¥
+          = f.number_field :price, placeholder: 0, class: "price-contents", id: "price-contents"
+          .error-messages#error-price
+        %br/
+    .category-group
+      .category-group__small-contents
+        = f.submit '編集する', class: 'price_btn' 
+      .category-group__small-contents
+        .save_btn
+          下書きに保存する
+
+.exihibition-footer
+  .exihibition-footer-box
+    %ul.exihibition-list
+      =link_to "プライバシーポリシー", "#" 
+      =link_to "FURIMA利用規約", "#" 
+      =link_to "特定商取引に関する表記", "#" 
+          
+    .exihibition-footer__logo
+      =image_tag src = "logo-white.png", class: "exihibition-footer-logo"
       %p ©️FURIMA
-    
