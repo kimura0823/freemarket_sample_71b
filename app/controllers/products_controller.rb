@@ -55,6 +55,7 @@ class ProductsController < ApplicationController
   end
   
   def edit
+    render :layout => 'product'
   end
   
   def update
