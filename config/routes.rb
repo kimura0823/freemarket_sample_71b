@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get 'purchase/index'
   get 'purchase/done'
+
+  root to: 'products#index'
+
   resources :card, only: [:new, :show] do
   collection do
     post 'show', to: 'card#show'
