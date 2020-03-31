@@ -8,8 +8,8 @@ $(function(){
   function appendChidrenBox(insertHTML){
     var deliverywayHtml = '';
     deliverywayHtml = `
-<br>
-    <div class="category-group__title deliveryway-margin">
+
+    <div class="category-group__title deliveryway-margin" id = "delevery-way-title-box">
       <div class="text">
         配送の方法
       </div>
@@ -18,14 +18,13 @@ $(function(){
       </div>
       <div class = "error-messages", id ="error-way"></div>
     </div>
-    <div class="category-group__small-contents">
+    <div class="category-group__small-contents" id = "delevery-way-select-box">
       <select name="product[deliveryway_id]" id="delivery-way_id">
         ${insertHTML}
       </select>
     </div>  
     `;
-    
-    $('.delivery-burden').append(deliverywayHtml);
+    return deliverywayHtml
     
     
   }
@@ -46,7 +45,10 @@ $(function(){
             onsellers.forEach(function(onseller){
               insertHTML += appendOption(onseller);
             });
-            appendChidrenBox(insertHTML);
+            const deliverywayHtml = appendChidrenBox(insertHTML);
+            $('#delevery-way-title-box').remove();
+            $('#delevery-way-select-box').remove();
+            $('.delivery-burden').append(deliverywayHtml);
           })
           .fail(function(){
             alert('カテゴリー取得に失敗しました');
@@ -65,7 +67,10 @@ $(function(){
             onsellers.forEach(function(onseller){
               insertHTML += appendOption(onseller);
             });
-            appendChidrenBox(insertHTML);
+            const deliverywayHtml = appendChidrenBox(insertHTML);
+            $('#delevery-way-title-box').remove();
+            $('#delevery-way-select-box').remove();
+            $('.delivery-burden').append(deliverywayHtml);  
           })
           .fail(function(){
             alert('カテゴリー取得に失敗しました');
