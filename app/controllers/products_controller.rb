@@ -42,7 +42,6 @@ class ProductsController < ApplicationController
       # @product
       # render :new
     end
-    redirect_to action: 'done'
   end
   
   def show
