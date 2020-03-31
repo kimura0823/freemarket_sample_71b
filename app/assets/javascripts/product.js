@@ -1,12 +1,10 @@
 $(document).on('turbolinks:load', function(){
 //   // 画像が選択された時プレビュー表示、inputの親要素のdivをイベント元に指定
   $('#image-input').on('change', function(e){
-
     //ファイルオブジェクトを取得する
     let files = e.target.files;
     $.each(files, function(index, file) {
       let reader = new FileReader();
-
       //画像でない場合は処理終了
       if(file.type.indexOf("image") < 0){
         alert("画像ファイルを指定してください。");
@@ -39,7 +37,7 @@ $(document).on('turbolinks:load', function(){
           //   $("#image-input>label").eq(-1).css('display','none');
           // }
           } else if (imageLengthUnder < 5 ) {
-            $(".category-group__image-contents").css('height','35vh');
+            // $(".category-group__image-contents").css('height','35vh');
             $('.lower-anchor').before(`<li class="preview-image" id="upload-image${labelLength}" data-image-id="${labelLength}">
                                         <div class="preview-image__figure">
                                           <img src='${e.target.result}' title='${file.name}' id='exhibit-image'>
@@ -57,8 +55,7 @@ $(document).on('turbolinks:load', function(){
            imageLengthUnder = $('#output-box-under').children('li').length;
           // 追加された写真を含めた枚数を数える
           if (imageLength < 5 || imageLengthUnder < 5 || imageLength + imageLengthUnder == 9) {
-            console.log(imageLength);
-            console.log(imageLengthUnder);
+
             // 表示されているプレビューが９以下なら、新たにinputを生成する
             $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
                                         <input type="file" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" name="product[images_attributes][${labelLength+1}][image]">
@@ -84,7 +81,6 @@ $(document).on('turbolinks:load', function(){
 
     let imageLength = $('#output-box').children('li').length;
     let imageLengthUnder = $('#output-box-under').children('li').length;
-    console.log(imageLength + imageLengthUnder)
     // 表示されているプレビューの数を数える
     if (imageLength + imageLengthUnder == 9) {
       let labelLength = $("#image-input>label").eq(-1).data('label-id');
@@ -99,7 +95,6 @@ $(document).on('turbolinks:load', function(){
   // f.text_areaの文字数カウント
   $("textarea").keyup(function(){
     let txtcount = $(this).val().length;
-    console.log(txtcount);
     $("#word-count").text(txtcount+ "\/1000");
   });
 
