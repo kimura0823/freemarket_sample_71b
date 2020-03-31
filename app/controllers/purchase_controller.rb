@@ -1,8 +1,7 @@
 class PurchaseController < ApplicationController
-
+  before_action :set_product, only: [:index, :pay,:done]
   require 'payjp'
   def index
-    @product = Product.find(params[:product_id])
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -18,7 +17,6 @@ class PurchaseController < ApplicationController
     end
 
   def pay
-    @product = Product.find(params[:product_id])
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -31,7 +29,6 @@ class PurchaseController < ApplicationController
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
-    
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
@@ -43,7 +40,7 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    if @product = Product.find(params[:product_id])
+    if 
     @product.update(judge:"sold")
     @product.save 
     else
@@ -63,5 +60,7 @@ class PurchaseController < ApplicationController
       #この辺の他コードは関係ない部分なので省略してます
     ).merge(user_id: current_user.id)
   end
-
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
 end
