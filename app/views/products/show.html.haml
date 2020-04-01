@@ -57,10 +57,10 @@
     - if user_signed_in? && current_user.id != @product.user_id
 
       = link_to product_purchase_index_path(@product.id), class:"purchace-box" do
-      .purchace-box
-        .purchace-box__btn
-          =link_to root_path do
-            購入購入画面に進む
+        .purchace-box
+          .purchace-box__btn
+            =link_to root_path do
+              購入購入画面に進む
 
       = link_to edit_product_path(@product.id), class:"purchace-box" do
         .purchace-box__btn
