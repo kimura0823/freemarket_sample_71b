@@ -161,6 +161,9 @@
     #delivery-way_id{
       @extend #parent-category;
     }
+    #product_deliveryway_id {
+      @extend #parent-category;
+    }
     #product_prefecture_id{
       @extend #parent-category;
     }
