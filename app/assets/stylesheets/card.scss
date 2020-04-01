@@ -3,10 +3,10 @@
   &__content{
     height: 350px;
     width: 300px;
+    background-color:white;
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 40px;
-    background-color:white;
     border-radius: 5px;
     text-align: center;
     justify-content: center;
@@ -30,35 +30,34 @@
     justify-content: center;
     text-align: center;
     align-items: center;    
-}
     }
-} 
+  }
+}
+
 label{
   font-size:500;
 }
-
 .payjp-button{
   background-color:red;
   color: red;
 }
 .border{
 border-bottom:1px solid #bbb;
-  
 }
 
 .card-icon-btn{
   width: 120px;
   height: 30px;
+  background-color: skyblue;
+  margin-top: 10px;
   line-height: 30px;
   border-radius: 5px;
-  margin-top: 10px;
   display: inline-block;
   position: relative;
   text-decoration: none;
   text-align: center;
   overflow: hidden;
   font-weight: bold;
-  background-color: skyblue;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
 }
@@ -69,20 +68,19 @@ border-bottom:1px solid #bbb;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
-
 .SelectBtn{
   width: 120px;
   height: 30px;
+  background-color: skyblue;
+  margin-top: 10px;
   line-height: 30px;
   border-radius: 5px;
-  margin-top: 10px;
   display: inline-block;
   position: relative;
   text-decoration: none;
   text-align: center;
   overflow: hidden;
   font-weight: bold;
-  background-color: skyblue;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
 }

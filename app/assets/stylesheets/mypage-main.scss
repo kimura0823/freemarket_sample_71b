@@ -1,8 +1,8 @@
 .mypage-body{
-  display: flex;
   width: 70%;
   height: 700px;
-
+  display: flex;
+}
   .main__contennt{
     width: 500px;
     margin-top: 50px;
@@ -10,9 +10,9 @@
     &__mypage-icon{
       width: 798px;
       height: 250px;
+      margin-bottom: 36px;
       background-image: url(https://i.gyazo.com/f9923f7c393b69147e0c176d04c4468a.png);
       position: relative;
-      margin-bottom: 36px;
       &__image{
         width: 300px;
         height: 200px;
@@ -37,11 +37,9 @@
         width: 100px;
         background-color: gray;
         padding: 40px 179px;
-        // margin:0 0 0 1px;
         border: 1px solid #999;
         border-bottom: none;
         font-size: 0.8em;
-        // display: inline-block;
         vertical-align:  middle;
       }
       .tab-left {
@@ -69,7 +67,4 @@
         background-color: #fff;
       }
     }
-      }
-      
-
-    }
+  }
