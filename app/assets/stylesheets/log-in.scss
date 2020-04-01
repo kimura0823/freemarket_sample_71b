@@ -12,7 +12,7 @@
 }
 
 .form_group {
-  width: calc(100vw / 3);
+  width: 100%;
   margin: 13px auto;
 }
 
@@ -39,9 +39,9 @@ span.caution {
   width: 90%;
   margin: 18px auto 0;
   input {
-    width: 100%;
+    width: 95%;
     margin-top: 5px;
-    padding: 8px 5px;
+    padding: 8px 6px;
   }
 }
 
@@ -53,14 +53,14 @@ span.caution {
 
 .field_checkbox {
   margin: 5px auto;
-  padding: 0 18px;
+  padding: 0 30px;
 }
 
 .actions {
   margin: 5px auto;
   padding: 0 18px;
   &__btn {
-    margin: 10px auto;
+    margin: 20px auto;
     text-align: center;
     .login_btn {
       @include box-prop(130px, 30px, lightgray);
@@ -82,14 +82,3 @@ span.caution {
     }
   }
 }
-
-
-// input.feild_name{
-//   width: 30%;
-//   background-color: rosybrown;
-  
-// }
-
-
-
-
