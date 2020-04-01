@@ -124,18 +124,18 @@
             %h3.genre-title-h3
               アーカイブ
         .genre-lists
-          -@products.each do |product|
+          -@ladies_products.each do |product|
             .genre-list
-              =link_to "#", class: "genre-list__link" do
+              =link_to product_path(product.id), class: "genre-list__link" do
                 .genre-list__link__image-box
-                  =image_tag src="fish-saute.png", class: "genre-list__link__image"
+                  = image_tag @images.find_by(product_id: product.id).image.url, class: "genre-list__link__image"
                 .genre-list__link__body
                   %h3.genre-list__link__body__h3
-                    product1
+                    = product.name
                   .genre-list__link__body__details
                     %ul.details-ul
                       %li.details-li
-                        3000円
+                        = "¥ #{product.price}"
                       %li.details-li
                         = icon('fas', 'star', class: 'box__image-f')
                         0
