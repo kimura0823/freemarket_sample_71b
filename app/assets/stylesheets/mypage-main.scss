@@ -1,49 +1,9 @@
 .mypage-body{
   display: flex;
   width: 70%;
-  height: 670px;
+  height: 700px;
   margin: 0 auto;
 
-  .side-bar{
-    margin: 0 20px;
-    &__menu {
-      width: 300px;
-      margin: 20px;
-      &__list {
-        height: 40px;
-        line-height: 40px;
-        list-style: none;
-        border-bottom: 0.1px solid grey;
-        color:black;
-        margin-right: 30px;
-        padding-left: 10px;
-        background-color: white;
-        cursor: pointer;
-      }
-      &--list {
-        list-style: none;
-        height: 40px;
-        line-height: 40px;
-        background-color: lightgray;
-        margin-right: 30px;
-        padding-left: 10px;
-        color: black;
-      }
-      &__list:hover {
-        background-color:gray;
-        opacity: 0.8;
-      }
-    }
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-
-
-
-  
   .main__contennt{
     width: 500px;
     margin-top: 50px;

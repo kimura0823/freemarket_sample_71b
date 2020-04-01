@@ -60,7 +60,7 @@ h3 {
         float: left;
       }
       &-money {
-        float: right;
+        text-align: center;
       }
     }
     &__credit {
@@ -68,6 +68,7 @@ h3 {
       &__list {
         font-size: 15px;
         padding-bottom: 10px;
+        text-align: center;
         img {
           width: 50px;
         }
@@ -81,6 +82,7 @@ h3 {
     margin: 0 auto;
   }
   .buy-user-info-text {
+    text-align: center;
     font-size: 15px;
   }
 }
@@ -129,3 +131,4 @@ a.buy-btn {
     }
   }
 }
+
