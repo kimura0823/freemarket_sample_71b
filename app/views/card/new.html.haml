@@ -5,9 +5,14 @@
       =image_tag src="visa.png", class: "link-img"
     = form_tag(pay_card_index_path, method: :post, class: 'card-main__content__center-box',  name: "inputForm") do
       %label カード番号
-      = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+      %br
+      = text_field_tag "number", "", class: "card-main__content__center-box__number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+      %br
+      %br
+      .border
       %br
       %label 有効期限
+      %br
       %select#exp_month{name: "exp_month", type: "text"}
         %option{value: ""} --
         %option{value: "1"}01
@@ -37,8 +42,12 @@
         %option{value: "2028"}28
         %option{value: "2029"}29
       %span 年
+      %br 
+      %br
+      .border
       %br
       %label セキュリティコード
+      %br 
       = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
-      #card_token
+      %br
       = submit_tag "確認する", id: "token_submit",class: "card-icon-btn"

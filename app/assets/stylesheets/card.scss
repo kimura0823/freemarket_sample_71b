@@ -24,17 +24,18 @@
 .card-main{
   height: 480px;
   &__content{
-    height: 300px;
+    height: 350px;
     width: 300px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 40px;
     background-color:white;
     border-radius: 5px;
     text-align: center;
     justify-content: center;
     position: relative;
     &__center-box{
+      margin-left: 70px;
       margin-top: 70px;
       position: absolute;
       text-align: center;
@@ -59,4 +60,8 @@ label{
 .payjp-button{
   background-color:red;
   color: red;
+}
+.border{
+border-bottom:1px solid #bbb;
+  
 }
