@@ -1,27 +1,36 @@
 class PurchaseController < ApplicationController
-
+  before_action :set_product, only: [:index, :pay,:done]
   require 'payjp'
-
   def index
-    @product = Product.find_by(params[:id])
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "card", action: "new"
     else
-      Payjp.api_key = "sk_test_03c7ba6d1b907829f8fb944e"
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
-  end
+    end
 
   def pay
-    @product = Product.find_by(params[:id])
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = "sk_test_03c7ba6d1b907829f8fb944e"
+    #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
+    if card.blank?
+      #登録された情報がない場合にカード登録画面に移動
+      redirect_to controller: "card", action: "new"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
     amount: @product.price,
     customer: card.customer_id, #顧客ID
@@ -31,9 +40,9 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    if@product = Product.find_by(params[:id])
+    if 
     @product.update(judge:"sold")
-    @product.save validate: false
+    @product.save 
     else
       redirect_to action: 'done'
     end
@@ -51,5 +60,7 @@ class PurchaseController < ApplicationController
       #この辺の他コードは関係ない部分なので省略してます
     ).merge(user_id: current_user.id)
   end
-
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
 end
