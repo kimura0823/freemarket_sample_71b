@@ -80,10 +80,6 @@ class ProductsController < ApplicationController
     @num =0
   end
 
-
-
-
-
   def get_deliverywayonSeller
     @get_deliverywayonseller = Deliverywayonseller.all
   end
