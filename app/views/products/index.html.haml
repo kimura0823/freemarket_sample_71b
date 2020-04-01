@@ -99,54 +99,23 @@
             %h3.genre-title-h3
               新規投稿商品
         .genre-lists
-          .genre-list
-            =link_to "#", class: "genre-list__link" do
-              .genre-list__link__image-box
-                =image_tag src="fish-saute.png", class: "genre-list__link__image"
-              .genre-list__link__body
-                %h3.genre-list__link__body__h3
-                  product1
-                .genre-list__link__body__details
-                  %ul.details-ul
-                    %li.details-li
-                      3000円
-                    %li.details-li
-                      = icon('fas', 'star', class: 'box__image-f')
-                      0
-                  %p.details-p
-                    (税込)
-          .genre-list
-            =link_to "#", class: "genre-list__link" do
-              .genre-list__link__image-box
-                =image_tag src="ginger-pork.png", class: "genre-list__link__image"
-              .genre-list__link__body
-                %h3.genre-list__link__body__h3
-                  product1
-                .genre-list__link__body__details
-                  %ul.details-ul
-                    %li.details-li
-                      3000円
-                    %li.details-li
-                      = icon('fas', 'star', class: 'box__image-f')
-                      0
-                  %p.details-p
-                    (税込)
-          .genre-list
-            =link_to "#", class: "genre-list__link" do
-              .genre-list__link__image-box
-                =image_tag src="curry.png", class: "genre-list__link__image"
-              .genre-list__link__body
-                %h3.genre-list__link__body__h3
-                  product1
-                .genre-list__link__body__details
-                  %ul.details-ul
-                    %li.details-li
-                      3000円
-                    %li.details-li
-                      = icon('fas', 'star', class: 'box__image-f')
-                      0
-                  %p.details-p
-                    (税込)
+          -@products.each do |product|
+            .genre-list
+              =link_to product_path(product.id), class: "genre-list__link" do
+                .genre-list__link__image-box
+                  = image_tag @images.find_by(product_id: product.id).image.url, class: "genre-list__link__image"
+                .genre-list__link__body
+                  %h3.genre-list__link__body__h3
+                    = product.name
+                  .genre-list__link__body__details
+                    %ul.details-ul
+                      %li.details-li
+                        = "¥ #{product.price}"
+                      %li.details-li
+                        = icon('fas', 'star', class: 'box__image-f')
+                        0
+                    %p.details-p
+                      (税込)
     
     .topPicup.brand
       %h2.topPicup__subtitile
@@ -157,54 +126,23 @@
             %h3.genre-title-h3
               アーカイブ
         .genre-lists
-          .genre-list
-            =link_to "#", class: "genre-list__link" do
-              .genre-list__link__image-box
-                =image_tag src="fish-saute.png", class: "genre-list__link__image"
-              .genre-list__link__body
-                %h3.genre-list__link__body__h3
-                  product1
-                .genre-list__link__body__details
-                  %ul.details-ul
-                    %li.details-li
-                      3000円
-                    %li.details-li
-                      = icon('fas', 'star', class: 'box__image-f')
-                      0
-                  %p.details-p
-                    (税込)
-          .genre-list
-            =link_to "#", class: "genre-list__link" do
-              .genre-list__link__image-box
-                =image_tag src="ginger-pork.png", class: "genre-list__link__image"
-              .genre-list__link__body
-                %h3.genre-list__link__body__h3
-                  product1
-                .genre-list__link__body__details
-                  %ul.details-ul
-                    %li.details-li
-                      3000円
-                    %li.details-li
-                      = icon('fas', 'star', class: 'box__image-f')
-                      0
-                  %p.details-p
-                    (税込)
-          .genre-list
-            =link_to "#", class: "genre-list__link" do
-              .genre-list__link__image-box
-                =image_tag src="curry.png", class: "genre-list__link__image"
-              .genre-list__body
-                %h3.genre-list__link__body__h3
-                  product1
-                .genre-list__link__body__details
-                  %ul.details-ul
-                    %li.details-li
-                      3000円
-                    %li.details-li
-                      = icon('fas', 'star', class: 'box__image-f')
-                      0
-                  %p.details-p
-                    (税込)
+          -@ladies_products.each do |product|
+            .genre-list
+              =link_to product_path(product.id), class: "genre-list__link" do
+                .genre-list__link__image-box
+                  = image_tag @images.find_by(product_id: product.id).image.url, class: "genre-list__link__image"
+                .genre-list__link__body
+                  %h3.genre-list__link__body__h3
+                    = product.name
+                  .genre-list__link__body__details
+                    %ul.details-ul
+                      %li.details-li
+                        = "¥ #{product.price}"
+                      %li.details-li
+                        = icon('fas', 'star', class: 'box__image-f')
+                        0
+                    %p.details-p
+                      (税込)
 
   .appBanner
     .appBanner__center-box
