@@ -62,7 +62,6 @@ $(document).on('turbolinks:load', function(){
                                         <i class="fas fa-camera fa-lg"></i>
                                       </label>`);
           } else {
-            $("#image-input").css('width','21px');
           }
         };
       })(file);
@@ -77,7 +76,10 @@ $(document).on('turbolinks:load', function(){
     $(`#upload-image${targetImageId}`).remove();
     //プレビューを削除
     $(`[for=item_images${targetImageId}]`).remove();
-    //削除したプレビューに関連したinputを削除
+    // 該当indexを振られているチェックボックスを取得する
+    const hiddenCheck = $(`#product_images_attributes_${targetImageId}__destroy`);
+    // もしチェックボックスが存在すればチェックを入れる
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
 
     let imageLength = $('#output-box').children('li').length;
     let imageLengthUnder = $('#output-box-under').children('li').length;
@@ -273,8 +275,8 @@ $(document).on('turbolinks:load', function(){
     //価格
     $('.price-contents').on('blur',function(){
       let value = $(this).val();
-      if(value < 300 || value > 9999999){
-        $('#error-price').text('300以上9999999以下で入力してください');
+      if(value < 50 || value > 9999999){
+        $('#error-price').text('51以上9999999以下で入力してください');
         $(this).css('border-color','red');
       }else{
         $('#error-price').text('');

@@ -9,26 +9,22 @@
       .category-group__note
         最大10枚まで保存できます
       .category-group__image-contents
-        -# #image-box
-        -#   = f.fields_for :images do |image|
-        -#     = f.label class:"image_label" do
-        -#       -# .js-file_group{"data-index" => "#{image.index}"}
-        -#       = image.file_field :image, class: 'js-file'
-        -#       %br/
-        -#       .js-remove 削除
-
-
-        
         %ul#output-box
           %div#image-input{tabindex:"0"}
+            -#写真の枚数分inputを作成
             = f.fields_for :images do |image|
-              %label.sell-container__content__upload__items__box__label{"data-label-id" => @num, :for => "item_images#{@num}", :style => "display: none;"} 
-                %input.sell-container__content__upload__items__box__input{:id => "item_images#{@num}", :name => "product[images_attributes][#{@num}][image]", :style => "display: none;", :type => "file"}/
+              .js-file_group{"data-index" => "#{image.index}"}
+                = f.label :image, for: "item_images#{image.index}", class: 'sell-container__content__upload__items__box__label', data: {label_id: image.index }, style: "display: none;" do
+                  = image.file_field :image, class: "sell-container__content__upload__items__box__input", id: "item_images#{image.index}", style: 'display: none;' do
+                    %i.fas.fa-camera.fa-lg
+                -#写真の枚数分checkboxを作成
+              - if @product.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy', style: "display: none;"
+          
+            - if @product.persisted?
+              = f.label :image, for: "item_images#{@product.images.count}", class: 'sell-container__content__upload__items__box__label', data: {label_id: @product.images.count } do
+                = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file',id: "item_images#{@product.images.count}", style: "display: none;"
                 %i.fas.fa-camera.fa-lg
-              -@num+=1
-            %label.sell-container__content__upload__items__box__label{"data-label-id" => @num, :for => "item_images#{@num}"} 
-              %input.sell-container__content__upload__items__box__input{:id => "item_images#{@num}", :name => "product[images_attributes][#{@num}][image]", :style => "display: none;", :type => "file"}/
-              %i.fas.fa-camera.fa-lg
 
 
           - @image.first(5).each_with_index do |image ,index|
@@ -43,12 +39,13 @@
         
         
         %ul#output-box-under
-          - @image.slice(5..9).each_with_index do |image, index|
-            %li.preview-image{"data-image-id" => index+5, :id => "upload-image#{index+5}"}
-              .preview-image__figure
-                = image_tag src = image.image.url, id: "exhibit-image" 
-              .preview-image__button{:style => "text-align: center;margin-left: 8px;"}
-                %a.preview-image__button__delete{"data-image-id" => index+5} 削除
+          -if @image.length > 5
+            - @image.slice(5..9).each_with_index do |image, index|
+              %li.preview-image{"data-image-id" => index+5, :id => "upload-image#{index+5}"}
+                .preview-image__figure
+                  = image_tag src = image.image.url, id: "exhibit-image" 
+                .preview-image__button{:style => "text-align: center;margin-left: 8px;"}
+                  %a.preview-image__button__delete{"data-image-id" => index+5} 削除
 
           .lower-anchor
           .error-messages#error-image
@@ -85,7 +82,7 @@
 
     .category-group
       .category-group__genre
-        .genre-titles
+        .genre-title
           商品の詳細
       .category-group__title
         .text
@@ -134,13 +131,13 @@
         = f.collection_select :burden_id, Burden.all, :id, :name, class: 'small-contents'
       %br/
 
-      .category-group__title
+      .category-group__title#deliveryway
         .text
           配送の方法
         .text-caution
           必須
         .error-messages#error-way
-      .category-group__small-contents
+      .category-group__small-contents#deliveryway-select
         = f.collection_select :deliveryway_id, @deliveryway, :id, :way, class: 'small-contents'
       %br/
 

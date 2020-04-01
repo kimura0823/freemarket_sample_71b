@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     categoryId_params
-    if @product.save!
+    if @product.save
       redirect_to root_path
     else
       redirect_to new_product_path
@@ -92,10 +92,13 @@ class ProductsController < ApplicationController
 
   
   def update
-    if @product.update(product_params)
+    @product = Product.find(params[:id])
+    if @product.update(product_params) 
       redirect_to root_path
     else
-      render :edit
+      redirect_to edit_product_path
+      # render :edit
+
     end
   end
   
@@ -111,7 +114,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :description, :status_id, :brand, :burden_id, :deliveryway_id, :days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :price, :description, :status_id, :brand, :burden_id, :deliveryway_id, :days_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def categoryId_params
