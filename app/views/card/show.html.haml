@@ -1,15 +1,20 @@
 .card-main
-  .card-main__content2
-    %label 登録クレジットカード情報
-    %br
-    = "**** **** **** " + @default_card_information.last4
-    %br
-    - exp_month = @default_card_information.exp_month.to_s
-    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-    = exp_month + " / " + exp_year
-    = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-      %input{ type: "hidden", name: "card_id", value: "" }
-      %button 削除する
-    =link_to root_path do
+  .card-main__content
+    .card-main__content__information
+      %label 登録クレジットカード情報
       %br
-      %p 一覧に戻る
+      = "**** **** **** " + @default_card_information.last4
+      %br
+      %label 有効期限（月/年)
+      %br
+      - exp_month = @default_card_information.exp_month.to_s
+      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      = exp_month + " / " + exp_year
+      %br
+      %br
+      = form_tag(delete_card_index_path, method: :post, id: 'charge-form', name: "inputForm") do
+        %input{ type: "hidden", name: "card_id", value: ""}
+        %button{class: "SelectBtn", type: "submit"} 削除する 
+      =link_to root_path do
+        %br
+        %button{class: "SelectBtn", type: "submit"} 一覧に戻る

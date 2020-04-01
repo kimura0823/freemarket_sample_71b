@@ -1,26 +1,3 @@
-.card-icon-btn{
-  width: 120px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 5px;
-  margin-top: 10px;
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  overflow: hidden;
-  font-weight: bold;
-  background-color: skyblue;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
-}
-
-.card-icon:active {
-  -webkit-transform: translateY(2px);
-  transform: translateY(2px);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-}
-
 .card-main{
   height: 480px;
   &__content{
@@ -46,13 +23,16 @@
       text-align: center;
       position: absolute;
     }
-  }
-  &__content2{
+    &__information{
+    margin-top: 50px;
+    margin-left: 70px;
+    position: absolute;
     justify-content: center;
     text-align: center;
-    align-items: center;
-  }
+    align-items: center;    
 }
+    }
+} 
 label{
   font-size:500;
 }
@@ -64,4 +44,51 @@ label{
 .border{
 border-bottom:1px solid #bbb;
   
+}
+
+.card-icon-btn{
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-color: skyblue;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.card-icon:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+
+.SelectBtn{
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-color: skyblue;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.SelectBtn:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
 }
