@@ -11,7 +11,7 @@
         %tr 
         %th 出品者
         %td
-          =link_to users_path(current_user.id), class: "detail-data detail-data-name" do
+          =link_to product_path(@product.id), class: "detail-data detail-data-name" do
             = @product.user.nickname
         %tr  
         %th カテゴリー
