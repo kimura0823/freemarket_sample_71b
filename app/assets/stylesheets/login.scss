@@ -1,0 +1,95 @@
+.contents_row {
+  width: 100vw;
+  height: 100%;
+  // padding-bottom: 65px;
+  box-sizing: border-box;
+}
+
+.container {
+  @include box-prop(40vw, 100%, white);
+  margin: 48px auto;
+  padding: 10px 20px;
+}
+
+.form_group {
+  width: calc(100vw / 3);
+  margin: 13px auto;
+}
+
+h2.pagetitle {
+  border-bottom: 0.5px solid rgb(196, 192, 192);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+span.caution {
+  @include box-prop(50px, 20px, red);
+  padding: 3px;
+  margin-left: 5px;
+  color: white;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 0.5em;
+}
+
+.field {
+  width: 90%;
+  margin: 18px auto 0;
+  input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px 5px;
+  }
+}
+
+.field label{
+  margin-bottom: 10px;
+  font-weight: 700;
+  padding-left: 2px;
+}
+
+.field_checkbox {
+  margin: 5px auto;
+  padding: 0 18px;
+}
+
+.actions {
+  margin: 5px auto;
+  padding: 0 18px;
+  &__btn {
+    margin: 10px auto;
+    text-align: center;
+    .login_btn {
+      @include box-prop(130px, 30px, lightgray);
+      line-height: 30px;
+      border-radius: 0.8em;
+      cursor: pointer;
+    }
+    .login_btn:hover {
+      background-color: #3CCACE;
+    }
+    .next_btn {
+      @include box-prop(130px, 30px, lightgray);
+      line-height: 30px;
+      border-radius: 0.8em;
+      cursor: pointer;
+    }
+    .next_btn:hover {
+      background-color:gray;
+    }
+  }
+}
+
+
+// input.feild_name{
+//   width: 30%;
+//   background-color: rosybrown;
+  
+// }
+
+
+
+
