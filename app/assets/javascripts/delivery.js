@@ -78,7 +78,9 @@ $(function(){
         }
      
     }else{
-      $('#delivery-way').remove(); 
+      $('#delevery-way-title-box').remove();
+      $('#delevery-way-select-box').remove();
+      $('.delivery-burden').append(deliverywayHtml);
     };
   
   });
