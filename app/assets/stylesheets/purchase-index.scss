@@ -39,10 +39,11 @@ h3.buy-title {
     @include flex_between(flex,space-between);
     padding: 10px;
     img {
-      width: 25%;
+      width: 24%;
     }
     &__buy-name {
     margin-left: 5px;
+    padding: 5px;
     }
   }
   .buy-price {
