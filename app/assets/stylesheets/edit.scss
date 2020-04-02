@@ -33,6 +33,10 @@ h3 {
       margin: 0 auto;
       border-top: 0.5px solid #E9E9E9;
     }
+    &__btn{
+      width: 100%;
+      text-align: center;
+    }
     &__item {
       margin: 0 auto;
       &__buy-img {
@@ -85,6 +89,7 @@ h3 {
     text-align: center;
     font-size: 15px;
   }
+  
 }
 
 a.buy-btn {
