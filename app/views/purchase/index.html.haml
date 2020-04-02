@@ -27,7 +27,7 @@
           .buy-page__content__main__credit__list__number
             有効期限 3/20
           .buy-page__content__main__credit__list__img
-            =image_tag "card-img.jpeg"
+            
       .buy-page__content__main__inner
         .buy-page__content__main__shipping-address
           %h3 配送先
@@ -42,10 +42,10 @@
             山田
             太郎
         
-        -# =link_to "pay_product_purchase_index_path(@product.id)", class:"buy-btn" do
-        -#   .buy-page__content__main__btn
-        = form_tag(action: :pay, method: :post) do
-          %button 購入する
+
+      .buy-page__content__main__btn
+        = form_tag(action: :pay, method: :post, class: :SelectBtn) do
+          %button{class: "SelectBtn", type: "submit"} 購入する
           
 
   .buy-page__footer
