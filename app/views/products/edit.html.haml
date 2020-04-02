@@ -122,15 +122,15 @@
         .error-messages#error-burden
       .category-group__small-contents.delivery-burden
         = f.collection_select :burden_id, Burden.all, :id, :name, class: 'small-contents'
-      %br/
+      -# %br/
 
-      .category-group__title#deliveryway
+      .category-group__title.deliveryway-margin#deliveryway
         .text
           配送の方法
         .text-caution
           必須
         .error-messages#error-way
-      .category-group__small-contents#deliveryway-select
+      .category-group__small-contents#delivery-way-select-box
         = f.collection_select :deliveryway_id, @deliveryway, :id, :way, class: 'small-contents'
       %br/
 

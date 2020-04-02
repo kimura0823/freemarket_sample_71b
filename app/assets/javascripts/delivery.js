@@ -9,7 +9,7 @@ $(function(){
     var deliverywayHtml = '';
     deliverywayHtml = `
 
-    
+
     <div class="category-group__title deliveryway-margin" id="deliveryway">
       <div class="text">
         配送の方法
@@ -19,7 +19,7 @@ $(function(){
       </div>
       <div class = "error-messages", id ="error-way"></div>
     </div>
-    <div class="category-group__small-contents" id = "delevery-way-select-box">
+    <div class="category-group__small-contents" id = "delivery-way-select-box">
       <select name="product[deliveryway_id]" id="delivery-way_id">
         ${insertHTML}
       </select>
@@ -42,7 +42,7 @@ $(function(){
             dataType: 'json'
           })
           .done(function(onsellers){
-            $('#deliveryway-select').remove(); 
+            $('#delivery-way-select-box').remove(); 
             $('#delivery-way_id').remove(); 
             $('#deliveryway').remove(); 
             var insertHTML = '';
@@ -50,9 +50,9 @@ $(function(){
               insertHTML += appendOption(onseller);
             });
             const deliverywayHtml = appendChidrenBox(insertHTML);
-            $('#delevery-way-title-box').remove();
+            $('#deliveryway').remove();
             $('#delevery-way-select-box').remove();
-            $('.delivery-burden').append(deliverywayHtml);
+            $('.delivery-burden').after(deliverywayHtml);
           })
           .fail(function(){
             alert('カテゴリー取得に失敗しました');
@@ -66,7 +66,7 @@ $(function(){
             dataType: 'json'
           })
           .done(function(onsellers){
-            $('#deliveryway-select').remove(); 
+            $('#delivery-way-select-box').remove(); 
             $('#delivery-way_id').remove(); 
             $('#deliveryway').remove(); 
             var insertHTML = '';
@@ -74,9 +74,9 @@ $(function(){
               insertHTML += appendOption(onseller);
             });
             const deliverywayHtml = appendChidrenBox(insertHTML);
-            $('#delevery-way-title-box').remove();
+            $('#delevery-way').remove();
             $('#delevery-way-select-box').remove();
-            $('.delivery-burden').append(deliverywayHtml);  
+            $('.delivery-burden').after(deliverywayHtml);  
           })
           .fail(function(){
             alert('カテゴリー取得に失敗しました');
@@ -84,9 +84,10 @@ $(function(){
         }
      
     }else{
-      $('#delevery-way-title-box').remove();
-      $('#delevery-way-select-box').remove();
-      $('#deliveryway').remove();
+
+      $('.deliveryway-margin').remove();
+      $('#delivery-way-select-box').remove();
+
     };
   
   });

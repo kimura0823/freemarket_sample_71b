@@ -83,19 +83,19 @@
     font-size: 20px;
 
   }
-  .purchace-box{
-    height: 100px;
-    margin-bottom: 20px;
-    display: block;
-    cursor: pointer;
-      &__btn{
+
+      .purchace-box__btn{
         background-color: red;
         color: white;
         font-size: 30px;
         text-align: center;
         list-style: none;
       }
-    }
+      .purchace-box{
+        // line-height: 100px
+        color: black;
+      }
+    // }
   }
 
 }

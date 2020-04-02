@@ -46,8 +46,8 @@ $(function(){
           alert('カテゴリー取得に失敗しました');
         });
     }else{
-      $('#children_wrapper').remove(); 
-      $('#grandchildren_wrapper').remove();
+      $('#child-category').remove(); 
+      $('#grandchild-category').remove();
     }
   });
   
@@ -64,6 +64,7 @@ $(function(){
         .done(function(grandchildren){
         if (grandchildren.length != 0) {
             $('#grandchildren_wrapper').remove();
+            $('#grandchild-category').remove();
         var insertHTML = '';
         grandchildren.forEach(function(grandchild){
           insertHTML += appendOption(grandchild);
@@ -75,7 +76,7 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#grandchildren_wrapper').remove(); 
+      $('#grandchild-category').remove();
     }
   });
 });

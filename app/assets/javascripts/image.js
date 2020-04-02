@@ -1,4 +1,4 @@
-$(function(e) {  
+$(document).on('turbolinks:load', function(){
   $('.slider').slick({
     asNavFor:'.icon__image',
     arrows: false,
