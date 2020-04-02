@@ -1,31 +1,41 @@
-%h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :"郵便番号"
-    %br/
-    = f.text_field :postcode, autofocus: true
-  .field
-    = f.label :"都道府県"
-    %br/
-    = f.collection_select :prefecture_id, Prefecture.where.not(name: '未定'), :id, :name
-    -# = f.text_field :prefecture, autofocus: true
-  .field
-    = f.label :"市区町村"
-    %br/
-    = f.text_field :city, autofocus: true
-  .field
-    = f.label :"番地"
-    %br/
-    = f.text_field :address, autofocus: true
-  .field
-    = f.label :"建物名"
-    %br/
-    = f.text_field :address2, autofocus: true
-  .field
-    = f.label :"電話番号"
-    %br/
-    = f.text_field :tel, autofocus: true
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.contents_row
+  .container
+    %h2.pagetitle 住所情報登録
+    = form_for @address do |f|
+      = render "devise/shared/error_messages", resource: @address
+      .form_group
+        .field
+          = f.label :"郵便番号"
+          %span.caution 必須
+          %br/
+          = f.text_field :postcode, autofocus: true, placeholder: "例）123-4567"
+        .field
+          = f.label :"都道府県"
+          %span.caution 必須
+          %br/
+          = f.collection_select :prefecture_id, Prefecture.where.not(name: '未定'), :id, :name
+          -# = f.text_field :prefecture, autofocus: true
+        .field
+          = f.label :"市区町村"
+          %span.caution 必須
+          %br/
+          = f.text_field :city, autofocus: true, placeholder: "例）大阪市中央区"
+        .field
+          = f.label :"番地"
+          %span.caution 必須
+          %br/
+          = f.text_field :address, autofocus: true, placeholder: "例）難波5-1-60" 
+        .field
+          = f.label :"建物名"
+          %span.caution-any 任意
+          %br/
+          = f.text_field :address2, autofocus: true, placeholder: "例）なんばスカイオ15階" 
+        .field
+          = f.label :"電話番号"
+          %span.caution 必須
+          %br/
+          = f.text_field :tel, autofocus: true, placeholder: "例）09012345678" 
+        .actions
+          .actions__btn
+            = f.submit "新規登録", class:"signin_btn"
+          = render "devise/shared/links"

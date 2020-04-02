@@ -1,0 +1,23 @@
+.field {
+  .field_name {
+    width: calc(95% / 3);
+  }
+  #user_birthdayy_id {
+    @include box-prop(100px, 40px, white);
+    margin-top: 5px;
+  }
+
+  #user_birthdaym_id, #user_birthdayd_id {
+    @include box-prop(80px, 40px, white);
+    margin-top: 5px;
+  }
+
+  .identification__form__field__lavel {
+    margin: 0 3px;
+  }
+
+  #address_prefecture_id {
+    @include box-prop(150px, 40px, white);
+    margin-top: 5px;
+  }
+}
