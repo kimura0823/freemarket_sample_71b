@@ -22,9 +22,9 @@ $(function(){
                             </select>`;
     $('.parent-box').append(grandchildSelectHtml);
   }
-  $(document).on('change', '#parent-category', function(){
+  $('.category-group').on('change', '#parent-category', function(){
+    console.log("ok")
     var parentCategory = document.getElementById('parent-category').value; 
-    console.log(parentCategory);
     
     if (parentCategory != "---"){ 
       $.ajax({
@@ -56,11 +56,11 @@ $(function(){
       var childId = $('#child-category option:selected').data('category'); 
       if (childId != "---"){ 
         $.ajax({
-            url: 'get_category_grandchildren',
-            type: 'GET',
-            data: { child_id: childId },
-            dataType: 'json'
-          })
+          type: 'GET',
+          url: '/products/get_category_grandchildren',
+          data: { child_id: childId },
+          dataType: 'json'
+        })
         .done(function(grandchildren){
         if (grandchildren.length != 0) {
             $('#grandchildren_wrapper').remove();
