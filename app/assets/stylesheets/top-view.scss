@@ -186,8 +186,23 @@
             &__link{
               &__image-box {
                 height: 100px;
+                position: relative;
+                overflow-x: hidden;
                 .genre-list__link__image {
                   @include box-prop (100%, 100%, none);
+                }
+                .triangle-box {
+                  position: absolute;           /* 必須(絶対配置にするため) */
+                  top: -46px;                   /* 掲載位置の調整(座標) */
+                  left: -100px;                  /* 掲載位置の調整(座標) */
+                  background-color: red;
+                  margin: 0;
+                  padding: 80px 40px 0 40px;    /* サイズ調整：配置 */
+                  font-size: 1em;               /* サイズ調整：文字 */
+                  line-height: 1.3;             /* サイズ調整：行高 */
+                  transform: rotate(-45deg);    /* 傾きの度合い */
+                  transform-origin:top;    /* 傾きの軸 */
+                  text-align: center;
                 }
               }
               &__body {

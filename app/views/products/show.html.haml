@@ -13,6 +13,10 @@
         %td
           =link_to user_path(@product.user_id), class: "detail-data detail-data-name" do
             = @product.user.nickname
+        %tr 
+        %th 商品名
+        %td
+          = @product.name
         %tr  
         %th カテゴリー
         %td

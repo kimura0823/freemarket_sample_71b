@@ -22,18 +22,6 @@ end
   end
 
   root to: 'products#index'
-
-  # resources :purchase, only: [:show,:update] do
-  #   collection do
-  #     post 'show', to: 'purchase#show'
-  #     post 'pay', to: 'purchase#pay'
-  #     get 'done', to: 'purchase#done'
-      
-  #   end
-  # end
-  
-  
-
   
   resources :users
 
