@@ -12,10 +12,37 @@
         .slider{
           width: 320px;
           height: 320px;
-          .top-image {
-            max-width: 320;
-            max-height: 320px;
+          position: relative;
+          overflow-x: hidden;
+          .slick-track {
+            .sold-out-box {
+              width: 100%;
+              height: 100%;
+              position: relative;
+              overflow-x: hidden;
+              .top-image {
+                max-width: 320;
+                max-height: 320px;
+              }
+              .triangle-box {
+                position: absolute;           /* 必須(絶対配置にするため) */
+                top: -15px;                   /* 掲載位置の調整(座標) */
+                left: -130px;                  /* 掲載位置の調整(座標) */
+                background-color: rgba(255,0,0,0.4);
+                width: 140px;
+                height: 120px;
+                padding: 10px 40px 0 40px;    /* サイズ調整：配置 */
+                font-size: 50px;               /* サイズ調整：文字 */
+                line-height: 180px;             /* サイズ調整：行高 */
+                transform: rotate(-45deg);    /* 傾きの度合い */
+                transform-origin:top;    /* 傾きの軸 */
+                text-align: center;
+                font-weight: bold;
+              }
+            }
+            
           }
+          
         }
         .icon__image {
           max-width: 320px;
@@ -95,10 +122,12 @@
         margin-top: 30px;
       }
       .purchace-box{
-        // line-height: 100px
         color: black;
       }
-    // }
+      .sold-note {
+        margin-bottom: 40px;
+        background-color: gray;
+      }
   }
 
 }
