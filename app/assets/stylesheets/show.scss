@@ -85,18 +85,31 @@
   }
 
       .purchace-box__btn{
-        background-color: red;
+        width: 400px;
+        height: 50px;
+        background-color: #3ccace;
+        font-size: 25px;
         color: white;
-        font-size: 30px;
+        line-height: 50px;
         text-align: center;
-        list-style: none;
-        margin-top: 30px;
+        border-radius: 0.5em;
+        margin: 0 auto 30px;
+        cursor: pointer;
+      }
+      .purchace-box__btn_2{
+        width: 400px;
+        height: 50px;
+        background-color: red;
+        font-size: 25px;
+        color: white;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 0.5em;
+        margin: 0 auto 30px;
+        cursor: pointer;
       }
       .purchace-box{
-        // line-height: 100px
-        color: black;
+        color: white;
       }
-    // }
   }
-
 }
