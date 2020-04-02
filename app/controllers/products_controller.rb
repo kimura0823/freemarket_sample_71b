@@ -56,9 +56,9 @@ class ProductsController < ApplicationController
   end
   
   def edit
-    render :layout => 'product'
     # 親セレクトボックスの初期値(配列)
     @category_parent_array = []
+    @category_parent_array = ["---"]  
     # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -75,9 +75,7 @@ class ProductsController < ApplicationController
     else
       @deliveryway = Deliverywayonbuyer.all
         end
-
-    @times = @image.length
-    @num =0
+    render :layout => 'product'
   end
 
   def get_deliverywayonSeller
@@ -88,8 +86,6 @@ class ProductsController < ApplicationController
     @get_deliverywayonbuyer = Deliverywayonbuyer.all
   end
 
-
-  
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params) 

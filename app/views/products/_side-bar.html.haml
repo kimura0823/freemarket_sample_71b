@@ -3,7 +3,7 @@
     %ul.side-bar__menu
       %li.side-bar__menu--list 
         ページ項目
-      =link_to users_path do
+      =link_to user_path(current_user) do
         %li.side-bar__menu__list マイページ
       %li.side-bar__menu__list
         いいね！一覧

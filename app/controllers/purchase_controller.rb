@@ -3,12 +3,12 @@ class PurchaseController < ApplicationController
   require 'payjp'
   
   def index
-    render :layout => 'product'
+    
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
+      redirect_to controller: "card", action: "new" and return
     else
       Payjp.api_key = "sk_test_03c7ba6d1b907829f8fb944e"
       #保管した顧客IDでpayjpから情報取得
@@ -16,6 +16,7 @@ class PurchaseController < ApplicationController
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+    render :layout => 'product'
     end
 
   def pay
