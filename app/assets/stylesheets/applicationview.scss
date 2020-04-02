@@ -64,6 +64,8 @@
     
     
     .body {
+      min-height: 50vh;
+    
     }
     .footer {
       padding: 20px 0 10px;
@@ -76,7 +78,7 @@
         justify-content: center;
         margin: 0 auto;
         .content {
-          width: calc(1 / 5 * 100%);
+          width: calc(2 / 5 * 100%);
           margin-right: 20px;
           text-align: center;
           font-size: 10px;
