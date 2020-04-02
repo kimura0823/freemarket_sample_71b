@@ -51,18 +51,18 @@
           .price-taxin-msg
             税込(送料込み)
     
-    -# .show-group__description-box
-    -#   = simple_format(@product.description)
+    .show-group__description-box
+      = simple_format(@product.description)
 
     - if user_signed_in? && current_user.id != @product.user_id
       .purchace-box__btn
         = link_to product_purchase_index_path(@product.id), class:"purchace-box" do
           購入画面に進む
 
-    -# - if user_signed_in? && current_user.id == @product.user_id
-    -#   =link_to edit_product_path, method: :get, class: "purchace-box" do
-    -#     .purchace-box__btn
-    -#       編集
-    -#   =link_to product_path(@product.id), method: :delete, class: "purchace-box" do
-    -#     .purchace-box__btn
-    -#       削除
+    - if user_signed_in? && current_user.id == @product.user_id
+      =link_to edit_product_path, method: :get, class: "purchace-box" do
+        .purchace-box__btn
+          編集
+      =link_to product_path(@product.id), method: :delete, class: "purchace-box" do
+        .purchace-box__btn
+          削除
