@@ -3,7 +3,6 @@ class PurchaseController < ApplicationController
   require 'payjp'
   
   def index
-    
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -63,6 +62,7 @@ class PurchaseController < ApplicationController
       #この辺の他コードは関係ない部分なので省略してます
     ).merge(user_id: current_user.id)
   end
+
   def set_product
     @product = Product.find(params[:product_id])
   end
