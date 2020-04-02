@@ -65,9 +65,13 @@
         .purchace-box.sold-note
           売り切れました
     - else
-      - if user_signed_in? && current_user.id != @product.user_id
+      -if user_signed_in?
         .purchace-box__btn
           = link_to product_purchase_index_path(@product.id), class:"purchace-box" do
+            購入画面に進む
+      -else
+        .purchace-box__btn
+          = link_to new_user_session_path, class:"purchace-box" do
             購入画面に進む
 
     - if user_signed_in? && current_user.id == @product.user_id
