@@ -53,16 +53,21 @@
     
     .show-group__description-box
       = simple_format(@product.description)
-      
 
     - if user_signed_in? && current_user.id != @product.user_id
 
       = link_to product_purchase_index_path(@product.id), class:"purchace-box" do
+        .purchace-box
+          .purchace-box__btn
+            =link_to root_path do
+              購入購入画面に進む
+
+      = link_to edit_product_path(@product.id), class:"purchace-box" do
         .purchace-box__btn
           購入画面に進む
 
     - if user_signed_in? && current_user.id == @product.user_id
-      =link_to root_path, method: :get, class: "purchace-box" do
+      =link_to edit_product_path, method: :get, class: "purchace-box" do
         .purchace-box__btn
           編集
       =link_to product_path(@product.id), method: :delete, class: "purchace-box" do

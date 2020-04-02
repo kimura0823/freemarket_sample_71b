@@ -1,12 +1,16 @@
 .buy-page
+  .buy-page__header
+    .buy-page__header__logo
+      =link_to root_path do
+        =image_tag "material/logo/logo.png"
   .buy-page__content
     .buy-page__content__main
       .buy-page__content__main__header
-        %h3.buy_title 購入内容の確認
+        %h3 購入内容の確認
       .buy-page__content__main__inner
         .buy-page__content__main__item
           .buy-page__content__main__item__buy-img
-            =image_tag "curry.png"
+            =image_tag "material/syouhin.jpeg"
           .buy-page__content__main__item__buy-name
             ファミュ フラワーインフューズド ファインマスク 50ml
             .buy-page__content__main__item__price
@@ -14,20 +18,20 @@
       .buy-page__content__main__inner
         .buy-page__content__main__payment
           .buy-page__content__main__payment-amount
-          %h3 支払い金額
+            支払い金額
           .buy-page__content__main__payment-money
             ¥3,500
       .buy-page__content__main__inner
         .buy-page__content__main__credit
           %h3 支払方法
-        .buy-page__content__main__credit__list
-          クレジットカード
-          .buy-page__content__main__credit__list__number
-            **** **** 1111
-          .buy-page__content__main__credit__list__number
-            有効期限 3/20
-          .buy-page__content__main__credit__list__img
-            =image_tag "card-img.jpeg"
+          .buy-page__content__main__credit__list
+            クレジットカード
+            .buy-page__content__main__credit__list__number
+              **** **** 1111
+            .buy-page__content__main__credit__list__number
+              有効期限 3/20
+            .buy-page__content__main__credit__list__img
+              =image_tag "card-img.jpeg"
       .buy-page__content__main__inner
         .buy-page__content__main__shipping-address
           %h3 配送先
@@ -42,10 +46,9 @@
             山田
             太郎
         
-        -# =link_to "pay_product_purchase_index_path(@product.id)", class:"buy-btn" do
-        -#   .buy-page__content__main__btn
-        = form_tag(action: :pay, method: :post) do
-          %button 購入する
+        =link_to "#", class:"buy-btn" do
+          .buy-page__content__main__btn
+            購入する
           
 
   .buy-page__footer
@@ -60,8 +63,6 @@
         =link_to "#" do
           特定商取引に関する表記
     .buy-page__footer__logo
-      =image_tag "logo-white.png"
+      =image_tag "material/logo/logo-white.png"
       %p ©️FURIMA
-
-
-      
+    

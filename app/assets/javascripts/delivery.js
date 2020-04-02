@@ -9,7 +9,8 @@ $(function(){
     var deliverywayHtml = '';
     deliverywayHtml = `
 
-    <div class="category-group__title deliveryway-margin" id = "delevery-way-title-box">
+    // <div class="category-group__title deliveryway-margin" id = "delevery-way-title-box">
+    <div class="category-group__title deliveryway-margin" id="deliveryway">
       <div class="text">
         配送の方法
       </div>
@@ -27,6 +28,7 @@ $(function(){
     return deliverywayHtml
     
     
+    
   }
  
   $(document).on('change', '#product_burden_id', function(){
@@ -34,13 +36,15 @@ $(function(){
     if (deliveryway != "1"){ 
         if (deliveryway == "2") {
           $.ajax({
-            url: 'get_deliverywayonSeller',
+            url: '/products/get_deliverywayonSeller',
             type: 'GET',
             data: { deliveryway: deliveryway },
             dataType: 'json'
           })
           .done(function(onsellers){
-            $('#delivery-way').remove(); 
+            $('#deliveryway-select').remove(); 
+            $('#delivery-way_id').remove(); 
+            $('#deliveryway').remove(); 
             var insertHTML = '';
             onsellers.forEach(function(onseller){
               insertHTML += appendOption(onseller);
@@ -56,13 +60,15 @@ $(function(){
         }
         if (deliveryway == "3") {
           $.ajax({
-            url: 'get_deliverywayonBuyer',
+            url: '/products/get_deliverywayonBuyer',
             type: 'GET',
             data: { deliveryway: deliveryway },
             dataType: 'json'
           })
           .done(function(onsellers){
-            $('#delivery-way').remove(); 
+            $('#deliveryway-select').remove(); 
+            $('#delivery-way_id').remove(); 
+            $('#deliveryway').remove(); 
             var insertHTML = '';
             onsellers.forEach(function(onseller){
               insertHTML += appendOption(onseller);
@@ -78,7 +84,9 @@ $(function(){
         }
      
     }else{
-      $('#delivery-way').remove(); 
+      $('#delevery-way-title-box').remove();
+      $('#delevery-way-select-box').remove();
+      $('.delivery-burden').append(deliverywayHtml);
     };
   
   });
