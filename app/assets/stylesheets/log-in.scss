@@ -1,7 +1,6 @@
 .contents_row {
   width: 100vw;
   height: 100%;
-  // padding-bottom: 65px;
   box-sizing: border-box;
 }
 
@@ -26,6 +25,16 @@ h2.pagetitle {
 
 span.caution {
   @include box-prop(50px, 20px, red);
+  padding: 3px;
+  margin-left: 5px;
+  color: white;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 0.5em;
+}
+span.caution-any {
+  @include box-prop(50px, 20px, gray);
   padding: 3px;
   margin-left: 5px;
   color: white;
@@ -75,10 +84,21 @@ span.caution {
       @include box-prop(130px, 30px, lightgray);
       line-height: 30px;
       border-radius: 0.8em;
+      margin-top: 10px;
       cursor: pointer;
     }
     .next_btn:hover {
       background-color:gray;
+    }
+    .signin_btn {
+      @include box-prop(130px, 30px, lightgray);
+      line-height: 30px;
+      border-radius: 0.8em;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .signin_btn:hover {
+      background-color: #3CCACE;
     }
   }
 }

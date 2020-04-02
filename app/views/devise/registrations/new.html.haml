@@ -1,44 +1,55 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :ニックネーム
-    %br/
-    = f.text_field :nickname, autofocus: true
-  .field
-    = f.label :メールアドレス
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :"お名前(全角)"
-    %br/
-    = f.text_field :last_name, autofocus: true
-    = f.text_field :first_name, autofocus: true
-  .field
-    = f.label :"お名前カナ(全角)"
-    %br/
-    = f.text_field :last_name_kana, autofocus: true
-    = f.text_field :first_name_kana, autofocus: true
-  .field
-    = f.label :"生年月日"
-    %br/
-    = f.collection_select :birthdayy_id, Birthdayy.all, :id, :year
-    %span.identification__form__field__lavel 年
-    = f.collection_select :birthdaym_id, Birthdaym.all, :id, :month
-    %span.identification__form__field__lavel 月
-    = f.collection_select :birthdayd_id, Birthdayd.all, :id, :day
-    %span.identification__form__field__lavel 日
-  .actions
-    = f.submit "Next"
-= render "devise/shared/links"
+.contents_row
+  .container
+    %h2.pagetitle 新規登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .form_group
+        .field
+          = f.label :"ニックネーム"
+          %span.caution 必須
+          %br/
+          = f.text_field :nickname, autofocus: true, placeholder: "例）フリマ太郎" 
+        .field
+          = f.label :"メールアドレス"
+          %span.caution 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例）PC・携帯どちらでも可" 
+        .field
+          = f.label :"パスワード"
+          - if @minimum_password_length
+            %em
+              -# ( #{@minimum_password_length}文字以上 )
+              %span.caution 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password",placeholder: "7文字以上の半角英数字" 
+        .field
+          = f.label :"パスワード（確認用）"
+          %span.caution 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "もう一度入力してください" 
+        .field
+          = f.label :"お名前(全角)"
+          %span.caution 必須
+          %br/
+          = f.text_field :last_name, autofocus: true ,class:"field_name",placeholder: "例）山田" 
+          = f.text_field :first_name, autofocus: true ,class:"field_name",placeholder: "例）太郎"
+        .field
+          = f.label :"お名前カナ(全角)"
+          %span.caution 必須
+          %br/
+          = f.text_field :last_name_kana, autofocus: true,class:"field_name",placeholder: "例）ヤマダ" 
+          = f.text_field :first_name_kana, autofocus: true,class:"field_name",placeholder: "例）タロウ" 
+        .field
+          = f.label :"生年月日"
+          %span.caution 必須
+          %br/
+          = f.collection_select :birthdayy_id, Birthdayy.all, :id, :year
+          %span.identification__form__field__lavel 年
+          = f.collection_select :birthdaym_id, Birthdaym.all, :id, :month
+          %span.identification__form__field__lavel 月
+          = f.collection_select :birthdayd_id, Birthdayd.all, :id, :day
+          %span.identification__form__field__lavel 日
+        .actions
+          .actions__btn
+            = f.submit "次のページへ", class: "next_btn"
+          = render "devise/shared/links"
