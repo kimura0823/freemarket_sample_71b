@@ -1,4 +1,92 @@
-// Place all the styles related to the card controller here.
+.card-main{
+  height: 480px;
+  &__content{
+    height: 350px;
+    width: 300px;
+    background-color:white;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    &__center-box{
+      margin-left: 70px;
+      margin-top: 70px;
+      position: absolute;
+      text-align: center;
+    }
+    &__icons-list{
+      margin-top: 30px;
+      margin-left: 100px;
+      text-align: center;
+      position: absolute;
+    }
+    &__information{
+    margin-top: 50px;
+    margin-left: 70px;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    align-items: center;    
+    }
+  }
+}
 
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+label{
+  font-size:500;
+}
+.payjp-button{
+  background-color:red;
+  color: red;
+}
+.border{
+border-bottom:1px solid #bbb;
+}
+
+.card-icon-btn{
+  width: 120px;
+  height: 30px;
+  background-color: skyblue;
+  margin-top: 10px;
+  line-height: 30px;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.card-icon:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.SelectBtn{
+  width: 120px;
+  height: 30px;
+  background-color: skyblue;
+  margin-top: 10px;
+  line-height: 30px;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.SelectBtn:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+}
