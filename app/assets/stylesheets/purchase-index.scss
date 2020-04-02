@@ -1,0 +1,121 @@
+.buy-page {
+  @include box-prop(100%, 100%,#E9E9E9);
+  padding: 0.5em;
+  margin: 0 auto;
+}
+
+h3.buy-title {
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.buy-items {
+  width: calc(100vw /2);
+  height: 100%;
+  background-color: white;
+  margin: 0 auto;
+  .buy-item {
+    margin: auto;
+    &__main-header {
+      @include box-prop(50%, 60px, none);
+      line-height: 80px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 18px;
+    }
+    &__main-container {
+      @include box-prop(70%,130px,none);
+      margin: 10px auto 0;
+      border-top: 0.5px solid #E9E9E9;
+    }
+  }
+}
+.main-container-item {
+  height: 130px;
+  padding: 10px;
+  margin: 0 auto;
+  font-size: 15px;
+  .buy-img {
+    @include flex_between(flex,space-between);
+    padding: 10px;
+    img {
+      width: 25%;
+    }
+    &__buy-name {
+    margin-left: 5px;
+    }
+  }
+  .buy-price {
+    text-align: center;
+  }
+
+  &__payment {
+    @include flex_between(flex,space-between);
+    line-height: 50px;
+    padding: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    &__money{
+      font-size: 36px;
+    }
+  }
+
+  &__credit {
+    margin: 0 auto;
+    &__list {
+      font-size: 15px;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+  &__shipping-address {
+    width: 500px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  .buy-user-info-text {
+
+  }
+  .buy-item__main-container__btn{
+    margin: 0 auto;
+    text-align: center;
+
+    .SelectBtn {
+      @include box-prop(270px, 40px,#3CCACE);
+      font-size: 25px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.buy-page__footer {
+  width: 500px;
+  margin: 40px auto;
+  bottom: 0;
+  ul {
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+    .buy-page__footer__terms {
+      margin-left: 20px;
+      a{
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+  &__logo {
+    margin: 20px 180px;
+    img {
+      width: 130px;
+      text-align: center;
+    }
+    p {
+      font-size: 10px;
+      margin-left: 47px;
+    }
+  }
+}
