@@ -82,14 +82,17 @@ $(document).on('turbolinks:load', function(){
     let imageLength = $('#output-box').children('li').length;
     let imageLengthUnder = $('#output-box-under').children('li').length;
     // 表示されているプレビューの数を数える
-    if (imageLength + imageLengthUnder == 9) {
-      let labelLength = $("#image-input>label").eq(-1).data('label-id');
-      // 表示されているプレビューが９なら,#image-inputの子要素labelの中から最後の要素のカスタムデータidを取得
-      $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
-                                  <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" type="file" name="product[images_attributes][${labelLength+1}][image]">
-                                  <i class="fas fa-camera fa-lg"></i>
-                                </label>`);
-    };
+
+    if ($('[for=item_images10]').is(':hidden')) {
+      if (imageLength + imageLengthUnder == 9) {
+        let labelLength = $("#image-input>label").eq(-1).data('label-id');
+        // 表示されているプレビューが９なら,#image-inputの子要素labelの中から最後の要素のカスタムデータidを取得
+        $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
+                                    <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" type="file" name="product[images_attributes][${labelLength+1}][image]">
+                                    <i class="fas fa-camera fa-lg"></i>
+                                  </label>`);
+      };
+    }
   });
 
   // f.text_areaの文字数カウント
