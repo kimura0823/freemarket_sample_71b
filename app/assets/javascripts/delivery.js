@@ -9,6 +9,7 @@ $(function(){
     var deliverywayHtml = '';
     deliverywayHtml = `
 
+
     <div class="category-group__title deliveryway-margin" id="deliveryway">
       <div class="text">
         配送の方法
@@ -83,6 +84,7 @@ $(function(){
         }
      
     }else{
+
       $('.deliveryway-margin').remove();
       $('#delivery-way-select-box').remove();
 
