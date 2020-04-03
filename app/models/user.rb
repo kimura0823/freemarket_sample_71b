@@ -20,7 +20,8 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true, uniqueness: true
-
+  
+  has_many :comments 
   has_many :products
   has_one :address
   has_one :card

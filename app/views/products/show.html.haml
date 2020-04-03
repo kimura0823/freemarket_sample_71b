@@ -64,8 +64,7 @@
     
     .show-group__description-box
       = simple_format(@product.description)
-
-
+    %br
     - if @product.judge == "sold"
       .purchace-box__btn
         .purchace-box.sold-note
@@ -90,3 +89,24 @@
       =link_to product_path(@product.id), method: :delete, class: "purchace-box" do
         .purchace-box__btn_2
           削除
+
+  .show-group
+    .show-group__main-group
+      - if current_user
+        = form_with(model: [@product, @comment], local: true) do |form|
+          = form.text_area :text, placeholder: "コメントする", rows: "2", class: "comment_form"
+          = form.submit "SEND",class: "comment_form_btn"
+      - else
+        %strong
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+  .show-group
+    .show-group__main-group
+      .comments
+        %h4 ＜コメント一覧＞
+        - if @comments
+          - @comments.each do |comment|
+            %p
+              %strong
+                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                ：
+              = comment.text
