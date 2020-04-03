@@ -47,7 +47,7 @@
       .prict__center-box
         %h1.price__value
           ¥
-          = @product.price
+          = @product.price.to_s(:delimited)
           .price-taxin-msg
             税込(送料込み)
     

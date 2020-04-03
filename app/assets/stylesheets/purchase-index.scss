@@ -36,19 +36,27 @@ h3.buy-title {
   margin: 0 auto;
   font-size: 15px;
   .buy-img {
-    @include flex_between(flex,space-between);
-    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 60px;
+    // @include flex_between(flex,space-between);
+    // width: 100%;
+    padding: 3px;
+    // font-size: 20px;
     img {
       width: 24%;
     }
     &__buy-name {
-    margin-left: 5px;
-    padding: 5px;
+      width:50%;
+      padding: 5px;
+      margin-left: 20px;
+      text-align: left;
     }
   }
-  .buy-price {
-    text-align: center;
-  }
+  // .buy-price {
+  // // padding: 5px;
+  // text-align: center;
+  // }
 
   &__payment {
     @include flex_between(flex,space-between);
@@ -76,13 +84,11 @@ h3.buy-title {
   &__shipping-address {
     @include flex_between(flex,space-between);
     padding:10px 0 10px 50px;
-    .buy-user-adress {
-      font-size: 13px;
+    .buy-user-address {
       &__confirmation {
         width: 170px;
         height:100%;
         text-align: left;
-        font-size: 13px;
       }
     }
   }
@@ -90,14 +96,14 @@ h3.buy-title {
   .buy-item__main-container__btn{
     margin: 20px auto;
     text-align: center;
-    .buy-btn {
+    .SelectBtn {
       @include box-prop(280px, 35px, lightgray);
       font-size: 18px;
       color: white;
       border-radius: 13px;
       cursor: pointer;
     }
-    .buy-btn:hover{
+    .SelectBtn:hover{
       background-color: #3CCACE;
     }
   }

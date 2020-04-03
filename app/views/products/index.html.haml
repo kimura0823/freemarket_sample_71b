@@ -110,7 +110,7 @@
                   .genre-list__link__body__details
                     %ul.details-ul
                       %li.details-li
-                        = "¥ #{product.price}"
+                        = "¥ #{product.price.to_s(:delimited)}"
                       %li.details-li
                         = icon('fas', 'star', class: 'box__image-f')
                         0
@@ -137,7 +137,7 @@
                   .genre-list__link__body__details
                     %ul.details-ul
                       %li.details-li
-                        = "¥ #{product.price}"
+                        = "¥ #{product.price.to_s(:delimited)}"
                       %li.details-li
                         = icon('fas', 'star', class: 'box__image-f')
                         0

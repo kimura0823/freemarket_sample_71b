@@ -3,20 +3,23 @@
     .buy-item
       .buy-item__main-header
         %h3.buy-title 購入内容の確認
+
       .buy-item__main-container
         .main-container-item
           .buy-img
-            =image_tag "curry.png"
+            = image_tag @images.find_by(product_id: @product.id).image.url, class: "buy-img"
             .buy-img__buy-name
-              ファミュ フラワーインフューズド ファインマスク 50ml
-          .buy-price
-            金額：¥3,500 （税込）送料込み
+              =@product.name
+              %br
+              ="¥ #{@product.price.to_s(:delimited)}"
+
       .buy-item__main-container
         .main-container-item
           .main-container-item__payment
             支払い金額：
             .main-container-item__payment__money
-              ¥3,500
+              ="¥ #{@product.price.to_s(:delimited)}"
+
       .buy-item__main-container
         .main-container-item
           .main-container-item__credit
@@ -32,25 +35,32 @@
         .main-container-item
           .main-container-item__shipping-address
             配送先
-            .buy-user-adress
-              .buy-user-adress__confirmation
-                〒111-1111
+            .buy-user-address
+              .buy-user-address__confirmation
+                = "〒 #{@product.user.address.postcode.to_s.insert(3, "-")}"
                 %br
-                大阪府
+                -# 大阪府
+                = @product.user.address.prefecture.name
                 %br
-                大阪市
+                -# 大阪市
+                = @product.user.address.city
                 %br
-                中央区難波5-1-60
+                -# 中央区難波5-1-60
+                = @product.user.address.address
                 %br
-                なんばスカイオ
+                -# なんばスカイオ
+                = @product.user.address.address2
                 %br
-                山田
-                太郎
+                -# 山田
+                = @product.user.last_name
+                -# 太郎
+                = @product.user.first_name
+
       .buy-item__main-container
         .main-container-item
           .buy-item__main-container__btn
-            = form_tag(action: :pay, method: :post, class: :"buy-btn") do
-              %button{class: "buy-btn", type: "submit"} 購入する
+            = form_tag(action: :pay, method: :post, class: :"SelectBtn") do
+              %button{class: "SelectBtn", type: "submit"} 購入する
           
 
   .buy-page__footer
