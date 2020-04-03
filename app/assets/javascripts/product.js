@@ -231,7 +231,7 @@ $(document).on('turbolinks:load', function(){
     //状態
     $('#product_status_id').on('blur',function(){
       let value = $(this).val();
-      if(value == 1){
+      if(value == ""){
         $('#error-status').text('選択して下さい');
         $(this).css('border-color','red');
       }else{
@@ -243,7 +243,7 @@ $(document).on('turbolinks:load', function(){
     //送料負担
     $('#product_burden_id').on('blur',function(){
       let value = $(this).val();
-      if(value == 1){
+      if(value == ""){
         $('#error-burden').text('選択して下さい');
         $(this).css('border-color','red');
       }else{
@@ -255,7 +255,7 @@ $(document).on('turbolinks:load', function(){
     //発送方法
     function deliverywayError(deliverywaySelect){
       let value = $(deliverywaySelect).val();
-      if(value == 1){
+      if(value == ""){
         $('#error-way').text('選択して下さい');
         $(deliverywaySelect).css('border-color','red');
       }else{
@@ -270,7 +270,7 @@ $(document).on('turbolinks:load', function(){
     //発送元
     $('#product_prefecture_id').on('blur',function(){
       let value = $(this).val();
-      if(value == 0){
+      if(value == ""){
         $('#error-prefecture').text('選択して下さい');
         $(this).css('border-color','red');
       }else{
@@ -282,7 +282,7 @@ $(document).on('turbolinks:load', function(){
     //発送までの日数
     $('#product_days_id').on('blur',function(){
       let value = $(this).val();
-      if(value == 1){
+      if(value == ""){
         $('#error-days').text('選択して下さい');
         $(this).css('border-color','red');
       }else{
