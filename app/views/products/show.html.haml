@@ -5,8 +5,9 @@
         .slider
           .sold-out-box
             = image_tag src = @image[0].image.url, class: "top-image"
-            .triangle-box 
-              sold
+            - if @product.judge == "sold"
+              .triangle-box 
+                sold
         .icon__image
           - @image.each_with_index do |image, index|
             = image_tag src = @image[index].image.url,alt: "", class: "small-image"
@@ -14,7 +15,10 @@
         %tr 
         %th 出品者
         %td
-          =link_to user_path(@product.user_id), class: "detail-data detail-data-name" do
+          -if user_signed_in? && current_user.id
+            =link_to user_path(@product.user_id), class: "detail-data detail-data-name" do
+              = @product.user.nickname
+          - else
             = @product.user.nickname
         %tr 
         %th 商品名

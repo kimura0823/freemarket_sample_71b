@@ -20,8 +20,10 @@
                 -#写真の枚数分checkboxを作成
               - if @product.persisted?
                 = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy', style: "display: none;"
-          
-            - if @product.persisted?
+            
+
+            
+            - if @product.persisted? && @image.count < 10
               = f.label :image, for: "item_images#{@product.images.count}", class: 'sell-container__content__upload__items__box__label', data: {label_id: @product.images.count } do
                 = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file',id: "item_images#{@product.images.count}", style: "display: none;"
                 %i.fas.fa-camera.fa-lg
@@ -33,11 +35,7 @@
                 = image_tag src = image.image.url, id: "exhibit-image" 
               .preview-image__button{:style => "text-align: center;margin-left: 8px;"}
                 %a.preview-image__button__delete{"data-image-id" => index} 削除
-              
           .upper-anchor
-        
-        
-        
         %ul#output-box-under
           -if @image.length > 5
             - @image.slice(5..9).each_with_index do |image, index|
@@ -46,7 +44,6 @@
                   = image_tag src = image.image.url, id: "exhibit-image" 
                 .preview-image__button{:style => "text-align: center;margin-left: 8px;"}
                   %a.preview-image__button__delete{"data-image-id" => index+5} 削除
-
           .lower-anchor
           .error-messages#error-image
 
@@ -67,7 +64,8 @@
           必須
         .error-messages#error-description
         #word-count
-          \0/1000 
+          = @product.description.length
+          \/1000 
       .category-group__small-contents
         = f.text_area :description, cols: "50", wrap: 'hard', class: "middle-contents",id: "error-judge-description"
         %br/

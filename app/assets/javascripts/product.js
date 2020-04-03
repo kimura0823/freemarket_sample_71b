@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load', function(){
 //   // 画像が選択された時プレビュー表示、inputの親要素のdivをイベント元に指定
   $('#image-input').on('change', function(e){
+    
     //ファイルオブジェクトを取得する
     let files = e.target.files;
     $.each(files, function(index, file) {
@@ -18,6 +19,7 @@ $(document).on('turbolinks:load', function(){
           // 表示されているプレビューの数を数える
 
           let labelLength = $("#image-input>label").eq(-1).data('label-id');
+          console.log(labelLength);
           // #image-inputの子要素labelの中から最後の要素のカスタムデータidを取得
 
           // プレビュー表示
@@ -83,22 +85,38 @@ $(document).on('turbolinks:load', function(){
     let imageLengthUnder = $('#output-box-under').children('li').length;
     // 表示されているプレビューの数を数える
 
-    if ($('[for=item_images10]').is(':hidden')) {
+    // if ($('[for=item_images10]').is(':hidden')) {
       if (imageLength + imageLengthUnder == 9) {
-        let labelLength = $("#image-input>label").eq(-1).data('label-id');
         // 表示されているプレビューが９なら,#image-inputの子要素labelの中から最後の要素のカスタムデータidを取得
-        $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
-                                    <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" type="file" name="product[images_attributes][${labelLength+1}][image]">
-                                    <i class="fas fa-camera fa-lg"></i>
-                                  </label>`);
+        let labelLength = $("#image-input>label").eq(-1).data('label-id');
+        // 表示されているプレビューが９なら,#image-inputの子要素js-file_groupの中から最後の要素のカスタムデータidを取得
+        let labelLength_edit = $("#image-input>.js-file_group").eq(-1).data('index');
+
+        if (labelLength_edit==9){
+          $("#image-input").append(`
+        <label for="item_images${labelLength_edit+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength_edit+1}">
+          <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength_edit+1}" style="display: none;" type="file" name="product[images_attributes][${labelLength+1}][image]">
+          <i class="fas fa-camera fa-lg"></i>
+        </label>`);
+        }else {
+          $("#image-input").append(`
+        <label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
+          <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" type="file" name="product[images_attributes][${labelLength+1}][image]">
+          <i class="fas fa-camera fa-lg"></i>
+        </label>`);
+        }
+
+
+
+ 
       };
-    }
+    // }
   });
 
   // f.text_areaの文字数カウント
   $("textarea").keyup(function(){
     let txtcount = $(this).val().length;
-    $("#word-count").text(txtcount+ "\/1000");
+    $("#word-count").text(txtcount+  " \/1000");
   });
 
   // //販売価格入力時の手数料計算
