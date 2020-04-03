@@ -1,5 +1,5 @@
 .show-body {
-  width: 650px;
+  width: 700px;
   margin: 0 auto;
   padding-top: 100px;
   .show-group{
@@ -21,7 +21,7 @@
               position: relative;
               overflow-x: hidden;
               .top-image {
-                max-width: 320;
+                max-width: 320px;
                 max-height: 320px;
               }
               .triangle-box {
@@ -66,17 +66,20 @@
         th{
           border: solid 1px;
           border-right: double 1px;
-          width: 90px;
+          width: 100px;
           height: 50px;
           padding-left: 10px;
           color: black;
+          font-size: 12px;
+
           
         }
         td{
           border: solid 1px;
-          width: 150px;
+          width: 180px;
           height: 50px;
           padding-left: 10px;
+          font-size: 13px;
           .detail-data {
             color: #3CCACE;
           }

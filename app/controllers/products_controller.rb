@@ -92,8 +92,6 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       redirect_to edit_product_path
-      # render :edit
-
     end
   end
   
