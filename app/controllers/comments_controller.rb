@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     if comment.save
-      redirect_to product_path(comment.product.id)
+      redirect_to product_path(comment.product.id), notice: 'コメントが送信されました'
     else
-      render product_path
+      redirect_to product_path(comment.product.id), alert: 'コメントを入力してください。'
     end
   end
 

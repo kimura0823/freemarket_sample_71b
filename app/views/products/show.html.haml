@@ -1,4 +1,7 @@
 .show-body
+  .notifications
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: key)
   .show-group
     .show-group__main-group
       .show-group__main-group__image-box
