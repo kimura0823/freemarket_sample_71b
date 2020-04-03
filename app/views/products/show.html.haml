@@ -107,6 +107,6 @@
           - @comments.each do |comment|
             %p
               %strong
-                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                = link_to comment.user.nickname, user_path(comment.user_id)
                 ：
               = comment.text
