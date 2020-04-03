@@ -109,7 +109,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    binding.pry
     params.require(:product).permit(:name, :price, :description, :status_id, :brand, :burden_id, :deliveryway_id, :days_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
