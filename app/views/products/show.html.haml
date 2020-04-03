@@ -15,7 +15,7 @@
         %tr 
         %th 出品者
         %td
-          -if user_signed_in? && current_user.id
+          -if user_signed_in? && current_user.id == @product.user_id
             =link_to user_path(@product.user_id), class: "detail-data detail-data-name" do
               = @product.user.nickname
           - else
