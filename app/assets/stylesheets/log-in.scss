@@ -59,12 +59,18 @@ span.caution-any {
   font-weight: 700;
   padding-left: 2px;
 }
+.field select{
+  display: inline;
+}
 
 .field_checkbox {
   margin: 8px auto;
   padding: 0 30px;
 }
 
+.field_with_errors {
+  display: inline;
+}
 .actions {
   margin: 5px auto;
   padding: 0 18px;
