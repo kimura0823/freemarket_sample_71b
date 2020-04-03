@@ -110,7 +110,7 @@
                   .genre-list__link__body__details
                     %ul.details-ul
                       %li.details-li
-                        = "¥ #{product.price}"
+                        = "¥ #{product.price.to_s(:delimited)}"
                       %li.details-li
                         = icon('fas', 'star', class: 'box__image-f')
                         0
@@ -128,6 +128,7 @@
         .genre-lists
           -@ladies_products.each do |product|
             .genre-list
+
               - if product.judge == "sold"
                 =link_to product_path(product.id), class: "genre-list__link" do
                   .genre-list__link__image-box

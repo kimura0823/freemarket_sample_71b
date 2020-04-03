@@ -79,6 +79,8 @@ span.caution-any {
       @include box-prop(130px, 30px, lightgray);
       line-height: 30px;
       border-radius: 0.8em;
+      color: white;
+      font-weight: bold;
       cursor: pointer;
     }
     .login_btn:hover {
@@ -89,6 +91,8 @@ span.caution-any {
       line-height: 30px;
       border-radius: 0.8em;
       margin-top: 10px;
+      color: white;
+      font-weight: bold;
       cursor: pointer;
     }
     .next_btn:hover {
@@ -99,6 +103,8 @@ span.caution-any {
       line-height: 30px;
       border-radius: 0.8em;
       margin-top: 10px;
+      color: white;
+      font-weight: bold;
       cursor: pointer;
     }
     .signin_btn:hover {

@@ -1,0 +1,140 @@
+.buy-page {
+  @include box-prop(none, 100%,#E9E9E9);
+  padding: 0.5em;
+  margin: 0 auto;
+}
+
+h3.buy-title {
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.buy-items {
+  width: calc(100vw /2);
+  height: 100%;
+  background-color: white;
+  margin: 0 auto;
+  .buy-item {
+    margin: 0 auto;
+    &__main-header {
+      @include box-prop(50%, 80px, none);
+      line-height: 80px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 18px;
+    }
+    &__main-container {
+      @include box-prop(70%,100%,none);
+      margin: 10px auto;
+      border-top: 0.5px solid #E9E9E9;
+    }
+  }
+}
+.main-container-item {
+  height: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  font-size: 15px;
+  .buy-img {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 60px;
+    // @include flex_between(flex,space-between);
+    // width: 100%;
+    padding: 3px;
+    // font-size: 20px;
+    img {
+      width: 24%;
+    }
+    &__buy-name {
+      width:50%;
+      padding: 5px;
+      margin-left: 20px;
+      text-align: left;
+    }
+  }
+  // .buy-price {
+  // // padding: 5px;
+  // text-align: center;
+  // }
+
+  &__payment {
+    @include flex_between(flex,space-between);
+    line-height: 50px;
+    padding: 30px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    &__money{
+      font-size: 36px;
+    }
+  }
+
+  &__credit {
+    @include flex_between(flex,space-between);
+    padding: 10px 50px;
+    &__list {
+      font-size: 15px;
+      text-align: left;
+      // &__number{
+      //   font-size: 15px;
+      // }
+    }
+  }
+
+  &__shipping-address {
+    @include flex_between(flex,space-between);
+    padding:10px 0 10px 50px;
+    .buy-user-address {
+      &__confirmation {
+        width: 170px;
+        height:100%;
+        text-align: left;
+      }
+    }
+  }
+
+  .buy-item__main-container__btn{
+    margin: 20px auto;
+    text-align: center;
+    .buy-btn {
+      @include box-prop(280px, 35px, lightgray);
+      font-size: 18px;
+      color: white;
+      border-radius: 13px;
+      cursor: pointer;
+    }
+    .buy-btn:hover{
+      background-color: #3CCACE;
+    }
+  }
+}
+
+
+.buy-page__footer {
+  width: 500px;
+  margin: 40px auto;
+  bottom: 0;
+  ul {
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+    .buy-page__footer__terms {
+      margin-left: 20px;
+      a{
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+  &__logo {
+    margin: 20px 180px;
+    img {
+      width: 130px;
+      text-align: center;
+    }
+    p {
+      font-size: 10px;
+      margin-left: 47px;
+    }
+  }
+}

@@ -1,51 +1,66 @@
 .buy-page
-  .buy-page__content
-    .buy-page__content__main
-      .buy-page__content__main__header
-        %h3.buy_title 購入内容の確認
-      .buy-page__content__main__inner
-        .buy-page__content__main__item
-          .buy-page__content__main__item__buy-img
-            =image_tag "curry.png"
-          .buy-page__content__main__item__buy-name
-            ファミュ フラワーインフューズド ファインマスク 50ml
-            .buy-page__content__main__item__price
-              金額：¥3,500 （税込）送料込み
-      .buy-page__content__main__inner
-        .buy-page__content__main__payment
-          .buy-page__content__main__payment-amount
-          %h3 支払い金額
-          .buy-page__content__main__payment-money
-            ¥3,500
-      .buy-page__content__main__inner
-        .buy-page__content__main__credit
-          %h3 支払方法
-        .buy-page__content__main__credit__list
-          クレジットカード
-          .buy-page__content__main__credit__list__number
-            **** **** 1111
-          .buy-page__content__main__credit__list__number
-            有効期限 3/20
-          .buy-page__content__main__credit__list__img
-            
-      .buy-page__content__main__inner
-        .buy-page__content__main__shipping-address
-          %h3 配送先
-          .buy-user-info-text
-            〒111-1111
-            %br
-            大阪府
-            大阪市
-            中央区難波5-1-60
-            なんばスカイオ
-            %br
-            山田
-            太郎
-        
+  .buy-items
+    .buy-item
+      .buy-item__main-header
+        %h3.buy-title 購入内容の確認
 
-      .buy-page__content__main__btn
-        = form_tag(action: :pay, method: :post, class: :SelectBtn) do
-          %button{class: "SelectBtn", type: "submit"} 購入する
+      .buy-item__main-container
+        .main-container-item
+          .buy-img
+            = image_tag @images.find_by(product_id: @product.id).image.url, class: "buy-img"
+            .buy-img__buy-name
+              =@product.name
+              %br
+              ="¥ #{@product.price.to_s(:delimited)}"
+
+      .buy-item__main-container
+        .main-container-item
+          .main-container-item__payment
+            支払い金額：
+            .main-container-item__payment__money
+              ="¥ #{@product.price.to_s(:delimited)}"
+
+      .buy-item__main-container
+        .main-container-item
+          .main-container-item__credit
+            支払方法
+            .main-container-item__credit__list
+              クレジットカード
+              .main-container-item__credit__list__number
+                **** **** 4242
+                %br
+                有効期限 12/20
+            
+      .buy-item__main-container
+        .main-container-item
+          .main-container-item__shipping-address
+            配送先
+            .buy-user-address
+              .buy-user-address__confirmation
+                = "〒 #{current_user.address.postcode.to_s.insert(3, "-")}"
+                %br
+                -# 大阪府
+                = current_user.address.prefecture.name
+                %br
+                -# 大阪市
+                = current_user.address.city
+                %br
+                -# 中央区難波5-1-60
+                = current_user.address.address
+                %br
+                -# なんばスカイオ
+                = current_user.address.address2
+                %br
+                -# 山田
+                = current_user.last_name
+                -# 太郎
+                = current_user.first_name
+
+      .buy-item__main-container
+        .main-container-item
+          .buy-item__main-container__btn
+            = form_tag(action: :pay, method: :post, class: :"buy-btn") do
+              %button{class: "buy-btn", type: "submit"} 購入する
           
 
   .buy-page__footer
