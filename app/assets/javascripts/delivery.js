@@ -33,8 +33,8 @@ $(function(){
  
   $(document).on('change', '#product_burden_id', function(){
     var deliveryway = document.getElementById('product_burden_id').value; 
-    if (deliveryway != "1"){ 
-        if (deliveryway == "2") {
+    if (deliveryway != ""){ 
+        if (deliveryway == "1") {
           $.ajax({
             url: '/products/get_deliverywayonSeller',
             type: 'GET',
@@ -58,7 +58,7 @@ $(function(){
             alert('カテゴリー取得に失敗しました');
           })
         }
-        if (deliveryway == "3") {
+        if (deliveryway == "2") {
           $.ajax({
             url: '/products/get_deliverywayonBuyer',
             type: 'GET',

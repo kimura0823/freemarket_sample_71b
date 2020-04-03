@@ -20,8 +20,10 @@
                 -#写真の枚数分checkboxを作成
               - if @product.persisted?
                 = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy', style: "display: none;"
-          
-            - if @product.persisted?
+            
+
+            
+            - if @product.persisted? && @image.count < 10
               = f.label :image, for: "item_images#{@product.images.count}", class: 'sell-container__content__upload__items__box__label', data: {label_id: @product.images.count } do
                 = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file',id: "item_images#{@product.images.count}", style: "display: none;"
                 %i.fas.fa-camera.fa-lg
@@ -33,11 +35,7 @@
                 = image_tag src = image.image.url, id: "exhibit-image" 
               .preview-image__button{:style => "text-align: center;margin-left: 8px;"}
                 %a.preview-image__button__delete{"data-image-id" => index} 削除
-              
           .upper-anchor
-        
-        
-        
         %ul#output-box-under
           -if @image.length > 5
             - @image.slice(5..9).each_with_index do |image, index|
@@ -46,7 +44,6 @@
                   = image_tag src = image.image.url, id: "exhibit-image" 
                 .preview-image__button{:style => "text-align: center;margin-left: 8px;"}
                   %a.preview-image__button__delete{"data-image-id" => index+5} 削除
-
           .lower-anchor
           .error-messages#error-image
 
@@ -67,7 +64,8 @@
           必須
         .error-messages#error-description
         #word-count
-          \0/1000 
+          = @product.description.length
+          \/1000 
       .category-group__small-contents
         = f.text_area :description, cols: "50", wrap: 'hard', class: "middle-contents",id: "error-judge-description"
         %br/
@@ -107,7 +105,7 @@
 
         .error-messages#error-status
       .category-group__small-contents
-        = f.collection_select :status_id, Status.all, :id, :name, class: "small-contents"
+        = f.collection_select :status_id, Status.all, :id, :name, class: "small-contents", prompt: '選択してください'
       %br/
 
     .category-group
@@ -121,7 +119,7 @@
           必須
         .error-messages#error-burden
       .category-group__small-contents.delivery-burden
-        = f.collection_select :burden_id, Burden.all, :id, :name, class: 'small-contents'
+        = f.collection_select :burden_id, Burden.all, :id, :name, prompt: '選択してください', class: 'small-contents'
       -# %br/
 
       .category-group__title.deliveryway-margin#deliveryway
@@ -131,7 +129,7 @@
           必須
         .error-messages#error-way
       .category-group__small-contents#delivery-way-select-box
-        = f.collection_select :deliveryway_id, @deliveryway, :id, :way, class: 'small-contents'
+        = f.collection_select :deliveryway_id, @deliveryway, :id, :way, class: 'small-contents', prompt: '選択してください'
       %br/
 
       .category-group__title
@@ -141,7 +139,7 @@
           必須
         .error-messages#error-prefecture
       .category-group__small-contents
-        = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: '選択してください'
       %br/
       .category-group__title
         .text
@@ -150,7 +148,7 @@
           必須
         .error-messages#error-days
       .category-group__small-contents
-        = f.collection_select :days_id, Days.all, :id, :name
+        = f.collection_select :days_id, Days.all, :id, :name, prompt: '選択してください'
       %br/
 
     .category-group

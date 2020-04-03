@@ -7,7 +7,7 @@
 .container {
   @include box-prop(40vw, 100%, white);
   margin: 48px auto;
-  padding: 10px 20px;
+  padding: 10px 20px 30px;
 }
 
 .form_group {
@@ -60,11 +60,15 @@ span.caution-any {
   padding-left: 2px;
 }
 
+
 .field_checkbox {
   margin: 8px auto;
   padding: 0 30px;
 }
 
+.field_with_errors {
+  display: inline;
+}
 .actions {
   margin: 5px auto;
   padding: 0 18px;

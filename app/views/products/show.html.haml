@@ -3,7 +3,11 @@
     .show-group__main-group
       .show-group__main-group__image-box
         .slider
-          = image_tag src = @image[0].image.url, class: "top-image"
+          .sold-out-box
+            = image_tag src = @image[0].image.url, class: "top-image"
+            - if @product.judge == "sold"
+              .triangle-box 
+                sold
         .icon__image
           - @image.each_with_index do |image, index|
             = image_tag src = @image[index].image.url,alt: "", class: "small-image"
@@ -11,8 +15,15 @@
         %tr 
         %th 出品者
         %td
-          =link_to user_path(@product.user_id), class: "detail-data detail-data-name" do
+          -if user_signed_in? && current_user.id == @product.user_id
+            =link_to user_path(@product.user_id), class: "detail-data detail-data-name" do
+              = @product.user.nickname
+          - else
             = @product.user.nickname
+        %tr 
+        %th 商品名
+        %td
+          = @product.name
         %tr  
         %th カテゴリー
         %td
@@ -54,15 +65,28 @@
     .show-group__description-box
       = simple_format(@product.description)
 
-    - if user_signed_in? && current_user.id != @product.user_id
+
+    - if @product.judge == "sold"
       .purchace-box__btn
-        = link_to product_purchase_index_path(@product.id), class:"purchace-box" do
-          購入画面に進む
+        .purchace-box.sold-note
+          売り切れました
+    - else
+      -if user_signed_in? && current_user.id != @product.user_id
+        .purchace-box__btn
+          = link_to product_purchase_index_path(@product.id), class:"purchace-box" do
+            購入画面に進む
+      -elsif user_signed_in? && current_user.id == @product.user_id
+        
+      -else
+        .purchace-box__btn
+          = link_to new_user_session_path, class:"purchace-box" do
+            購入画面に進む
 
     - if user_signed_in? && current_user.id == @product.user_id
-      =link_to edit_product_path, method: :get, class: "purchace-box" do
-        .purchace-box__btn
-          編集
+      -if @product.judge != "sold"
+        =link_to edit_product_path, method: :get, class: "purchace-box" do
+          .purchace-box__btn
+            編集
       =link_to product_path(@product.id), method: :delete, class: "purchace-box" do
-        .purchace-box__btn
+        .purchace-box__btn_2
           削除

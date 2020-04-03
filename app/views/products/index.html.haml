@@ -124,25 +124,45 @@
         .genre-title
           = link_to "#", class: "genre-title-link" do
             %h3.genre-title-h3
-              アーカイブ
+              売り切れ商品
         .genre-lists
           -@ladies_products.each do |product|
             .genre-list
-              =link_to product_path(product.id), class: "genre-list__link" do
-                .genre-list__link__image-box
-                  = image_tag @images.find_by(product_id: product.id).image.url, class: "genre-list__link__image"
-                .genre-list__link__body
-                  %h3.genre-list__link__body__h3
-                    = product.name
-                  .genre-list__link__body__details
-                    %ul.details-ul
-                      %li.details-li
-                        = "¥ #{product.price.to_s(:delimited)}"
-                      %li.details-li
-                        = icon('fas', 'star', class: 'box__image-f')
-                        0
-                    %p.details-p
-                      (税込)
+
+              - if product.judge == "sold"
+                =link_to product_path(product.id), class: "genre-list__link" do
+                  .genre-list__link__image-box
+                    = image_tag @images.find_by(product_id: product.id).image.url, class: "genre-list__link__image"
+                    .triangle-box 
+                      sold
+                  .genre-list__link__body
+                    %h3.genre-list__link__body__h3
+                      = product.name
+                    .genre-list__link__body__details
+                      %ul.details-ul
+                        %li.details-li
+                          = "¥ #{product.price}"
+                        %li.details-li
+                          = icon('fas', 'star', class: 'box__image-f')
+                          0
+                      %p.details-p
+                        (税込)
+              - else
+                =link_to product_path(product.id), class: "genre-list__link" do
+                  .genre-list__link__image-box
+                    = image_tag @images.find_by(product_id: product.id).image.url, class: "genre-list__link__image"
+                  .genre-list__link__body
+                    %h3.genre-list__link__body__h3
+                      = product.name
+                    .genre-list__link__body__details
+                      %ul.details-ul
+                        %li.details-li
+                          = "¥ #{product.price}"
+                        %li.details-li
+                          = icon('fas', 'star', class: 'box__image-f')
+                          0
+                      %p.details-p
+                        (税込)
 
   .appBanner
     .appBanner__center-box

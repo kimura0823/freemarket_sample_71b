@@ -1,9 +1,9 @@
 .main__contennt
   .main__contennt__mypage-icon
+    .main__contennt__mypage-icon__image
+      = image_tag src = 'member_photo_noimage_thumb.png',size: "150"
     .main__contennt__mypage-icon__name
       = @user.nickname
-    .main__contennt__mypage-icon__image
-      = image_tag src = 'member_photo_noimage_thumb.png',size: "200"
   .main__contennt__tabs
     %input#tab-1{:checked => "checked", :name => "tab-radio", :type => "radio"}/
     %label.tab-label.tab-left{:for => "tab-1"} お知らせ

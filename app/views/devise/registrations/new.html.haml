@@ -43,11 +43,11 @@
           = f.label :"生年月日"
           %span.caution 必須
           %br/
-          = f.collection_select :birthdayy_id, Birthdayy.all, :id, :year
+          = f.collection_select :birthdayy_id, Birthdayy.all, :id, :year, prompt: '---'
           %span.identification__form__field__lavel 年
-          = f.collection_select :birthdaym_id, Birthdaym.all, :id, :month
+          = f.collection_select :birthdaym_id, Birthdaym.all, :id, :month, prompt: '---'
           %span.identification__form__field__lavel 月
-          = f.collection_select :birthdayd_id, Birthdayd.all, :id, :day
+          = f.collection_select :birthdayd_id, Birthdayd.all, :id, :day, prompt: '---'
           %span.identification__form__field__lavel 日
         .actions
           .actions__btn
