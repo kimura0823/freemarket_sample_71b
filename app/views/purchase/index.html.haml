@@ -27,7 +27,7 @@
             .main-container-item__credit__list
               クレジットカード
               .main-container-item__credit__list__number
-                **** **** 1111
+                **** **** 4242
                 %br
                 有効期限 12/20
             
@@ -37,30 +37,30 @@
             配送先
             .buy-user-address
               .buy-user-address__confirmation
-                = "〒 #{@product.user.address.postcode.to_s.insert(3, "-")}"
+                = "〒 #{current_user.address.postcode.to_s.insert(3, "-")}"
                 %br
                 -# 大阪府
-                = @product.user.address.prefecture.name
+                = current_user.address.prefecture.name
                 %br
                 -# 大阪市
-                = @product.user.address.city
+                = current_user.address.city
                 %br
                 -# 中央区難波5-1-60
-                = @product.user.address.address
+                = current_user.address.address
                 %br
                 -# なんばスカイオ
-                = @product.user.address.address2
+                = current_user.address.address2
                 %br
                 -# 山田
-                = @product.user.last_name
+                = current_user.last_name
                 -# 太郎
-                = @product.user.first_name
+                = current_user.first_name
 
       .buy-item__main-container
         .main-container-item
           .buy-item__main-container__btn
-            = form_tag(action: :pay, method: :post, class: :"SelectBtn") do
-              %button{class: "SelectBtn", type: "submit"} 購入する
+            = form_tag(action: :pay, method: :post, class: :"buy-btn") do
+              %button{class: "buy-btn", type: "submit"} 購入する
           
 
   .buy-page__footer

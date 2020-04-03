@@ -96,14 +96,14 @@ h3.buy-title {
   .buy-item__main-container__btn{
     margin: 20px auto;
     text-align: center;
-    .SelectBtn {
+    .buy-btn {
       @include box-prop(280px, 35px, lightgray);
       font-size: 18px;
       color: white;
       border-radius: 13px;
       cursor: pointer;
     }
-    .SelectBtn:hover{
+    .buy-btn:hover{
       background-color: #3CCACE;
     }
   }
