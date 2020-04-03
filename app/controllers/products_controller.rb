@@ -53,6 +53,8 @@ class ProductsController < ApplicationController
     else
       @deliveryway = Deliverywayonbuyer.find(@num)
     end
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
   
   def edit
