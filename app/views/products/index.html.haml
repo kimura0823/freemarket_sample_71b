@@ -115,7 +115,8 @@
                         = icon('fas', 'star', class: 'box__image-f')
                         0
                     %p.details-p
-                      (税込)
+                      -# &ensp
+                      -# (税込) 
     
     .topPicup.brand
       %h2.topPicup__subtitile
@@ -146,7 +147,7 @@
                           = icon('fas', 'star', class: 'box__image-f')
                           0
                       %p.details-p
-                        (税込)
+                        -# (税込)
               - else
                 =link_to product_path(product.id), class: "genre-list__link" do
                   .genre-list__link__image-box
