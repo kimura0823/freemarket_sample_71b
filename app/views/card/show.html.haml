@@ -1,3 +1,16 @@
+<script>
+$(document).ready( function(){
+if (window.name != "test") {
+
+location.reload();
+window.name = "test";
+} else {
+window.name = "";
+}
+});
+</script>
+
+
 .card-main
   .card-main__content
     .card-main__content__information
@@ -17,4 +30,7 @@
         %button{class: "SelectBtn", type: "submit"} 削除する 
       =link_to root_path do
         %br
-        %button{class: "SelectBtn", type: "submit"} 一覧に戻る
+        %button{class: "SelectBtn", type: "submit"} トップに戻る
+        %br
+        %br
+      = link_to '購入に戻る', 'javascript:history.go(-2)',class: "SelectBtn"
