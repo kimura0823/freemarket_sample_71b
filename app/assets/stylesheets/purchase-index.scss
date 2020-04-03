@@ -15,17 +15,17 @@ h3.buy-title {
   background-color: white;
   margin: 0 auto;
   .buy-item {
-    margin: auto;
+    margin: 0 auto;
     &__main-header {
-      @include box-prop(50%, 60px, none);
+      @include box-prop(50%, 80px, none);
       line-height: 80px;
       margin: 0 auto;
       text-align: center;
       font-size: 18px;
     }
     &__main-container {
-      @include box-prop(70%,130px,none);
-      margin: 10px auto 0;
+      @include box-prop(70%,100%,none);
+      margin: 10px auto;
       border-top: 0.5px solid #E9E9E9;
     }
   }
@@ -67,7 +67,6 @@ h3.buy-title {
     &__list {
       font-size: 15px;
       text-align: left;
-      padding: 0 20px;
       // &__number{
       //   font-size: 15px;
       // }
@@ -76,32 +75,30 @@ h3.buy-title {
 
   &__shipping-address {
     @include flex_between(flex,space-between);
-    padding: 10px 0 20px 50px;
+    padding:10px 0 10px 50px;
     .buy-user-adress {
       font-size: 13px;
-      // text-align: left;
-      &__confirmation{
+      &__confirmation {
+        width: 170px;
+        height:100%;
         text-align: left;
-        padding: 0 20px;
         font-size: 13px;
-
       }
     }
   }
 
   .buy-item__main-container__btn{
-    margin: 15px auto;
+    margin: 20px auto;
     text-align: center;
-
-    .SelectBtn {
-      @include box-prop(270px, 40px, lightgray);
-      font-size: 25px;
+    .buy-btn {
+      @include box-prop(280px, 35px, lightgray);
+      font-size: 18px;
       color: white;
+      border-radius: 13px;
       cursor: pointer;
     }
-    .SelectBtn:hover{
+    .buy-btn:hover{
       background-color: #3CCACE;
-
     }
   }
 }

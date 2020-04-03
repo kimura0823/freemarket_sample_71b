@@ -42,15 +42,15 @@
                 %br
                 中央区難波5-1-60
                 %br
-                なんばスカイオTECH CAMP
+                なんばスカイオ
                 %br
                 山田
                 太郎
       .buy-item__main-container
         .main-container-item
           .buy-item__main-container__btn
-            = form_tag(action: :pay, method: :post, class: :SelectBtn) do
-              %button{class: "SelectBtn", type: "submit"} 購入する
+            = form_tag(action: :pay, method: :post, class: :"buy-btn") do
+              %button{class: "buy-btn", type: "submit"} 購入する
           
 
   .buy-page__footer
