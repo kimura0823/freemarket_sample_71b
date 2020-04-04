@@ -19,9 +19,30 @@
             .main-header__logo
               =link_to products_path do
                 = image_tag  'logo.png',width:150 
-            %input{type:"search",class: "main-header__search-box",placeholder:"キーワードの入力"}
-            .main-header__search-img
+
+
+
+
+
+            -# = form_for(products_searches_path, method: :get, id: "search-form") do |form|
+            -#   .search-group
+            -#     = form.text_field :keyword, placeholder: "商品を検索する", class: "main-header__search-box"
+            -#     = form.label for: "search-btn", class: "search-label" do
+            -#       = form.submit "検索", class: "search-btn", id: "search-btn", style: "display: none"
+            -#       = image_tag src = 'icon-search 1.png',size: "30x25",class: "main-header__search-img"
+            -# .contents.row
+            -#   - @products.each do |product|
+            -#     = render partial: "products/product", locals: { product: product }
+
+
+            .search-group
+              %input{type:"search",class: "main-header__search-box", id: "search-box" ,placeholder:"キーワードの入力"}
+                %ul#result-word
+                
+              %input{name: "search-word-list", type: "hidden", value: @wordbox, class: 'search_word_list' }/
+            .main-header__search-img#search-btn
               = image_tag src = 'icon-search 1.png',size: "30x25"
+          
            
           .main-header__nav
             %ul.main-header__nav__left-box

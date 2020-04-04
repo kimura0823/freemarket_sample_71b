@@ -15,6 +15,7 @@
       height: 130px;
       background-color: white;
       .head-wrapper {
+        position: relative;
         width: 1000px;
         margin: 0 auto;
         padding-top: 40px;
@@ -24,17 +25,77 @@
           // margin: 50px 300px 100px 300px;
           &__logo{
           }
-          &__search-box{
-            @include box-prop (900px, 40px, whitesmoke);
-            margin-left: 40px;
-            font-size: 20px;
+          .search-group {
+            .main-header__search-box {
+              @include box-prop (900px, 40px, rgb(245, 245, 245));
+              margin-left: 40px;
+              font-size: 20px;
+            }
+            #result-word{
+              width: 900px;
+              max-height: 250px;
+              margin-left: 40px;
+              overflow: scroll;
+              position: absolute;
+              .result-list {
+                // z-index: 2;
+                @include box-prop (900px, 50px, none);
+                background-color: (rgba(245, 245, 245,0.5));
+                font-size: 25px;
+                line-height: 50px;
+                border-bottom: rgb(214, 208, 208) 3px solid;
+                .search-word-list {
+                  color: black;
+                }
+              }
+            }
+  
+            
+          }
 
+          .main-header__search-img {
+            margin-left: 5px;
+            height: 35px;
+            background-color:#3ccace;
+            padding: 5px 5px 0;
+            cursor: pointer;
           }
-          &__search-img{
-          height: 35px;
-          background-color:#3ccace;
-          padding: 5px 5px 0;
-          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          // いらなかったら消す
+          // .search-group {
+          //   display: flex;
+          //   .main-header__search-box{
+          //     @include box-prop (900px, 40px, whitesmoke);
+          //     margin-left: 40px;
+          //     font-size: 20px;
+  
+          //   }
+          //   label {
+          //     display: inline;
+          //     .main-header__search-img{
+          //       margin-left: 5px;
+          //       height: 39px;
+          //       background-color:#3ccace;
+          //       padding: 5px 5px 0;
+          //       cursor: pointer;
+          //       }
+          //   }
+          // }
+          
+          
           
         }
 
@@ -89,9 +150,6 @@
             font-size: 15px;
             }
           &__menu {
-            // width: 200px;
-            // padding: 0;
-            // margin: 0 30px;
             text-align: center;
             &__list {
               // height: 30px;
