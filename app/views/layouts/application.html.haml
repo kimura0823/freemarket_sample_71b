@@ -12,7 +12,36 @@
     %link{ rel: "stylesheet", type: "text/css", href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"}
     %script{ type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
   .application-body
-    .wrapper    
+    -if @search_results
+      .search_results_wrapper
+        .search_results_wrapper__body
+          検索結果 <br>
+          .resultPicup.Category
+            .resultPicup__subtitile
+              お客様が検索されたワード：
+              = params[:keyword]
+            .resultPicup__main-box
+              .result-title
+                = link_to "#", class: "genre-title-link" do
+                  .genre-title-h3
+                    
+              .result-lists
+                -@search_results.each do |search_result|
+                  .result-list
+                    =link_to product_path(search_result.id), class: "result-list__link" do
+                      .result-list__link__image-box
+                        = image_tag @images.find_by(product_id: search_result.id).image.url, class: "result-list__link__image-box__image"
+                      .result-list__link__body
+                        %h3.result-list__link__body__h3
+                          = search_result.name
+                        .result-list__link__body__details
+                          %ul.details-ul
+                            %li.details-li
+                              = "¥ #{search_result.price}"
+                            %li.details-li.favorite-icon
+                              = icon('fas', 'star', class: 'box__image-f')
+                              0
+    .wrapper
       .header
         .head-wrapper
           .main-header
@@ -20,29 +49,16 @@
               =link_to products_path do
                 = image_tag  'logo.png',width:150 
 
+            = form_with(url: products_searches_path, local: true, method: :get, class: "search-form") do |form|
+              .search-group
+                = form.text_field :keyword, placeholder: "商品を検索する", class: "main-header__search-box", id: "_products_searches_keyword"
+                -# %input{type:"search",class: "main-header__search-box", id: "search-box" ,placeholder:"キーワードの入力"}
+                = form.label :keyword, for: "search-btn", class: "search-label" do
+                  = form.submit "検索", class: "search-btn", id: "search-btn", style: "display: none"
+                  = image_tag src = 'icon-search 1.png',size: "30x25",class: "main-header__search-img"
 
-
-
-
-            -# = form_for(products_searches_path, method: :get, id: "search-form") do |form|
-            -#   .search-group
-            -#     = form.text_field :keyword, placeholder: "商品を検索する", class: "main-header__search-box"
-            -#     = form.label for: "search-btn", class: "search-label" do
-            -#       = form.submit "検索", class: "search-btn", id: "search-btn", style: "display: none"
-            -#       = image_tag src = 'icon-search 1.png',size: "30x25",class: "main-header__search-img"
-            -# .contents.row
-            -#   - @products.each do |product|
-            -#     = render partial: "products/product", locals: { product: product }
-
-
-            .search-group
-              %input{type:"search",class: "main-header__search-box", id: "search-box" ,placeholder:"キーワードの入力"}
-                %ul#result-word
-                
-              %input{name: "search-word-list", type: "hidden", value: @wordbox, class: 'search_word_list' }/
-            .main-header__search-img#search-btn
-              = image_tag src = 'icon-search 1.png',size: "30x25"
-          
+                %input{name: "search-word-list", type: "hidden", value: @wordbox, class: 'search_word_list' }/
+              %ul#result-word
            
           .main-header__nav
             %ul.main-header__nav__left-box
@@ -55,7 +71,6 @@
               - else
                 = link_to '新規登録', new_user_registration_path, class: "link signup"
                 = link_to 'ログイン', new_user_session_path, class: "link login"
-
 
       .body
         = yield
