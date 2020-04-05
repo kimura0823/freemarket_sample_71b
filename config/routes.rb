@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
+  namespace :products do
+    resources :searches
+  end
+  
   resources :card, only: [:new, :show] do
   collection do
     post 'show', to: 'card#show'
