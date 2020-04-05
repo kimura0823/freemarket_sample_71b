@@ -135,7 +135,6 @@
             overflow: scroll;
             position: absolute;
             .result-list {
-              // z-index: 2;
               @include box-prop (900px, 50px, none);
               background-color: (rgba(245, 245, 245,0.5));
               font-size: 25px;
