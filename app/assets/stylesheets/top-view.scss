@@ -28,6 +28,7 @@
       @include box-prop (100%, none, white);
       min-height: 300px;
       padding-top: 20px;
+      padding-bottom: 20px;
       &__sub-title{
         margin-bottom: 20px;
         text-align: center;
@@ -88,7 +89,7 @@
     .topSecondView {
       background-image: image-url("bg-topMiddleDl-pict.jpg");
       @include back-image(cover,no-repeat, bottom, right);
-      @include box-prop (100%, 200px, none);
+      @include box-prop (100%, 300px, none);
       padding-top: 60px;
       position: relative;
       &__center-box{
@@ -232,7 +233,7 @@
     }
   }
   .appBanner{
-    @include box-prop (calc(100% - 60px), 200px, none);
+    @include box-prop (calc(100% - 60px), 300px, none);
     margin-top: 30px;
     padding: 0 30px;
     background-image: image-url("bg-appBanner-pict.jpg");
@@ -240,7 +241,7 @@
     &__center-box {
       @include box-prop (calc(100% - 60px), calc(100% - 100px), none);
       margin: 0 30px;
-      padding-top: 60px;
+      padding-top: 120px;
       text-align: center;
       &__sub-title {
         @include font-prop (10px, ivory, none);
