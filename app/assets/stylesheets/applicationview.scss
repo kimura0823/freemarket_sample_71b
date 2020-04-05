@@ -1,5 +1,4 @@
  .application-body {
-  // height: 300vh;
   background-color: #f0f0f0;
   font-size: 14px;
   color: #333;
@@ -38,7 +37,6 @@
           .result-lists {
             .result-list {
               background-color: white;
-              // display: inline;
               float: left;
               width: 20%;
               height: 440px;
@@ -47,7 +45,6 @@
                 &__image-box{
                   min-height: 280px;
                   border-bottom: 8px double #1da08a;
-                  // width: 20%;
                   &__image {
                     width: 100%;
                     max-height: 100%;
@@ -116,24 +113,6 @@
                 margin-left: 40px;
                 font-size: 20px;
               }
-              // #result-word{
-              //   width: 900px;
-              //   max-height: 250px;
-              //   margin-left: 40px;
-              //   overflow: scroll;
-              //   position: absolute;
-              //   .result-list {
-              //     // z-index: 2;
-              //     @include box-prop (900px, 50px, none);
-              //     background-color: (rgba(245, 245, 245,0.5));
-              //     font-size: 25px;
-              //     line-height: 50px;
-              //     border-bottom: rgb(214, 208, 208) 3px solid;
-              //     .search-word-list {
-              //       color: black;
-              //     }
-              //   }
-              // }
               label{
 
                 #serch-btn {
@@ -149,15 +128,6 @@
             }
           }
           
-
-          // .main-header__search-img {
-          //   margin-left: 5px;
-          //   height: 35px;
-          //   background-color:#3ccace;
-          //   padding: 5px 5px 0;
-          //   cursor: pointer;
-          // }
-
           #result-word{
             width: 900px;
             max-height: 250px;
@@ -182,13 +152,9 @@
           display: flex;
           justify-content: space-between;
           &__left-box{
-            // width: 200px;
-            // margin: 110px 30px 0px 100px;
             display: flex;
             }
             &__right-box{
-            // width: 300px;
-            // margin: 110px 30px 0px 1050px;
             display: flex;
             }
           .link {

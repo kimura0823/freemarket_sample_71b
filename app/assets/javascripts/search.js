@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function(){
   var list = $("#list");
   var searchWordList = $('.search_word_list').val();
-  
+
   function appendList(word, number) {    
     let item = $(`
     <li class="list result-list">
@@ -29,7 +29,6 @@ $(document).on('turbolinks:load', function(){
       let inputs = input.split(" ");
       let newInputs = inputs.map(editElement);
       let reg = RegExp(newInputs.join("|"));
-      console.log(reg);
       $(".list").remove();
       $.each( JSON.parse(searchWordList), function(i, word) {
         if (word.match(reg)) {
@@ -40,7 +39,6 @@ $(document).on('turbolinks:load', function(){
   });
 
   $(".search_results_wrapper").on('click', function(){
-    console.log("ok")
     $(".search_results_wrapper").empty();
   });
 });

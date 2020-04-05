@@ -52,7 +52,6 @@
             = form_with(url: products_searches_path, local: true, method: :get, class: "search-form") do |form|
               .search-group
                 = form.text_field :keyword, placeholder: "商品を検索する", class: "main-header__search-box", id: "_products_searches_keyword"
-                -# %input{type:"search",class: "main-header__search-box", id: "search-box" ,placeholder:"キーワードの入力"}
                 = form.label :keyword, for: "search-btn", class: "search-label" do
                   = form.submit "検索", class: "search-btn", id: "search-btn", style: "display: none"
                   = image_tag src = 'icon-search 1.png',size: "30x25",class: "main-header__search-img"
