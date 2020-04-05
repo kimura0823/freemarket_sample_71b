@@ -21,7 +21,17 @@ class Product < ApplicationRecord
 
   def self.search(search)
     return Product.all unless search
-    Product.where(['name LIKE(?) or description LIKE(?)', "%#{search}%", "%#{search}%"])
+    inputs = search.gsub!("　"," ")
+    if inputs.nil?
+      inputs = search.split(" ")
+    else
+      inputs = inputs.split(" ")
+    end
+    inputs.map! do |search|
+      Product.where(['name LIKE(?) or description LIKE(?)', "%#{search}%", "%#{search}%"])
+      
+    end
 
   end
+
 end

@@ -1,31 +1,43 @@
+ *{
+  box-sizing: border-box;
+ }
  .application-body {
-  background-color: #f0f0f0;
+  background-color: white;
   font-size: 14px;
   color: #333;
   margin: 0 auto;
   position: relative;
-  box-sizing: border-box;
   
 
   .search_results_wrapper {
     margin-top: 130px;
     width: 100vw;
+    height: 224vh;
     background-color: rgba(29, 160, 138, 0.3);
     z-index: 10;
     position: absolute;
     &__body {
-      @include box-prop (60%, none, whitesmoke);
-      min-height: 150vh;
+      @include box-prop (60%, none, rgba(29, 160, 138, 0.7));
       margin: 0 auto;
-      padding: 100px 50px;
-      font-size: 50px;
-      color: black;
+      padding: 100px 120px;
       text-align: center;
+      .result-note {
+        width: 30%;
+        background-color: blue;
+        font-size: 50px;
+        color: white;
+        margin: 0 auto;
+        border-radius: 1em;
+      }
       .resultPicup.Category {
         .resultPicup__subtitile {
-          color: blue;
+          width: 45%;
+          background-color: rgb(24, 110, 180);
+          color: white;
           font-size: 15px;
           margin-bottom: 10px;
+          border-radius: 10px;
+          margin: 10px auto 15px;
         }
         .resultPicup__main-box {
           .result-title {
@@ -39,11 +51,11 @@
               background-color: white;
               float: left;
               width: 20%;
-              height: 440px;
               margin: 15px;
+              padding-bottom: 15px;
               &__link {
                 &__image-box{
-                  min-height: 280px;
+                  height: 230px;
                   border-bottom: 8px double #1da08a;
                   &__image {
                     width: 100%;
@@ -85,7 +97,12 @@
       }
     }
   }
-  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
   .wrapper {
     overflow: scroll;
     height: 100%;
@@ -101,8 +118,6 @@
         padding-top: 40px;
         .main-header{
           display: flex;
-          // height:50px;
-          // margin: 50px 300px 100px 300px;
           &__logo{
           }
           form{
