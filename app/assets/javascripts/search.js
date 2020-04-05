@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function(){
   var list = $("#list");
   var searchWordList = $('.search_word_list').val();
   var re_wrapper =$(".search_results_wrapper")
-  
+
   function appendList(word, number) {    
     let item = $(`
     <li class="list result-list">
@@ -39,6 +39,6 @@ $(document).on('turbolinks:load', function(){
     };
   });
   $(re_wrapper).on('click', function(){
-    $(re_wrapper).empty();
+    $(re_wrapper).remove();
   });
 });
