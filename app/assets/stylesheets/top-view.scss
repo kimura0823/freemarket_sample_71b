@@ -177,7 +177,7 @@
           }
         }
         .genre-lists {
-          width: 30%;
+          width: 35%;
           display: flex;
           margin: 10px auto;
           .genre-list {
@@ -185,7 +185,7 @@
             margin: 5px 10px;
             &__link{
               &__image-box {
-                height: 100px;
+                height: 200px;
                 position: relative;
                 overflow-x: hidden;
                 .genre-list__link__image {
