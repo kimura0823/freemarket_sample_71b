@@ -125,7 +125,9 @@ class ProductsController < ApplicationController
   def set_product_name
     @product_for_search = Product.all
     @wordbox = []
+    @id_box = []
     @product_for_search.each do |product|
+      @id_box << product.id
       @wordbox << product.name
     end
   end

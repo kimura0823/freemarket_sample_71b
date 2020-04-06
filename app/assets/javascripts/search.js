@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function(){
   function appendList(word, number) {    
     let item = $(`
     <li class="list result-list">
-      <a href = "/products/${number+1}" class="search-word-list">
+      <a href = "/products/${number}" class="search-word-list">
         <p>${word}</p>
     `);
     $("#result-word").append(item);
@@ -32,8 +32,10 @@ $(document).on('turbolinks:load', function(){
       let reg = RegExp(newInputs.join("|"));
       $(".list").remove();
       $.each( JSON.parse(searchWordList), function(i, word) {
+        var searchIdList = $('.search_id_list').val();
+        searchIdList =JSON.parse(searchIdList)
         if (word.match(reg)) {
-          appendList(word,i);
+          appendList(word,searchIdList[i]);
         }
         });
     };
