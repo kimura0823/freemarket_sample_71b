@@ -20,5 +20,19 @@ class Product < ApplicationRecord
   validates_associated :images
   validates :images, presence: true
 
+  def self.search(search)
+    return Product.all unless search
+    inputs = search.gsub!("　"," ")
+    if inputs.nil?
+      inputs = search.split(" ")
+    else
+      inputs = inputs.split(" ")
+    end
+    inputs.map! do |search|
+      Product.where(['name LIKE(?) or description LIKE(?)', "%#{search}%", "%#{search}%"])
+      
+    end
+
+  end
 
 end
