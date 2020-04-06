@@ -1,6 +1,4 @@
- *{
-  box-sizing: border-box;
- }
+
  .application-body {
   background-color: white;
   font-size: 14px;
@@ -48,6 +46,7 @@
           }
           .result-lists {
             .result-list {
+              box-sizing: border-box;
               background-color: white;
               float: left;
               width: 20%;

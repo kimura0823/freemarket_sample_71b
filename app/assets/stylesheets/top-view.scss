@@ -4,7 +4,6 @@
     @include box-prop (100%, 100%, none);
     .topMainView {
       background-image: image-url("bg-mainVisual-pict_pc.jpg");
-      @include back-image(cover,no-repeat, top, center);
       @include box-prop (calc(100% - 60px), 300px, none);
       padding: 0 30px;
       &__center-box {
