@@ -58,7 +58,8 @@
                   = form.submit "検索", class: "search-btn", id: "search-btn", style: "display: none"
                   = image_tag 'icon-search 1.png',size: "30x25",class: "main-header__search-img"
 
-                %input{name: "search-word-list", type: "hidden", value: @wordbox, class: 'search_word_list' }/
+                %input{name: "search-word-list", type: "hidden", value: @wordbox, class: 'search_word_list' }
+                %input{name: "search-id-list", type: "hidden", value: @id_box, class: 'search_id_list' }
               %ul#result-word
            
           .main-header__nav
