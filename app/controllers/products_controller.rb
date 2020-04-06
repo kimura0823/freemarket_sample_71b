@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show]
-  
+  before_action :set_product_name, except: [:new, :edit]
   def index
     @products = Product.where(judge: "出品中").order('created_at DESC').limit(3)
     @ladies_products = Product.where(judge: "sold").order('created_at DESC').limit(3)
@@ -122,4 +122,11 @@ class ProductsController < ApplicationController
     @image = Image.where(product_id: params[:id])
   end
 
+  def set_product_name
+    @product_for_search = Product.all
+    @wordbox = []
+    @product_for_search.each do |product|
+      @wordbox << product.name
+    end
+  end
 end
