@@ -90,3 +90,4 @@ gem 'payjp'
 gem 'font-awesome-sass'
 
 gem 'fog-aws'
+gem "gretel"

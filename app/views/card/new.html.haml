@@ -9,9 +9,12 @@ window.name = "";
 }
 });
 </script>
-
+.nav-header
+  - breadcrumb :new
+  = render 'layouts/breadcrumbs' 
 .card-main
   .card-main__content
+    
     .card-main__content__icons-list
       =image_tag src="master-card.png", class: "link-img"
       =image_tag src="visa.png", class: "link-img"
